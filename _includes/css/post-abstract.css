@@ -10,5 +10,5 @@
     margin-left: 6px;
 }
 #blog-posts li a:hover:after {
-    content: '\2192';
+    content: ' \2192';
 }
