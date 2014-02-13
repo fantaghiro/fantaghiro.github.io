@@ -26,13 +26,13 @@ tags:
 
 前一阵子，在lg的帮助下，实现了一种新的PPT与音频结合的方式（其实挺简单，但是网上没有人提到）——通过链接，打开一个cmd文件，而这个cmd文件中的命令指定用某个音频播放器打开MP3文件。首先确保PPT文件、播放器文件、MP3文件和cmd文件在同一个文件夹中。举例来讲：文件夹中有一个PPT，一个airplay.exe（绿色播放器），一个1.mp3文件和一个a.cmd文件（此处文件名为任意取的）。用文本编辑器打开a.cmd文件，其中添加这样一行命令：
 
-{% highlight  %}
+{% highlight  ruby %}
 start "" "%~dp0\airplay.exe" "%~dp0\1.mp3"
 {% endhighlight  %}
 
 也就是说在cmd文件中插入
 
-{% highlight  %}
+{% highlight  ruby %}
 start "" "%~dp0\指定程序名" "%~dp0\指定文件名"
 {% endhighlight  %}
 
