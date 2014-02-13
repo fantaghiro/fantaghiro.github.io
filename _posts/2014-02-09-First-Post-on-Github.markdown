@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Github上第一帖
-category: 岁月神偷
+category: writeups
 tags:
 - 随笔
 ---
