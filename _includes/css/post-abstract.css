@@ -1,7 +1,14 @@
 .post-abstract {
-    border: 1px solid #ddd;
-    border-radius: 5px;
     margin: 6px 0px;
-    padding: 10px;
     font-size: 93%;
+}
+#blog-posts li a {
+    text-decoration: none;
+    transition: all .15s ease-in;
+}
+#blog-posts li a:hover {
+    margin-left: 6px;
+}
+#blog-posts li a:hover:after {
+    content: '\2192';
 }
