@@ -17,7 +17,7 @@ PPT这东西很奇怪，难以想象，世界上有多少人为它生为它死�
 
 在这些人的对立面，有一些是原本对PPT就无情意的人，还有一些多年的纠结相处后，情断余生的。2010年，美国军方宣布他们发现了新的敌军——PPT，使人[离不开它又饱受其苦](http://gb.cri.cn/27824/2010/04/28/2805s2833039.htm)。
 
-<img src=http://gb.cri.cn/mmsource/images/2010/04/28/nd100428021.jpg class="scale-with-grid")
+<img src="http://gb.cri.cn/mmsource/images/2010/04/28/nd100428021.jpg" class="scale-with-grid")
 
 这些汉子们估计已经被PPT折腾得愁肠百结，民不聊生了。这使得微软于2011年派出特派员教这些军官们该软件的用法。无独有偶，瑞士软件工程师普埃姆建立了“反PPT党”（[APPP: Anti PowerPoint Party](http://www.anti-powerpoint-party.com/))。我禁不住莞尔一笑。某一天我心血来潮，没准还真上其官网上去捐赠一下，聊表心意。
 
