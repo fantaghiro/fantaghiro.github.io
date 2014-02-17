@@ -20,5 +20,7 @@ tags:
 
 如果一级目录很多，或者目录名称比较长，全部放在一个页面上会显得杂乱并占用很多版面，那么也可以制作一个专门的目录页，然后在后续正文页面中添加链接至该目录页的按钮。这种导航设置也十分清晰，只不过不同板块间切换需要两步：1. 点击链接至目录页的按钮；2. 点击另一个目录名称。行业英语中的《商贸英语》就是采用这种简单的导航方式完成的。
 
-![](http://pic.yupoo.com/fantaghiro_v/DxM9XS3v/JFIxr.jpg)![](http://pic.yupoo.com/fantaghiro_v/DxM9XzNj/6lzOG.jpg)
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9XS3v/JFIxr.jpg" class="scale-with-grid">
+
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9XzNj/6lzOG.jpg" class="scale-with-grid">
 
