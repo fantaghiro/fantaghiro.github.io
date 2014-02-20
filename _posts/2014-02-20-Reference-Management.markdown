@@ -8,9 +8,9 @@ tags:
 
 今天终于搭建成功了一个自己比较满意的文献管理环境。前期测试期间试用了Mendeley, Zotero, Colwiz, Note-express, CNKI E-learning。但是由于下面的几点需求，最终决定了这样的方案：
 
-> h4 Windows系统下
+> #### Windows系统下 ####
 > Zotero + FileLocator
-> h4 Mac系统下
+> #### Mac系统下 ####
 > Zotero + Spotlight
 
 下面讲一下这样决定的原因。首先，我所阅览的文献大多来自CNKI的中文文献，很多软件对于抓取国外文献的题录都轻而易举，但是对于国内文献却无能为力，比如Mendeley、Colwiz。在抓取题录方面Note-express的功能是最强的。下载下来的PDF文档拖进去，立即就有题录信息的列表出来。但是个人发现在Zotero配合使用其Chrome的插件Zotero Connector之后，其实效果也不错。打开CNKI某一个文件的网页，在浏览器地址栏右侧会出现一个文件样式的图标，点击即可将相关文献的元数据抓取到Zotero里面了。在这里不得吐槽一下CNKI的E-learning，自家出的软件，竟然连自家文献的题录都抓取不好，实在不该。
