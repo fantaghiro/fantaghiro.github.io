@@ -1,12 +1,15 @@
 ---
 layout: post
-title: 自己的文献管理环境
+title: 我的文献管理环境
 category: edu
 tags:
 - 文献管理
+- 科研
+- 软件评测
 ---
 
 今天终于搭建成功了一个自己比较满意的文献管理环境。前期测试期间试用了Mendeley, Zotero, Colwiz, Note-express, CNKI E-learning。但是由于下面的几点需求，最终决定了这样的方案：
+<!--more-->
 
 > #### Windows系统下 ####
 > Zotero + FileLocator
