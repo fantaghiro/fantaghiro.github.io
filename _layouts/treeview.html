@@ -7,6 +7,7 @@
   {% include head.html %}
   <link rel="stylesheet" href="/assets/jstree/themes/default/style.min.css" />
   <script src="/assets/jstree/libs/jquery.js"></script>
+  <script src="/assets/jstree/jstree.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -41,8 +42,9 @@
   </ul>
   
   {% include disqus.html %}
+  
   <!--以下调用jstree-->
-    <script>
+  <script>
     $(function(){
       $('#jstreeDemo').jstree();
     })    
