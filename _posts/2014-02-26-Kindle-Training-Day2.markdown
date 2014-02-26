@@ -24,6 +24,7 @@ Epub-Apple/Mobi-Amazon: HTML/XHTML、CSS、NCX、OPF
 > - 超链接可跳转
 > - 无纸书页码的概念（有位置号）
 
+
 ### 二、制作和浏览工具
 
 #### 1. Sigil
@@ -33,13 +34,17 @@ Epub-Apple/Mobi-Amazon: HTML/XHTML、CSS、NCX、OPF
  > * 跨平台
  
  **注意事项：**
+ 
 元数据必须要填、封面必须要设定
 
 **基本流程**
+
 编辑元数据 → 拷贝内容 → 设置目录 → 生成目录页 → 添加封面
 
 **封面比例**
+
 5:4更好一些
+
 
 #### 2. ComicCreator
 
@@ -49,6 +54,7 @@ Epub-Apple/Mobi-Amazon: HTML/XHTML、CSS、NCX、OPF
 
 
 #### 4. KindleGen
+
 
 
 ## 三、质量检查
@@ -62,6 +68,7 @@ Epub-Apple/Mobi-Amazon: HTML/XHTML、CSS、NCX、OPF
 * 标点符号左右间隔要对称
 * 电子书中不需要目录页码
 * 超链接不能有多余的延伸
+
 
 ## 四、转码工厂推荐
 
