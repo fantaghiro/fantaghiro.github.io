@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  {% include head.html %}
+  <style>
+    ul {
+      padding-left: 0;
+    }
+    ul ul {
+      padding-left: 1em;
+    }
+    li {
+      list-style: none;
+    }
+    li li {
+      border-left: 1px dotted black;
+    }
+    li li:before {
+      content: "--";
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="four columns sidebar">
+      {% include sidebar.html %}
+    </div>
+
+    <div class="eleven columns content">
+<!-- 以下是post -->
+<p class="meta">
+  {{ page.date | date: "%B %d, %Y" }} 
+  <a href="/">
+    <i class="home fa fa-home"></i>
+  </a>
+</p>
+
+<h1 class="title">{{ page.title }}</h1>
+
+<div id="post">
+  {{ content }}
+</div>
+
+<div id="related">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    {% for post in site.related_posts limit:3 %}
+    <li>
+      <span>{{ post.date | date_to_string }} &raquo;</span> <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  
+  {% include disqus.html %}
+  
+</div>
+<!-- 以上是post -->
+      <div class="footer">
+        {% include footer.html %}
+      </div>
+    </div>
+  </div>
+
+{% include analytics.html %}
+</body>
+</html>

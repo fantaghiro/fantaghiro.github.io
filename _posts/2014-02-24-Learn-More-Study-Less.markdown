@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: treeview
 title: 《如何高效学习》读书笔记
 category: writeups
 tags:
