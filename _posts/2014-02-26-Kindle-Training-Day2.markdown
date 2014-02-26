@@ -29,9 +29,9 @@ Epub-Apple/Mobi-Amazon: HTML/XHTML、CSS、NCX、OPF
 
 #### 1. Sigil
 
- > * 开源免费
- > * 可编辑epub
- > * 跨平台
+> * 开源免费
+> * 可编辑epub
+> * 跨平台
  
  **注意事项：**
  
