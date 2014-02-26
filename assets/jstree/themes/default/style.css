@@ -8,13 +8,13 @@
   list-style-type: none;
   list-style-image: none;
 }
-.jstree-node {
-  white-space: nowrap;
-}
+/*.jstree-node {*/
+/*  white-space: nowrap;*/
+/*}*/
 .jstree-anchor {
   display: inline-block;
   color: black;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   padding: 0 4px 0 1px;
   margin: 0;
   vertical-align: top;
@@ -131,7 +131,7 @@
   text-decoration: none;
   width: auto;
   color: black;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
   line-height: 2.4em;
   -moz-text-shadow: 1px 1px 0 white;
   -webkit-text-shadow: 1px 1px 0 white;
@@ -800,7 +800,7 @@
     line-height: 40px;
     margin-left: 40px;
     min-width: 40px;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
   }
   .jstree-default-responsive .jstree-anchor {
     line-height: 40px;
