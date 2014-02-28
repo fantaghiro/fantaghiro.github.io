@@ -26,7 +26,7 @@ tags:
 1. 对于制作公司来讲，制作Tab页会比较大的增加工作量和错误率；而对于编辑来说，对于Tab页的检查要比对某个目录页的检查繁琐得多。
 2. Tab页要出现在每一个页面上，因此会占用页面空间。出于空间的考虑，Tab页数目不能太多、名称不能太长。例如：
 
-<img src="http://pic.yupoo.com/fantaghiro_v/DxM9ZKzf/gHg0Y.jpg">
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9ZKzf/gHg0Y.jpg"><br>
 
 这个教案乍看上去比较新潮，但是实际制作和使用当中就会发现，留给页面主体部分的空间太小，导致很多整体意义的内容要被分割，PPT做成很多页，而且主体内容的地位不够突出，旁边用于导航的空间太过喧宾夺主。
 
@@ -37,10 +37,10 @@ tags:
 
 
 同时，针对以上每一种缺点，都可以采用相应的弥补措施。例如，Tab页占空间的问题，可以利用将Tab页名称隐藏或用缩略语的形式呈现。例如：
-
+<br>
 <img src="http://pic.yupoo.com/fantaghiro_v/DxM9ZSYr/EsnlY.jpg">
 
-<img src="http://pic.yupoo.com/fantaghiro_v/DxM9Zm4S/13n5tK.jpg">
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9Zm4S/13n5tK.jpg"><br>
 
 这个教案就利用了首页先给每一种颜色定义了一种色块，然后在后面的页面当中，就用色块取代了带有具体文字的Tab页，只有当前页所在板块的Tab会显示文字，从而节省了页面空间。
 
@@ -54,27 +54,27 @@ tags:
 
 针对多层目录结构，Tab与目录页的搭配准则就是：在一条路径上相邻的视觉上需要换页的两步上，不能使用相同的导航方式。比如说，目录结构是两层，用户第一步是点击一级目录中的一项，进入了一个新的页面，发现自己面临着另外一个目录页（对应的是二级目录），然后需要再次点击，进入对应的内容页面。用户过去的时候，可能还挺清楚，但是当她返回的时候，有可能就在返回一次，到达二级目录的时候，出现迟疑和迷惑。对应的做法是做双层的Tab页或双层的目录，比如目录页上一下子显示两个层级，而不是一个层级换一页。
 
-例如：
+例如：<br>
 <img src="http://pic.yupoo.com/fantaghiro_v/DxM9W9r2/Ru37Q.jpg">
-<img src="http://pic.yupoo.com/fantaghiro_v/DxM9VZp9/OYXCa.jpg">
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9VZp9/OYXCa.jpg"><br>
 上面这个教案，先点击了第一页上的Additional Resources之后又进入了一个目录页，是Additional Resources的下级目录。这种导航方式就是多此一举。不如在一个页面上解决掉。如果一个页面上放全部的二级目录放不下，那么完全可以将一级目录作成Tab页。
 
 以下是几种导航方式的示例：
-<img src="http://pic.yupoo.com/fantaghiro_v/DxM9X5pi/XyBwm.jpg">
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9X5pi/XyBwm.jpg"><br>
 上面这个教案采用了典型的一级Tab+两层目录的形式。结构清楚，页面清爽。
 
-<img src="http://pic.yupoo.com/fantaghiro_v/DxM9Xgfq/9U4yd.jpg">
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9Xgfq/9U4yd.jpg"><br>
 上面这个教案巧妙地利用了颜色和横竖的布局，实现了三层Tab导航。虽然到达某个页面最多需要点击三次，但是视觉上，整个导航部分位置一直固定，好像是在同一个页面上切换一样。但是这个教案也有问题，就是中间主体内容的区域有些小了。
 
-<img src="http://pic.yupoo.com/fantaghiro_v/DxM9YQuh/medium.jpg">
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9YQuh/medium.jpg"><br>
 同样是三层Tab，上面这个教案用了太多的颜色和框线，使得页面显得非常的杂乱。
 
-<img src="http://pic.yupoo.com/fantaghiro_v/DxM9WKGs/medium.jpg">
+<img src="http://pic.yupoo.com/fantaghiro_v/DxM9WKGs/medium.jpg"><br>
 上面这个教案，本身导航方式没有什么问题，但是采用Tab页的方式，不仅不注意节省空间，反而还在上方如此浪费空间，呈现出非常明显的头重脚轻的感觉。
 
-针对只有一层或者两层结构的PPT，不添加Tab页，只用目录页的形式实现，也没什么不好。制作简单，结构也没有什么不清楚，用户也不容易迷路。如下面这个教案：
+针对只有一层或者两层结构的PPT，不添加Tab页，只用目录页的形式实现，也没什么不好。制作简单，结构也没有什么不清楚，用户也不容易迷路。如下面这个教案：<br>
 <img src="http://pic.yupoo.com/fantaghiro_v/DztrzqAA/V1wVb.jpg">
-<img src="http://pic.yupoo.com/fantaghiro_v/Dztrznlt/2HcJg.jpg">
+<img src="http://pic.yupoo.com/fantaghiro_v/Dztrznlt/2HcJg.jpg"><br>
 
 
 
