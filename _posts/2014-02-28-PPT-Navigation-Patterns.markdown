@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PPT电子教案导航中的目录页与标签页之争
+title: PPT电子教案导航设计思考
 category: edu
 tags:
 - PPT
