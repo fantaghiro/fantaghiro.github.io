@@ -65,10 +65,10 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 亚马逊推荐在HTML文件中的<code>\<head></code>部分中用<code>\<meta></code>标签。例如：
 
 <pre>
-\<html>
-\<head>
+&lt;html&gt;
+&lt;head&gt;
 ...
-\<meta http-equiv=“content-type” content=“text/html; charset=iso-8859-1>
+&lt;meta http-equiv=“content-type” content=“text/html; charset=iso-8859-1&gt;
 ...
 </pre>
 
