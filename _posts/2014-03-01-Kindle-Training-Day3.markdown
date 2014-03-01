@@ -50,11 +50,11 @@ tags:
 **Rule 3. 设置段落**
 
 KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<code>\<p></code>使用缩进样式。比如：
-* <pre><p style=“text-indent: 0”></pre> -- 首行无缩进
-* <pre><p style=“text-indent: 10%”></pre> --首行缩进10%
-* <pre><p style=“text-indent: 5em”></pre> --首行缩进5个字符宽度
+* <code>\<p style=“text-indent: 0”></code> -- 首行无缩进
+* <code>\<p style=“text-indent: 10%”></code> --首行缩进10%
+* <code>\<p style=“text-indent: 5em”></code> --首行缩进5个字符宽度
 
-要给每段之前添加一些间隙，在<pre><p></pre>标签上使用margin-top样式。
+要给每段之前添加一些间隙，在<code>\<p></code>标签上使用margin-top样式。
 
 **Rule 4. 其他支持的编码**
 
@@ -62,27 +62,27 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 * HTML文件中明确声明了编码
 * 用于将源文件转码的电脑支持该编码并且知道如何将其转为UNICODE编码
 
-亚马逊推荐在HTML文件中的<pre><head></pre>部分中用<pre><meta></pre>标签。例如：
+亚马逊推荐在HTML文件中的<code>\<head></code>部分中用<code>\<meta></code>标签。例如：
 
 <pre>
-<html>
-<head>
+\<html>
+\<head>
 ...
-<meta http-equiv=“content-type” content=“text/html; charset=iso-8859-1>
+\<meta http-equiv=“content-type” content=“text/html; charset=iso-8859-1>
 ...
 </pre>
 
 **Rule 5. 空格以及UNICODE字符**
 
-仅支持正常空格字符、不可分空格字符（<pre>&nbsp;</pre>）以及零宽不连字（<pre>&zwnj;</pre>）。用其他空格会干扰选择区域、字典查词还有换行的算法。
+仅支持正常空格字符、不可分空格字符（\&nbsp;）以及零宽不连字（\&zwnj;）。用其他空格会干扰选择区域、字典查词还有换行的算法。
 
 不要使用UNICODE格式字符，它们也会造成问题。
 
 **Rule 6. 支持等宽字符**
 
-如果使用以下标签或者属性，Kindle可以显示为等宽字符：<pre><pre></pre>, <pre><code></pre>, <pre><samp></pre>, <pre><kbd></pre>, <pre><tt></pre>, <pre><font face=“courier”></pre>, <pre><font face=“monospace”></pre>。
+如果使用以下标签或者属性，Kindle可以显示为等宽字符：<code>\<pre></code>, <code>\<code></code>, <code>\<samp></code>, <code>\<kbd></code>, <code>\<tt></code>, <code>\<font face=“courier”></code>, <code>\<font face=“monospace”></code>。
 
-除了<pre><pre></pre>标签以外，上面列出的标签都不会改变文本的对齐方式。如果要使文本左对齐的话，那么将这些标签包在一个<pre><div></pre>标签里面，然后对这个<pre><div></pre>设置text-align: left的CSS样式。
+除了<code>\<pre></code>标签以外，上面列出的标签都不会改变文本的对齐方式。如果要使文本左对齐的话，那么将这些标签包在一个<code>\<div></code>标签里面，然后对这个<code>\<div></code>设置text-align: left的CSS样式。
 
 出版商可以用自己的字体。亚马逊有质量检查环节，可以确保这些字体能够在电子墨水设备上显示正常，而且不影响阅读体验。但是不要用Charis字体，在Kindle阅读器中已经用更高质量的字体替换它。
 
