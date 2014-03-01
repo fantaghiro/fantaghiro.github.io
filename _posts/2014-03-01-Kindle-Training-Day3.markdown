@@ -37,7 +37,7 @@ tags:
 
 流式排版的Kindle电子书中body的文本必须都是默认的设置。亚马逊鼓励内容创造者可以对标题，特殊段落、脚注、图表等用富有创新性的样式，但绝对不是body的文本。因为对body文本的样式设置都会覆盖掉用户自选的阅读的设置，这样，用户就会报告说阅读体验差。下面是几个最为重要的点需要提请注意：
 * body的文本不能有强制对齐（比如左对齐或两段对齐）
-* body的文本必须用默认的字号和行距。不能用类似<code>\<font size=“...”></code>这样的样式标签或者在CSS中更改字号和行距。
+* body的文本必须用默认的字号和行距。不能用类似<code>&lt;font size=“...”></code>这样的样式标签或者在CSS中更改字号和行距。
 * body的文本不能全部设置为粗体或者斜体，只能对其中的个别文字进行粗体或斜体设置。
 * body的文本不能通篇用一个强制的颜色。如果你想在某个章节强制使用某种颜色，请不要用太浅或太深的颜色。非常浅的颜色在白色背景的设备或电子墨水设备上，会因为对比度不足而看不清楚。而非常深的颜色在设置为黑色背景的设备上又看不清楚。如果用灰色的话，请用hex值在#666到#999之间的颜色。
 * body的文本不能用白色或黑色字体颜色。有用户报告说体验不好时因为他们把设备的背景色设置为了白色或黑色，然后相应颜色的文字就完全看不出来了。
@@ -49,12 +49,12 @@ tags:
 
 **Rule 3. 设置段落**
 
-KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<code>\<p></code>使用缩进样式。比如：
-* <code>\<p style=“text-indent: 0”></code> -- 首行无缩进
-* <code>\<p style=“text-indent: 10%”></code> --首行缩进10%
-* <code>\<p style=“text-indent: 5em”></code> --首行缩进5个字符宽度
+KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<code>&lt;p></code>使用缩进样式。比如：
+* <code>&lt;p style=“text-indent: 0”></code> -- 首行无缩进
+* <code>&lt;p style=“text-indent: 10%”></code> --首行缩进10%
+* <code>&lt;p style=“text-indent: 5em”></code> --首行缩进5个字符宽度
 
-要给每段之前添加一些间隙，在<code>\<p></code>标签上使用margin-top样式。
+要给每段之前添加一些间隙，在<code>&lt;p></code>标签上使用margin-top样式。
 
 **Rule 4. 其他支持的编码**
 
@@ -62,7 +62,7 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 * HTML文件中明确声明了编码
 * 用于将源文件转码的电脑支持该编码并且知道如何将其转为UNICODE编码
 
-亚马逊推荐在HTML文件中的<code>\<head></code>部分中用<code>\<meta></code>标签。例如：
+亚马逊推荐在HTML文件中的<code>&lt;head></code>部分中用<code>&lt;meta></code>标签。例如：
 
 <pre>
 &lt;html&gt;
@@ -80,9 +80,9 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 
 **Rule 6. 支持等宽字符**
 
-如果使用以下标签或者属性，Kindle可以显示为等宽字符：<code>\<pre></code>, <code>\<code></code>, <code>\<samp></code>, <code>\<kbd></code>, <code>\<tt></code>, <code>\<font face=“courier”></code>, <code>\<font face=“monospace”></code>。
+如果使用以下标签或者属性，Kindle可以显示为等宽字符：<code>&lt;pre></code>, <code>&lt;code></code>, <code>&lt;samp></code>, <code>&lt;kbd></code>, <code>&lt;tt></code>, <code>&lt;font face=“courier”></code>, <code>&lt;font face=“monospace”></code>。
 
-除了<code>\<pre></code>标签以外，上面列出的标签都不会改变文本的对齐方式。如果要使文本左对齐的话，那么将这些标签包在一个<code>\<div></code>标签里面，然后对这个<code>\<div></code>设置text-align: left的CSS样式。
+除了<code>&lt;pre></code>标签以外，上面列出的标签都不会改变文本的对齐方式。如果要使文本左对齐的话，那么将这些标签包在一个<code>&lt;div></code>标签里面，然后对这个<code>&lt;div></code>设置text-align: left的CSS样式。
 
 出版商可以用自己的字体。亚马逊有质量检查环节，可以确保这些字体能够在电子墨水设备上显示正常，而且不影响阅读体验。但是不要用Charis字体，在Kindle阅读器中已经用更高质量的字体替换它。
 
