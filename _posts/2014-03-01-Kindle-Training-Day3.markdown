@@ -31,7 +31,7 @@ tags:
 * 可以使用CSS选择器对文本或其他元素的属性进行精确控制
 * 对特定屏幕大小支持固定布局
 
-## 文本指南
+## 文本设置指南
 <hr>
 **Rule 1. Body的文本设置必须使用默认**
 
@@ -85,6 +85,299 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 除了<code>&lt;pre></code>标签以外，上面列出的标签都不会改变文本的对齐方式。如果要使文本左对齐的话，那么将这些标签包在一个<code>&lt;div></code>标签里面，然后对这个<code>&lt;div></code>设置text-align: left的CSS样式。
 
 出版商可以用自己的字体。亚马逊有质量检查环节，可以确保这些字体能够在电子墨水设备上显示正常，而且不影响阅读体验。但是不要用Charis字体，在Kindle阅读器中已经用更高质量的字体替换它。
+
+**Rule 7. 支持的CSS**
+
+在早期的Kindle平台中，仅支持最为基本的CSS样式，但是在KF8里面，对于CSS2和CSS3的样式支持已经大大提升。为了确保设置的CSS起作用，请在发布之前务必要在不同的设备上预览一下。
+
+对于例如字号、宽度、高度、外边距、内边距、缩进的CSS设置，应尽量避免固定值。为了能在不同大小和分辨率的屏幕上都有良好的展示效果，请在给这些属性设置的时候用百分比。
+
+当设置外边距和内边距的时候，请用百分比而不是em。这样外边距句不会随着字号变大而变宽。外边距的值必须等于或大于0，才能确保文本不超出屏幕或者不发生重叠。对于普通的body的文本，请总是将左右外边距设置为0，这样用户在使用设备默认选项的时候，就可以选择不同的外边距了。
+
+为了分页的需要，Kindle阅读器不推荐将行高设置在1.2em或120%以下。
+
+对于例如首字母下沉的元素，请用百分比或相对单位设置（不论是正值还是负值），不要使用固定值。（例如：对于下沉字母，用font-size: 300%)。下沉字母的最上方应该与body的文本对齐。为了实现下沉字母效果，亚马逊推荐使用以下CSS代码：
+
+例：
+
+{%  highlight css %}
+p. para {
+    font-family: “Times New Roman”;
+    font-size: 4em;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: justify;
+    text-indent: 0;
+}
+
+@media amzn-kf8
+{
+    span.dropcaps
+    {
+        font-weight: normal;
+        font-size: 320%;
+        float: left;
+        margin-top: -0.3225em;
+        margin-bottom: -0.3245em;
+    }
+}
+
+@media amzn-mobi
+{
+    span.dropcaps
+    {
+        font-size: 3em;
+        font-weight: bold;
+    }
+}
+<p class=“para”><span class=“dropcaps”>T</span>here is a sample
+{% endhighlight %}
+
+**Rule 9. 自定义字体选择**
+
+一本书最基本最主要的字体应该时设置在&lt;body&gt;上。如果你想添加一些额外的字体设置，比如粗体或者斜体，那么要保证这些样式是设置在文本上的而不是字体上的，这样不论用户选择哪一种字体，这些带有样式的元素都能正确显示。以下是两组正确以及错误的自定义字体的方式。
+
+* 错误的HTML代码
+{% highlight html %}
+<html>
+<body>
+
+<p style=“font-family: PrimaryFont”>
+Primary font content</p>
+
+<p style=“font-family: SecondaryFont”>
+Secondary font content</p>
+
+<p style=“font-family: PrimaryFont”>
+Primary font content</p>
+
+<p style=“font-family: PrimaryFont”>
+Primary ofnt content</p>
+
+</body>
+</html>
+{% endhighlight %}
+
+* 正确的HTML代码
+{% highlight html %}
+<html>
+<body style=“font-family: PrimaryFont”>
+
+<p>Primary font content</p>
+
+<p style=“font-family: SecondaryFont”>
+Secondary font content</p>
+
+<p>Primary font content</p>
+
+<p>Primary font content</p>
+
+</body>
+</html>
+{%  endhighlight %}
+
+同样的结果也可以用CSS样式表实现。下面是一组正确以及错误的CSS代码。
+* 错误的CSS代码
+{% highlight css %}
+
+body {
+font-size: asize;
+}
+
+.indent {
+font-size: asize;
+font-family: PrimaryFont;
+}
+
+.sidebar-text {
+font-family: SecondaryFont;
+weight: bold;
+}
+
+{%  endhighlight %}
+
+* 正确的CSS代码
+{% highlight css %}
+
+body {
+font-family: PrimaryFont;
+font-size: asize;
+}
+
+.indent {
+font-size: asize;
+}
+
+.sidebar-text {
+font-family: SecondaryFont;
+weight: bold;
+}
+
+{%  endhighlight %}
+
+## 封面图片设置指南
+
+**Rule 1. 营销封面必须得有**
+
+营销封面最好是2560×1600px、350dpi。这样的图片在高清的Kindle设备上可以确保显示清晰。图片大小不得超过5MB。
+
+营销封面如果没有达到2560×1600，那么在上传的时候，会有一个提示。如果图片最小边小于500px，那么在网站上根本就不显示了。
+
+如果封面图片小于推荐的大小，那么亚马逊强烈推荐您重新制作一幅符合推荐大小的图片。不要拉伸图片来达标，因为这样图片显示出来效果可能会很差。
+
+封面图片上的内容：
+* 不能侵犯其他出版社或艺术家的版权
+* 不要提到价格或者其他临时性的促销活动
+
+**Rule 2. 内容封面也必须得有**
+
+请提供一幅高分辨率的大图片作为内容封面，因为如果封面太小的话，亚马逊的质检环节不会让这本书通过。
+
+通过OPF文件来设置封面，可以通过以下这两种方法：
+
+方法一：
+{% highlight html %}
+<manifest>
+...
+<item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
+...
+</manifest>
+{% endhighlight %}
+以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values)。
+
+方法二：
+{% highlight xml %}
+<metadata>
+...
+<meta name=“cover” content=“my-cover-image” />
+...
+</metadata>
+...
+<manifest>
+...
+<item href=“MyCoverImagejpg” id=“my-cover-image” media-type=“image/jpeg” />
+...
+</manifest>
+{% endhighlight %}
+
+在metadata里面使用name=“cover”是必须的。
+
+**Rule. 3 内容封面不能出现两次**
+
+除了上面提到的方法之外，不要再在内容中添加封面，如果添加了，那么可能在图书中会出现两次封面。
+
+但是对于流式排版的书籍来说有一种特殊情况：如果你希望封面是HTML格式的，从而能够兼容其他供应商的软件，那么除了按照上面方式设置好封面以外，还要在OPF文件中，添加如下标签：
+{% highlight xml %}
+<spine> <itemref idref="my-html-cover" linear="no" /> </spine>
+  ...
+<manifest> <item id="my-html-cover" href="cover.html" media-
+type="application/xhtml+xml" /> </manifest>
+...
+{% endhighlight %}
+其中，linear=“no”是必须的。
+
+同时，在landmarks nav元素中，添加如下标签：
+{% highlight xml %}
+<nav epub:type="landmarks">
+<ol> <li><a epub:type="cover" href="cover.html "> Cover Image </a> </li></ol> </nav>
+{% endhighlight %}
+其中，epub: type=“cover”是必须的。
+
+设置封面，还可以在OPF文件中使用下面一种写法，而非使用landmarks nav元素：
+{% highlight xml %}
+<guide> <reference type="cover" title="Cover Image" href="cover.html" /> </guide>
+{% endhighlight %}
+其中，type=“cover”是必须的。
+
+## 图表内容设置指南
+
+亚马逊强烈建议您为所有书籍设置HTML TOC。HTML目录适用与大多数书籍，固定布局的童书、绘本或漫画除外。
+
+**Rule 1. 推荐使用逻辑目录**
+
+亚马逊强烈建议所有的图书包含逻辑目录和HTML目录。这对于提高阅读体验十分重要，因为读者可以通过这个目录在不同章节间比较容易的跳转。用户在一开始就期待能够看到一个HTML目录，而逻辑目录也给用户提供了在书中跳转的一种新途径。如果书长于20页，那么添加逻辑目录就变得尤为重要了。
+
+逻辑目录时通过toc nav元素或者用于XML应用的导航控制文件（NCX）生成的。**注意：**固定布局的书不支持嵌套的锚点标签。
+
+* 用toc nav元素创建逻辑目录
+
+toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model)和[http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc)。
+
+创建toc nav元素能够同时创建逻辑目录和HTML目录。
+
+例：
+{% highlight html%}
+<nav epub: type=“toc”>
+<ol>
+<li><a href=”Sway_body.html#preface_1">AUTHOR'S NOTE</a></li>
+<li><a href=”Sway_body.html#part_1">PART ONE</a>
+   <ol>
+   <li><a href="Sway_body.html#chapter_1">THE HOUSES, 1969</a></li>
+   <li><a href="Sway_body.html#chapter_2">ROCK AND ROLL, 1962</a></li>
+   <li><a href="Sway_body.html#chapter_3">THE EMPRESS, 1928–1947</a></li>
+   </ol>
+</li>
+</ol>
+</nav>
+{% endhighlight %}
+
+下面这段取自OPF文件的代码告诉你如何在&lt;manifest&gt;标签中声明toc nav元素。
+
+例：
+{% highlight xml %}
+<manifest>
+<item id="toc" properties="nav" href="xhtml/toc.xhtml" media-
+type="application/xhtml+xml"/>
+{% endhighlight %}
+可以选择将其用于&lt;spine&gt;标签，这样就可以被用来当作HTML目录。
+{% highlight %}
+<spine>
+<itemref idref=“toc” />
+{% endhighlight %}
+
+* 用NCX创建逻辑目录
+
+NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX](http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX)。
+
+例：
+{% highlight xml %}
+<navMap>
+<navPoint class="titlepage" id="L1T" playOrder="1">
+<navLabel><text>AUTHOR'S NOTE</text></navLabel>
+<content src=”Sway_body.html#preface_1" />
+</navPoint>
+<navPoint class="book" id="level1-book1" playOrder="2">
+<navLabel><text>PART ONE</text></navLabel>
+<content src=”Sway_body.html#part_1" />
+<navPoint class="chapter" id="level2-book1chap01" playOrder="3">
+<navLabel><text>THE HOUSES, 1969</text></navLabel>
+<content src="Sway_body.html#chapter_1" />
+</navPoint>
+<navPoint class="chapter" id="level2-book1chap02" playOrder="4">
+<navLabel><text>ROCK AND ROLL, 1962</text></navLabel>
+<content src="Sway_body.html#chapter_2" />
+</navPoint>
+<navPoint class="chapter" id="level2-book1chap03" playOrder="5">
+<navLabel><text>THE EMPRESS, 1928–1947</text></navLabel>
+<content src="Sway_body.html#chapter_3" />
+</navPoint>
+</navPoint>
+</navMap>
+{% endhighlight %}
+下面这段取自OPF文件的代码说明了如何将NCX目录添加到一本书中。在&lt;manifest&gt;标签中声明NCX：
+{% highlight xml %}
+<manifest>
+<item id=“toc” media-type=“appication/x-dtbncx+xml” href=“toc.ncx” />
+{% endhighlight %}
+将其用在&lt;spine&gt;中：
+{% highlight xml %}
+<spine toc=“toc”>
+{% endhighlight %}
+
+
+
+
+
 
 
 
