@@ -131,14 +131,14 @@ p.para {
     }
 }
 &lt;p class=“para”>&lt;span class=“dropcaps”>T&lt;/span>here is a sample
-{% endhighlight %}
+</pre>
 
 **Rule 9. 自定义字体选择**
 
 一本书最基本最主要的字体应该时设置在&lt;body&gt;上。如果你想添加一些额外的字体设置，比如粗体或者斜体，那么要保证这些样式是设置在文本上的而不是字体上的，这样不论用户选择哪一种字体，这些带有样式的元素都能正确显示。以下是两组正确以及错误的自定义字体的方式。
 
 * 错误的HTML代码
-{% highlight ruby %}
+<pre>
 &lt;html>
 &lt;body>
 
@@ -156,10 +156,10 @@ Primary ofnt content&lt;/p>
 
 &lt;/body>
 &lt;/html>
-{% endhighlight %}
+</pre>
 
 * 正确的HTML代码
-{% highlight ruby %}
+<pre>
 &lt;html>
 &lt;body style=“font-family: PrimaryFont”>
 
@@ -178,7 +178,7 @@ Secondary font content&lt;/p>
 
 同样的结果也可以用CSS样式表实现。下面是一组正确以及错误的CSS代码。
 * 错误的CSS代码
-{% highlight ruby %}
+<pre>
 
 body {
 font-size: asize;
@@ -197,7 +197,7 @@ weight: bold;
 {%  endhighlight %}
 
 * 正确的CSS代码
-{% highlight ruby %}
+<pre>
 
 body {
 font-family: PrimaryFont;
@@ -237,17 +237,17 @@ weight: bold;
 通过OPF文件来设置封面，可以通过以下这两种方法：
 
 方法一：
-{% highlight ruby %}
+<pre>
 &lt;manifest>
 ...
 &lt;item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
 ...
 &lt;/manifest>
-{% endhighlight %}
+</pre>
 以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values)。
 
 方法二：
-{% highlight ruby %}
+<pre>
 &lt;metadata>
 ...
 &lt;meta name=“cover” content=“my-cover-image” />
@@ -259,7 +259,7 @@ weight: bold;
 &lt;item href=“MyCoverImagejpg” id=“my-cover-image” media-type=“image/jpeg” />
 ...
 &lt;/manifest>
-{% endhighlight %}
+</pre>
 
 在metadata里面使用name=“cover”是必须的。
 
@@ -268,26 +268,26 @@ weight: bold;
 除了上面提到的方法之外，不要再在内容中添加封面，如果添加了，那么可能在图书中会出现两次封面。
 
 但是对于流式排版的书籍来说有一种特殊情况：如果你希望封面是HTML格式的，从而能够兼容其他供应商的软件，那么除了按照上面方式设置好封面以外，还要在OPF文件中，添加如下标签：
-{% highlight ruby %}
+<pre>
 &lt;spine> &lt;itemref idref="my-html-cover" linear="no" /> &lt;/spine>
   ...
 &lt;manifest> &lt;item id="my-html-cover" href="cover.html" media-
 type="application/xhtml+xml" /> &lt;/manifest>
 ...
-{% endhighlight %}
+</pre>
 其中，linear=“no”是必须的。
 
 同时，在landmarks nav元素中，添加如下标签：
-{% highlight ruby %}
+<pre>
 &lt;nav epub:type="landmarks">
 &lt;ol> &lt;li>&lt;a epub:type="cover" href="cover.html "> Cover Image &lt;/a> &lt;/li>&lt;/ol> &lt;/nav>
-{% endhighlight %}
+</pre>
 其中，epub: type=“cover”是必须的。
 
 设置封面，还可以在OPF文件中使用下面一种写法，而非使用landmarks nav元素：
-{% highlight ruby %}
+<pre>
 &lt;guide> &lt;reference type="cover" title="Cover Image" href="cover.html" /> &lt;/guide>
-{% endhighlight %}
+</pre>
 其中，type=“cover”是必须的。
 
 ## 图表内容设置指南
@@ -308,7 +308,7 @@ toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec
 创建toc nav元素能够同时创建逻辑目录和HTML目录。
 
 例：
-{% highlight ruby %}
+<pre>
 &lt;nav epub: type=“toc”>
 &lt;ol>
 &lt;li>&lt;a href=”Sway_body.html#preface_1">AUTHOR'S NOTE&lt;/a>&lt;/li>
@@ -321,28 +321,28 @@ toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec
 &lt;/li>
 &lt;/ol>
 &lt;/nav>
-{% endhighlight %}
+</pre>
 
 下面这段取自OPF文件的代码告诉你如何在&lt;manifest&gt;标签中声明toc nav元素。
 
 例：
-{% highlight ruby %}
+<pre>
 &lt;manifest>
 &lt;item id="toc" properties="nav" href="xhtml/toc.xhtml" media-
 type="application/xhtml+xml"/>
-{% endhighlight %}
+</pre>
 可以选择将其用于&lt;spine&gt;标签，这样就可以被用来当作HTML目录。
 {% highlight %}
 &lt;spine>
 &lt;itemref idref=“toc” />
-{% endhighlight %}
+</pre>
 
 * 用NCX创建逻辑目录
 
 NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX](http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX)。
 
 例：
-{% highlight ruby %}
+<pre>
 &lt;navMap>
 &lt;navPoint class="titlepage" id="L1T" playOrder="1">
 &lt;navLabel>&lt;text>AUTHOR'S NOTE&lt;/text>&lt;/navLabel>
@@ -365,15 +365,14 @@ NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 8
 &lt;/navPoint>
 &lt;/navPoint>
 &lt;/navMap>
-{% endhighlight %}
+</pre>
 下面这段取自OPF文件的代码说明了如何将NCX目录添加到一本书中。在&lt;manifest&gt;标签中声明NCX：
-{% highlight ruby %}
+<pre>
 &lt;manifest>
 &lt;item id=“toc” media-type=“appication/x-dtbncx+xml” href=“toc.ncx” />
-{% endhighlight %}
+</pre>
 将其用在&lt;spine&gt;中：
-{% highlight ruby %}
+<pre>
 &lt;spine toc=“toc”>
-{% endhighlight %}
-
+</pre>
 
