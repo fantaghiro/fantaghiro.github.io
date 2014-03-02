@@ -130,7 +130,7 @@ p.para {
         font-weight: bold;
     }
 }
-<p class=“para”><span class=“dropcaps”>T</span>here is a sample
+&lt;p class=“para”>&lt;span class=“dropcaps”>T&lt;/span>here is a sample
 {% endhighlight %}
 
 **Rule 9. 自定义字体选择**
@@ -139,41 +139,41 @@ p.para {
 
 * 错误的HTML代码
 {% highlight ruby %}
-<html>
-<body>
+&lt;html>
+&lt;body>
 
-<p style=“font-family: PrimaryFont”>
-Primary font content</p>
+&lt;p style=“font-family: PrimaryFont”>
+Primary font content&lt;/p>
 
-<p style=“font-family: SecondaryFont”>
-Secondary font content</p>
+&lt;p style=“font-family: SecondaryFont”>
+Secondary font content&lt;/p>
 
-<p style=“font-family: PrimaryFont”>
-Primary font content</p>
+&lt;p style=“font-family: PrimaryFont”>
+Primary font content&lt;/p>
 
-<p style=“font-family: PrimaryFont”>
-Primary ofnt content</p>
+&lt;p style=“font-family: PrimaryFont”>
+Primary ofnt content&lt;/p>
 
-</body>
-</html>
+&lt;/body>
+&lt;/html>
 {% endhighlight %}
 
 * 正确的HTML代码
 {% highlight ruby %}
-<html>
-<body style=“font-family: PrimaryFont”>
+&lt;html>
+&lt;body style=“font-family: PrimaryFont”>
 
-<p>Primary font content</p>
+&lt;p>Primary font content&lt;/p>
 
-<p style=“font-family: SecondaryFont”>
-Secondary font content</p>
+&lt;p style=“font-family: SecondaryFont”>
+Secondary font content&lt;/p>
 
-<p>Primary font content</p>
+&lt;p>Primary font content&lt;/p>
 
-<p>Primary font content</p>
+&lt;p>Primary font content&lt;/p>
 
-</body>
-</html>
+&lt;/body>
+&lt;/html>
 {%  endhighlight %}
 
 同样的结果也可以用CSS样式表实现。下面是一组正确以及错误的CSS代码。
@@ -238,27 +238,27 @@ weight: bold;
 
 方法一：
 {% highlight ruby %}
-<manifest>
+&lt;manifest>
 ...
-<item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
+&lt;item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
 ...
-</manifest>
+&lt;/manifest>
 {% endhighlight %}
 以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values)。
 
 方法二：
 {% highlight ruby %}
-<metadata>
+&lt;metadata>
 ...
-<meta name=“cover” content=“my-cover-image” />
+&lt;meta name=“cover” content=“my-cover-image” />
 ...
-</metadata>
+&lt;/metadata>
 ...
-<manifest>
+&lt;manifest>
 ...
-<item href=“MyCoverImagejpg” id=“my-cover-image” media-type=“image/jpeg” />
+&lt;item href=“MyCoverImagejpg” id=“my-cover-image” media-type=“image/jpeg” />
 ...
-</manifest>
+&lt;/manifest>
 {% endhighlight %}
 
 在metadata里面使用name=“cover”是必须的。
@@ -269,24 +269,24 @@ weight: bold;
 
 但是对于流式排版的书籍来说有一种特殊情况：如果你希望封面是HTML格式的，从而能够兼容其他供应商的软件，那么除了按照上面方式设置好封面以外，还要在OPF文件中，添加如下标签：
 {% highlight ruby %}
-<spine> <itemref idref="my-html-cover" linear="no" /> </spine>
+&lt;spine> &lt;itemref idref="my-html-cover" linear="no" /> &lt;/spine>
   ...
-<manifest> <item id="my-html-cover" href="cover.html" media-
-type="application/xhtml+xml" /> </manifest>
+&lt;manifest> &lt;item id="my-html-cover" href="cover.html" media-
+type="application/xhtml+xml" /> &lt;/manifest>
 ...
 {% endhighlight %}
 其中，linear=“no”是必须的。
 
 同时，在landmarks nav元素中，添加如下标签：
 {% highlight ruby %}
-<nav epub:type="landmarks">
-<ol> <li><a epub:type="cover" href="cover.html "> Cover Image </a> </li></ol> </nav>
+&lt;nav epub:type="landmarks">
+&lt;ol> &lt;li>&lt;a epub:type="cover" href="cover.html "> Cover Image &lt;/a> &lt;/li>&lt;/ol> &lt;/nav>
 {% endhighlight %}
 其中，epub: type=“cover”是必须的。
 
 设置封面，还可以在OPF文件中使用下面一种写法，而非使用landmarks nav元素：
 {% highlight ruby %}
-<guide> <reference type="cover" title="Cover Image" href="cover.html" /> </guide>
+&lt;guide> &lt;reference type="cover" title="Cover Image" href="cover.html" /> &lt;/guide>
 {% endhighlight %}
 其中，type=“cover”是必须的。
 
@@ -309,32 +309,32 @@ toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec
 
 例：
 {% highlight ruby %}
-<nav epub: type=“toc”>
-<ol>
-<li><a href=”Sway_body.html#preface_1">AUTHOR'S NOTE</a></li>
-<li><a href=”Sway_body.html#part_1">PART ONE</a>
-   <ol>
-   <li><a href="Sway_body.html#chapter_1">THE HOUSES, 1969</a></li>
-   <li><a href="Sway_body.html#chapter_2">ROCK AND ROLL, 1962</a></li>
-   <li><a href="Sway_body.html#chapter_3">THE EMPRESS, 1928–1947</a></li>
-   </ol>
-</li>
-</ol>
-</nav>
+&lt;nav epub: type=“toc”>
+&lt;ol>
+&lt;li>&lt;a href=”Sway_body.html#preface_1">AUTHOR'S NOTE&lt;/a>&lt;/li>
+&lt;li>&lt;a href=”Sway_body.html#part_1">PART ONE&lt;/a>
+   &lt;ol>
+   &lt;li>&lt;a href="Sway_body.html#chapter_1">THE HOUSES, 1969&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="Sway_body.html#chapter_2">ROCK AND ROLL, 1962&lt;/a>&lt;/li>
+   &lt;li>&lt;a href="Sway_body.html#chapter_3">THE EMPRESS, 1928–1947&lt;/a>&lt;/li>
+   &lt;/ol>
+&lt;/li>
+&lt;/ol>
+&lt;/nav>
 {% endhighlight %}
 
 下面这段取自OPF文件的代码告诉你如何在&lt;manifest&gt;标签中声明toc nav元素。
 
 例：
 {% highlight ruby %}
-<manifest>
-<item id="toc" properties="nav" href="xhtml/toc.xhtml" media-
+&lt;manifest>
+&lt;item id="toc" properties="nav" href="xhtml/toc.xhtml" media-
 type="application/xhtml+xml"/>
 {% endhighlight %}
 可以选择将其用于&lt;spine&gt;标签，这样就可以被用来当作HTML目录。
 {% highlight %}
-<spine>
-<itemref idref=“toc” />
+&lt;spine>
+&lt;itemref idref=“toc” />
 {% endhighlight %}
 
 * 用NCX创建逻辑目录
@@ -343,36 +343,36 @@ NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 8
 
 例：
 {% highlight ruby %}
-<navMap>
-<navPoint class="titlepage" id="L1T" playOrder="1">
-<navLabel><text>AUTHOR'S NOTE</text></navLabel>
-<content src=”Sway_body.html#preface_1" />
-</navPoint>
-<navPoint class="book" id="level1-book1" playOrder="2">
-<navLabel><text>PART ONE</text></navLabel>
-<content src=”Sway_body.html#part_1" />
-<navPoint class="chapter" id="level2-book1chap01" playOrder="3">
-<navLabel><text>THE HOUSES, 1969</text></navLabel>
-<content src="Sway_body.html#chapter_1" />
-</navPoint>
-<navPoint class="chapter" id="level2-book1chap02" playOrder="4">
-<navLabel><text>ROCK AND ROLL, 1962</text></navLabel>
-<content src="Sway_body.html#chapter_2" />
-</navPoint>
-<navPoint class="chapter" id="level2-book1chap03" playOrder="5">
-<navLabel><text>THE EMPRESS, 1928–1947</text></navLabel>
-<content src="Sway_body.html#chapter_3" />
-</navPoint>
-</navPoint>
-</navMap>
+&lt;navMap>
+&lt;navPoint class="titlepage" id="L1T" playOrder="1">
+&lt;navLabel>&lt;text>AUTHOR'S NOTE&lt;/text>&lt;/navLabel>
+&lt;content src=”Sway_body.html#preface_1" />
+&lt;/navPoint>
+&lt;navPoint class="book" id="level1-book1" playOrder="2">
+&lt;navLabel>&lt;text>PART ONE&lt;/text>&lt;/navLabel>
+&lt;content src=”Sway_body.html#part_1" />
+&lt;navPoint class="chapter" id="level2-book1chap01" playOrder="3">
+&lt;navLabel>&lt;text>THE HOUSES, 1969&lt;/text>&lt;/navLabel>
+&lt;content src="Sway_body.html#chapter_1" />
+&lt;/navPoint>
+&lt;navPoint class="chapter" id="level2-book1chap02" playOrder="4">
+&lt;navLabel>&lt;text>ROCK AND ROLL, 1962&lt;/text>&lt;/navLabel>
+&lt;content src="Sway_body.html#chapter_2" />
+&lt;/navPoint>
+&lt;navPoint class="chapter" id="level2-book1chap03" playOrder="5">
+&lt;navLabel>&lt;text>THE EMPRESS, 1928–1947&lt;/text>&lt;/navLabel>
+&lt;content src="Sway_body.html#chapter_3" />
+&lt;/navPoint>
+&lt;/navPoint>
+&lt;/navMap>
 {% endhighlight %}
 下面这段取自OPF文件的代码说明了如何将NCX目录添加到一本书中。在&lt;manifest&gt;标签中声明NCX：
 {% highlight ruby %}
-<manifest>
-<item id=“toc” media-type=“appication/x-dtbncx+xml” href=“toc.ncx” />
+&lt;manifest>
+&lt;item id=“toc” media-type=“appication/x-dtbncx+xml” href=“toc.ncx” />
 {% endhighlight %}
 将其用在&lt;spine&gt;中：
 {% highlight ruby %}
-<spine toc=“toc”>
+&lt;spine toc=“toc”>
 {% endhighlight %}
 
