@@ -100,7 +100,7 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 
 例：
 
-{% highlight css %}
+<pre>
 p.para {
     font-family: “Times New Roman”;
     font-size: 4em;
