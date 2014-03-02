@@ -1,38 +1,383 @@
 ---
 layout: post
-title: 在PPT中使用指定音频程序打开指定MP3文件的方法
-category: edu
+title: 亚马逊Kindle电子书培训（三）
+category: publishing
 tags:
-- PPT
-- 教育技术
+- Kindle
+- 亚马逊
+- 电子书
+- 培训
 ---
-由于工作的缘故，我经常会与PPT打交道。最初，PPT之于我是一种乐趣和探索；但是如果将兴趣和工作相结合，你懂的。
+第三天的培训，美其名曰高阶内容，但是个人感觉难度不是很大。因为前期自学了一些HTML和CSS方面的知识，第三天的培训其实就是对这些知识最基本部分的复习和基础应用的实践。所谓epub或者时mobi的电子书，无非是用特殊形式封装好的html（或者xml）文件而已。对这个有了基本认识，对电子书的神秘感也就荡然无存了。
 <!--more-->
-单位制作的PPT大多用于高校教学。大学中的硬件设备参差不齐，外加软件版本不断更新换代，更是雪上加霜，这一点不仅仅有前端工程师以身试法，我们出版社小小的编辑也在劫难逃。
 
-考虑到文件格式的兼容性，也同样考虑到（不论是对用户还是对自己）安全性和“免责性”，要求制作公司统一用2003版本的PowerPoint进行制作，从而实现了向下兼容。我个人也是再这种决策的保护伞下生活着，虽然好几次尝试着想做出引领风潮彪悍至极以至于要让别人“向上兼容”到我设计的PPT，但不需要事实检测我就知道审批通不过，偏远地区院校的教师会打电话投诉，制作公司可能不会有好脸色。所以，想试也要夹着尾巴，一次不能把产品的肚子搞大，最后自己收拾不了这么多责难的。
+高阶培训中做了两件比较重要的工作，一是老师带领大家一起看了以下Kindle电子书支持的HTML标签都有哪些，并且向前来培训的编辑们普及了这些标签的基本意义和使用方法。二是带领大家浏览了一边Amazon Kindle Publishing Guidelines这份文件。文件内容十分全面细致，英文版对于我来说没有什么障碍，但是感觉还是值得在这里简要记一下，以备日后查阅。
 
-还是少些埋怨，多些正能量的尝试吧！
+目前Kindle支持的电子书格式为Kindle Format 8 （KF8）。该格式替换了之前的mobi 7，添加了部分HTML5和CSS3的支持。目前KF8支持以下功能：
 
-2003以及2007版本的PPT中插入音频是个很尴尬的功能。目前插入的方式有四种：
+* 文本布局（包括行距、对齐、外边距、颜色、定义样式和边框）
+* 支持段落首字下沉
+* 支持包含块状文字、气泡提示、侧边栏和图片等的浮动元素，浮动元素中的文字时可以换行的
+* 支持带有项目符号的有序和无序列表
+* 支持技术或教材书籍所必须的嵌套表格和单元格合并
+* 支持页面或文字后面有背景图片
+* 支持SVG，并可以实现无损放大缩小
+* 支持嵌入字体，允许出版商对书籍进行个性化处理
+* 支持圆角文本框
+* 支持阴影效果
+* 支持带轮廓的文本
+* 支持多个或重复的背景图片
+* 支持颜色渐变
+* 可以使用CSS选择器对文本或其他元素的属性进行精确控制
+* 对特定屏幕大小支持固定布局
 
-- 将音频嵌入到PPT里面（弊端十分明显：没办法控制进度）
-- 通过链接打开外部音频文件（弊端：安全警告；不能控制用户用什么软件打开文件。有很多次我看到老师一点外链，机器老半天才用itunes或暴风影音打开一个小小的MP3文件，我的精神近乎崩溃）
-- 插入windows media的控件（这下可好了，与系统兼容性好，但是外形实在是太丑，与众多PPT模板匹配再一起，有违和谐）
-- 把MP3文件转成自带进度条的flash播放器文件，插入PPT（技术讲这个有安全隐患，而且不同电脑也容易出现bug）
+## 文本设置指南
+<hr>
+**Rule 1. Body的文本设置必须使用默认**
 
-好吧，我只能说。
+流式排版的Kindle电子书中body的文本必须都是默认的设置。亚马逊鼓励内容创造者可以对标题，特殊段落、脚注、图表等用富有创新性的样式，但绝对不是body的文本。因为对body文本的样式设置都会覆盖掉用户自选的阅读的设置，这样，用户就会报告说阅读体验差。下面是几个最为重要的点需要提请注意：
+* body的文本不能有强制对齐（比如左对齐或两段对齐）
+* body的文本必须用默认的字号和行距。不能用类似<code>&lt;font size=“...”></code>这样的样式标签或者在CSS中更改字号和行距。
+* body的文本不能全部设置为粗体或者斜体，只能对其中的个别文字进行粗体或斜体设置。
+* body的文本不能通篇用一个强制的颜色。如果你想在某个章节强制使用某种颜色，请不要用太浅或太深的颜色。非常浅的颜色在白色背景的设备或电子墨水设备上，会因为对比度不足而看不清楚。而非常深的颜色在设置为黑色背景的设备上又看不清楚。如果用灰色的话，请用hex值在#666到#999之间的颜色。
+* body的文本不能用白色或黑色字体颜色。有用户报告说体验不好时因为他们把设备的背景色设置为了白色或黑色，然后相应颜色的文字就完全看不出来了。
+* 用户反馈说他们拥有选择设备中提供的默认字体的选择权，这一点的体验非常好。
 
-前一阵子，在M君的帮助下，实现了一种新的PPT与音频结合的方式（其实挺简单，但是网上没有人提到）——通过链接，打开一个cmd文件，而这个cmd文件中的命令指定用某个音频播放器打开MP3文件。首先确保PPT文件、播放器文件、MP3文件和cmd文件在同一个文件夹中。举例来讲：文件夹中有一个PPT，一个airplay.exe（绿色播放器），一个1.mp3文件和一个a.cmd文件（此处文件名为任意取的）。用文本编辑器打开a.cmd文件，其中添加这样一行命令：
+**Rule 2. 在分页的地方用CSS设置**
 
+不要在需要分页的地方通过添加空白行来实现，而应该使用CSS中的page-break-before和page-break-after属性来设置。
+
+**Rule 3. 设置段落**
+
+KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<code>&lt;p></code>使用缩进样式。比如：
+* <code>&lt;p style=“text-indent: 0”></code> -- 首行无缩进
+* <code>&lt;p style=“text-indent: 10%”></code> --首行缩进10%
+* <code>&lt;p style=“text-indent: 5em”></code> --首行缩进5个字符宽度
+
+要给每段之前添加一些间隙，在<code>&lt;p></code>标签上使用margin-top样式。
+
+**Rule 4. 其他支持的编码**
+
+只要满足以下两个条件，Kindle电子书就支持该编码：
+* HTML文件中明确声明了编码
+* 用于将源文件转码的电脑支持该编码并且知道如何将其转为UNICODE编码
+
+亚马逊推荐在HTML文件中的<code>&lt;head></code>部分中用<code>&lt;meta></code>标签。例如：
+
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+...
+&lt;meta http-equiv=“content-type” content=“text/html; charset=iso-8859-1&gt;
+...
+</pre>
+
+**Rule 5. 空格以及UNICODE字符**
+
+仅支持正常空格字符、不可分空格字符（\&nbsp;）以及零宽不连字（\&zwnj;）。用其他空格会干扰选择区域、字典查词还有换行的算法。
+
+不要使用UNICODE格式字符，它们也会造成问题。
+
+**Rule 6. 支持等宽字符**
+
+如果使用以下标签或者属性，Kindle可以显示为等宽字符：<code>&lt;pre></code>, <code>&lt;code></code>, <code>&lt;samp></code>, <code>&lt;kbd></code>, <code>&lt;tt></code>, <code>&lt;font face=“courier”></code>, <code>&lt;font face=“monospace”></code>。
+
+除了<code>&lt;pre></code>标签以外，上面列出的标签都不会改变文本的对齐方式。如果要使文本左对齐的话，那么将这些标签包在一个<code>&lt;div></code>标签里面，然后对这个<code>&lt;div></code>设置text-align: left的CSS样式。
+
+出版商可以用自己的字体。亚马逊有质量检查环节，可以确保这些字体能够在电子墨水设备上显示正常，而且不影响阅读体验。但是不要用Charis字体，在Kindle阅读器中已经用更高质量的字体替换它。
+
+**Rule 7. 支持的CSS**
+
+在早期的Kindle平台中，仅支持最为基本的CSS样式，但是在KF8里面，对于CSS2和CSS3的样式支持已经大大提升。为了确保设置的CSS起作用，请在发布之前务必要在不同的设备上预览一下。
+
+对于例如字号、宽度、高度、外边距、内边距、缩进的CSS设置，应尽量避免固定值。为了能在不同大小和分辨率的屏幕上都有良好的展示效果，请在给这些属性设置的时候用百分比。
+
+当设置外边距和内边距的时候，请用百分比而不是em。这样外边距句不会随着字号变大而变宽。外边距的值必须等于或大于0，才能确保文本不超出屏幕或者不发生重叠。对于普通的body的文本，请总是将左右外边距设置为0，这样用户在使用设备默认选项的时候，就可以选择不同的外边距了。
+
+为了分页的需要，Kindle阅读器不推荐将行高设置在1.2em或120%以下。
+
+对于例如首字母下沉的元素，请用百分比或相对单位设置（不论是正值还是负值），不要使用固定值。（例如：对于下沉字母，用font-size: 300%)。下沉字母的最上方应该与body的文本对齐。为了实现下沉字母效果，亚马逊推荐使用以下CSS代码：
+
+例：
+
+{%  highlight css %}
+p. para {
+    font-family: “Times New Roman”;
+    font-size: 4em;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: justify;
+    text-indent: 0;
+}
+
+@media amzn-kf8
+{
+    span.dropcaps
+    {
+        font-weight: normal;
+        font-size: 320%;
+        float: left;
+        margin-top: -0.3225em;
+        margin-bottom: -0.3245em;
+    }
+}
+
+@media amzn-mobi
+{
+    span.dropcaps
+    {
+        font-size: 3em;
+        font-weight: bold;
+    }
+}
+<p class=“para”><span class=“dropcaps”>T</span>here is a sample
+{% endhighlight %}
+
+**Rule 9. 自定义字体选择**
+
+一本书最基本最主要的字体应该时设置在&lt;body&gt;上。如果你想添加一些额外的字体设置，比如粗体或者斜体，那么要保证这些样式是设置在文本上的而不是字体上的，这样不论用户选择哪一种字体，这些带有样式的元素都能正确显示。以下是两组正确以及错误的自定义字体的方式。
+
+* 错误的HTML代码
 {% highlight ruby %}
-start "" "%~dp0\airplay.exe" "%~dp0\1.mp3"
-{% endhighlight  %}
+<html>
+<body>
 
-也就是说在cmd文件中插入
+<p style=“font-family: PrimaryFont”>
+Primary font content</p>
 
-{% highlight  ruby %}
-start "" "%~dp0\指定程序名" "%~dp0\指定文件名"
-{% endhighlight  %}
+<p style=“font-family: SecondaryFont”>
+Secondary font content</p>
 
-其中%~dp0代表当前文件夹；%~dp0后面的斜线其实可以不用添加的，但是添加上去运行效果相同，因此加上更能清楚看到指定程序和指定文件名。
+<p style=“font-family: PrimaryFont”>
+Primary font content</p>
+
+<p style=“font-family: PrimaryFont”>
+Primary ofnt content</p>
+
+</body>
+</html>
+{% endhighlight %}
+
+* 正确的HTML代码
+{% highlight ruby %}
+<html>
+<body style=“font-family: PrimaryFont”>
+
+<p>Primary font content</p>
+
+<p style=“font-family: SecondaryFont”>
+Secondary font content</p>
+
+<p>Primary font content</p>
+
+<p>Primary font content</p>
+
+</body>
+</html>
+{%  endhighlight %}
+
+同样的结果也可以用CSS样式表实现。下面是一组正确以及错误的CSS代码。
+* 错误的CSS代码
+{% highlight css %}
+
+body {
+font-size: asize;
+}
+
+.indent {
+font-size: asize;
+font-family: PrimaryFont;
+}
+
+.sidebar-text {
+font-family: SecondaryFont;
+weight: bold;
+}
+
+{%  endhighlight %}
+
+* 正确的CSS代码
+{% highlight css %}
+
+body {
+font-family: PrimaryFont;
+font-size: asize;
+}
+
+.indent {
+font-size: asize;
+}
+
+.sidebar-text {
+font-family: SecondaryFont;
+weight: bold;
+}
+
+{%  endhighlight %}
+
+## 封面图片设置指南
+
+**Rule 1. 营销封面必须得有**
+
+营销封面最好是2560×1600px、350dpi。这样的图片在高清的Kindle设备上可以确保显示清晰。图片大小不得超过5MB。
+
+营销封面如果没有达到2560×1600，那么在上传的时候，会有一个提示。如果图片最小边小于500px，那么在网站上根本就不显示了。
+
+如果封面图片小于推荐的大小，那么亚马逊强烈推荐您重新制作一幅符合推荐大小的图片。不要拉伸图片来达标，因为这样图片显示出来效果可能会很差。
+
+封面图片上的内容：
+* 不能侵犯其他出版社或艺术家的版权
+* 不要提到价格或者其他临时性的促销活动
+
+**Rule 2. 内容封面也必须得有**
+
+请提供一幅高分辨率的大图片作为内容封面，因为如果封面太小的话，亚马逊的质检环节不会让这本书通过。
+
+通过OPF文件来设置封面，可以通过以下这两种方法：
+
+方法一：
+{% highlight ruby %}
+<manifest>
+...
+<item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
+...
+</manifest>
+{% endhighlight %}
+以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values)。
+
+方法二：
+{% highlight ruby %}
+<metadata>
+...
+<meta name=“cover” content=“my-cover-image” />
+...
+</metadata>
+...
+<manifest>
+...
+<item href=“MyCoverImagejpg” id=“my-cover-image” media-type=“image/jpeg” />
+...
+</manifest>
+{% endhighlight %}
+
+在metadata里面使用name=“cover”是必须的。
+
+**Rule. 3 内容封面不能出现两次**
+
+除了上面提到的方法之外，不要再在内容中添加封面，如果添加了，那么可能在图书中会出现两次封面。
+
+但是对于流式排版的书籍来说有一种特殊情况：如果你希望封面是HTML格式的，从而能够兼容其他供应商的软件，那么除了按照上面方式设置好封面以外，还要在OPF文件中，添加如下标签：
+{% highlight ruby %}
+<spine> <itemref idref="my-html-cover" linear="no" /> </spine>
+  ...
+<manifest> <item id="my-html-cover" href="cover.html" media-
+type="application/xhtml+xml" /> </manifest>
+...
+{% endhighlight %}
+其中，linear=“no”是必须的。
+
+同时，在landmarks nav元素中，添加如下标签：
+{% highlight ruby %}
+<nav epub:type="landmarks">
+<ol> <li><a epub:type="cover" href="cover.html "> Cover Image </a> </li></ol> </nav>
+{% endhighlight %}
+其中，epub: type=“cover”是必须的。
+
+设置封面，还可以在OPF文件中使用下面一种写法，而非使用landmarks nav元素：
+{% highlight ruby %}
+<guide> <reference type="cover" title="Cover Image" href="cover.html" /> </guide>
+{% endhighlight %}
+其中，type=“cover”是必须的。
+
+## 图表内容设置指南
+
+亚马逊强烈建议您为所有书籍设置HTML TOC。HTML目录适用与大多数书籍，固定布局的童书、绘本或漫画除外。
+
+**Rule 1. 推荐使用逻辑目录**
+
+亚马逊强烈建议所有的图书包含逻辑目录和HTML目录。这对于提高阅读体验十分重要，因为读者可以通过这个目录在不同章节间比较容易的跳转。用户在一开始就期待能够看到一个HTML目录，而逻辑目录也给用户提供了在书中跳转的一种新途径。如果书长于20页，那么添加逻辑目录就变得尤为重要了。
+
+逻辑目录时通过toc nav元素或者用于XML应用的导航控制文件（NCX）生成的。**注意：**固定布局的书不支持嵌套的锚点标签。
+
+* 用toc nav元素创建逻辑目录
+
+toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model)和[http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc)。
+
+创建toc nav元素能够同时创建逻辑目录和HTML目录。
+
+例：
+{% highlight ruby%}
+<nav epub: type=“toc”>
+<ol>
+<li><a href=”Sway_body.html#preface_1">AUTHOR'S NOTE</a></li>
+<li><a href=”Sway_body.html#part_1">PART ONE</a>
+   <ol>
+   <li><a href="Sway_body.html#chapter_1">THE HOUSES, 1969</a></li>
+   <li><a href="Sway_body.html#chapter_2">ROCK AND ROLL, 1962</a></li>
+   <li><a href="Sway_body.html#chapter_3">THE EMPRESS, 1928–1947</a></li>
+   </ol>
+</li>
+</ol>
+</nav>
+{% endhighlight %}
+
+下面这段取自OPF文件的代码告诉你如何在&lt;manifest&gt;标签中声明toc nav元素。
+
+例：
+{% highlight ruby %}
+<manifest>
+<item id="toc" properties="nav" href="xhtml/toc.xhtml" media-
+type="application/xhtml+xml"/>
+{% endhighlight %}
+可以选择将其用于&lt;spine&gt;标签，这样就可以被用来当作HTML目录。
+{% highlight %}
+<spine>
+<itemref idref=“toc” />
+{% endhighlight %}
+
+* 用NCX创建逻辑目录
+
+NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX](http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX)。
+
+例：
+{% highlight ruby %}
+<navMap>
+<navPoint class="titlepage" id="L1T" playOrder="1">
+<navLabel><text>AUTHOR'S NOTE</text></navLabel>
+<content src=”Sway_body.html#preface_1" />
+</navPoint>
+<navPoint class="book" id="level1-book1" playOrder="2">
+<navLabel><text>PART ONE</text></navLabel>
+<content src=”Sway_body.html#part_1" />
+<navPoint class="chapter" id="level2-book1chap01" playOrder="3">
+<navLabel><text>THE HOUSES, 1969</text></navLabel>
+<content src="Sway_body.html#chapter_1" />
+</navPoint>
+<navPoint class="chapter" id="level2-book1chap02" playOrder="4">
+<navLabel><text>ROCK AND ROLL, 1962</text></navLabel>
+<content src="Sway_body.html#chapter_2" />
+</navPoint>
+<navPoint class="chapter" id="level2-book1chap03" playOrder="5">
+<navLabel><text>THE EMPRESS, 1928–1947</text></navLabel>
+<content src="Sway_body.html#chapter_3" />
+</navPoint>
+</navPoint>
+</navMap>
+{% endhighlight %}
+下面这段取自OPF文件的代码说明了如何将NCX目录添加到一本书中。在&lt;manifest&gt;标签中声明NCX：
+{% highlight ruby %}
+<manifest>
+<item id=“toc” media-type=“appication/x-dtbncx+xml” href=“toc.ncx” />
+{% endhighlight %}
+将其用在&lt;spine&gt;中：
+{% highlight ruby %}
+<spine toc=“toc”>
+{% endhighlight %}
+
+
+
+
+
+
+
+
