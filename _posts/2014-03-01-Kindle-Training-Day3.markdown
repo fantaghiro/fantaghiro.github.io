@@ -101,7 +101,7 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 例：
 
 {%  highlight ruby %}
-p. para {
+p.para {
     font-family: “Times New Roman”;
     font-size: 4em;
     margin-bottom: 0;
@@ -308,7 +308,7 @@ toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec
 创建toc nav元素能够同时创建逻辑目录和HTML目录。
 
 例：
-{% highlight ruby%}
+{% highlight ruby %}
 <nav epub: type=“toc”>
 <ol>
 <li><a href=”Sway_body.html#preface_1">AUTHOR'S NOTE</a></li>
