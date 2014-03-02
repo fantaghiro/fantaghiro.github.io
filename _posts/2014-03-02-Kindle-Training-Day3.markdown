@@ -109,7 +109,7 @@ p.para {
     text-align: justify;
     text-indent: 0;
 }
-\@media amzn-kf8
+@media amzn-kf8
 {
     span.dropcaps
     {
@@ -120,7 +120,7 @@ p.para {
         margin-bottom: -0.3245em;
     }
 }
-\@media amzn-mobi
+@media amzn-mobi
 {
     span.dropcaps
     {
@@ -173,7 +173,7 @@ Secondary font content&lt;/p>
 * 错误的CSS代码
 
 <pre>
-body {
+body｛
 font-size: asize;
 }
 .indent {
@@ -200,180 +200,5 @@ font-size: asize;
 font-family: SecondaryFont;
 weight: bold;
 }
-</pre>
-
-## 封面图片设置指南
-<hr>
-
-**Rule 1. 营销封面必须得有**
-
-营销封面最好是2560×1600px、350dpi。这样的图片在高清的Kindle设备上可以确保显示清晰。图片大小不得超过5MB。
-
-营销封面如果没有达到2560×1600，那么在上传的时候，会有一个提示。如果图片最小边小于500px，那么在网站上根本就不显示了。
-
-如果封面图片小于推荐的大小，那么亚马逊强烈推荐您重新制作一幅符合推荐大小的图片。不要拉伸图片来达标，因为这样图片显示出来效果可能会很差。
-
-封面图片上的内容：
-* 不能侵犯其他出版社或艺术家的版权
-* 不要提到价格或者其他临时性的促销活动
-
-**Rule 2. 内容封面也必须得有**
-
-请提供一幅高分辨率的大图片作为内容封面，因为如果封面太小的话，亚马逊的质检环节不会让这本书通过。
-
-通过OPF文件来设置封面，可以通过以下这两种方法：
-
-方法一：
-
-<pre>
-&lt;manifest>
-...
-&lt;item id="cimage" media-type="image/jpeg" href="other_cover.jpg" properties="cover-image"/>
-...
-&lt;/manifest>
-</pre>
-
-以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values)。
-
-方法二：
-
-<pre>
-&lt;metadata>
-...
-&lt;meta name="cover" content="my-cover-image" />
-...
-&lt;/metadata>
-...
-&lt;manifest>
-...
-&lt;item href="MyCoverImagejpg" id="my-cover-image" media-type="image/jpeg"/>
-...
-&lt;/manifest>
-</pre>
-
-在metadata里面使用name="cover"是必须的。
-
-**Rule. 3 内容封面不能出现两次**
-
-除了上面提到的方法之外，不要再在内容中添加封面，如果添加了，那么可能在图书中会出现两次封面。
-
-但是对于流式排版的书籍来说有一种特殊情况：如果你希望封面是HTML格式的，从而能够兼容其他供应商的软件，那么除了按照上面方式设置好封面以外，还要在OPF文件中，添加如下标签：
-
-<pre>
-&lt;spine> &lt;itemref idref="my-html-cover" linear="no" /> &lt;/spine>
-  ...
-&lt;manifest> &lt;item id="my-html-cover" href="cover.html" media-
-type="application/xhtml+xml" /> &lt;/manifest>
-...
-</pre>
-
-其中，linear="no"是必须的。
-
-同时，在landmarks nav元素中，添加如下标签：
-
-<pre>
-&lt;nav epub:type="landmarks">
-&lt;ol> &lt;li>&lt;a epub:type="cover" href="cover.html "> Cover Image &lt;/a> &lt;/li>&lt;/ol> &lt;/nav>
-</pre>
-
-其中，epub: type="cover"是必须的。
-
-设置封面，还可以在OPF文件中使用下面一种写法，而非使用landmarks nav元素：
-
-<pre>
-&lt;guide> &lt;reference type="cover" title="Cover Image" href="cover.html" /> &lt;/guide>
-</pre>
-
-其中，type="cover"是必须的。
-
-## 图表内容设置指南
-<hr>
-
-亚马逊强烈建议您为所有书籍设置HTML TOC。HTML目录适用与大多数书籍，固定布局的童书、绘本或漫画除外。
-
-**Rule 1. 推荐使用逻辑目录**
-
-亚马逊强烈建议所有的图书包含逻辑目录和HTML目录。这对于提高阅读体验十分重要，因为读者可以通过这个目录在不同章节间比较容易的跳转。用户在一开始就期待能够看到一个HTML目录，而逻辑目录也给用户提供了在书中跳转的一种新途径。如果书长于20页，那么添加逻辑目录就变得尤为重要了。
-
-逻辑目录时通过toc nav元素或者用于XML应用的导航控制文件（NCX）生成的。**注意：**固定布局的书不支持嵌套的锚点标签。
-
-* 用toc nav元素创建逻辑目录
-
-toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model)和[http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc)。
-
-创建toc nav元素能够同时创建逻辑目录和HTML目录。
-
-例：
-
-<pre>
-&lt;nav epub: type="toc">
-&lt;ol>
-&lt;li>&lt;a href="Sway_body.html#preface_1">AUTHOR'S NOTE&lt;/a>&lt;/li>
-&lt;li>&lt;a href="Sway_body.html#part_1">PART ONE&lt;/a>
-   &lt;ol>
-   &lt;li>&lt;a href="Sway_body.html#chapter_1">THE HOUSES, 1969&lt;/a>&lt;/li>
-   &lt;li>&lt;a href="Sway_body.html#chapter_2">ROCK AND ROLL, 1962&lt;/a>&lt;/li>
-   &lt;li>&lt;a href="Sway_body.html#chapter_3">THE EMPRESS, 1928–1947&lt;/a>&lt;/li>
-   &lt;/ol>
-&lt;/li>
-&lt;/ol>
-&lt;/nav>
-</pre>
-
-下面这段取自OPF文件的代码告诉你如何在&lt;manifest&gt;标签中声明toc nav元素。
-
-例：
-
-<pre>
-&lt;manifest>
-&lt;item id="toc" properties="nav" href="xhtml/toc.xhtml" media-
-type="application/xhtml+xml"/>
-</pre>
-可以选择将其用于&lt;spine&gt;标签，这样就可以被用来当作HTML目录。
-<pre>
-&lt;spine>
-&lt;itemref idref="toc" />
-</pre>
-
-* 用NCX创建逻辑目录
-
-NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX](http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX)。
-
-例：
-
-<pre>
-&lt;navMap>
-&lt;navPoint class="titlepage" id="L1T" playOrder="1">
-&lt;navLabel>&lt;text>AUTHOR'S NOTE&lt;/text>&lt;/navLabel>
-&lt;content src=”Sway_body.html#preface_1" />
-&lt;/navPoint>
-&lt;navPoint class="book" id="level1-book1" playOrder="2">
-&lt;navLabel>&lt;text>PART ONE&lt;/text>&lt;/navLabel>
-&lt;content src=”Sway_body.html#part_1" />
-&lt;navPoint class="chapter" id="level2-book1chap01" playOrder="3">
-&lt;navLabel>&lt;text>THE HOUSES, 1969&lt;/text>&lt;/navLabel>
-&lt;content src="Sway_body.html#chapter_1" />
-&lt;/navPoint>
-&lt;navPoint class="chapter" id="level2-book1chap02" playOrder="4">
-&lt;navLabel>&lt;text>ROCK AND ROLL, 1962&lt;/text>&lt;/navLabel>
-&lt;content src="Sway_body.html#chapter_2" />
-&lt;/navPoint>
-&lt;navPoint class="chapter" id="level2-book1chap03" playOrder="5">
-&lt;navLabel>&lt;text>THE EMPRESS, 1928–1947&lt;/text>&lt;/navLabel>
-&lt;content src="Sway_body.html#chapter_3" />
-&lt;/navPoint>
-&lt;/navPoint>
-&lt;/navMap>
-</pre>
-
-下面这段取自OPF文件的代码说明了如何将NCX目录添加到一本书中。在&lt;manifest&gt;标签中声明NCX：
-
-<pre>
-&lt;manifest>
-&lt;item id="toc" media-type="appication/x-dtbncx+xml" href="toc.ncx" />
-</pre>
-将其用在&lt;spine&gt;中：
-<pre>
-&lt;spine toc="toc">
 </pre>
 
