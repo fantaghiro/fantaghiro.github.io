@@ -179,7 +179,6 @@ Secondary font content&lt;/p>
 同样的结果也可以用CSS样式表实现。下面是一组正确以及错误的CSS代码。
 * 错误的CSS代码
 <pre>
-
 body {
 font-size: asize;
 }
@@ -197,7 +196,6 @@ weight: bold;
 
 * 正确的CSS代码
 <pre>
-
 body {
 font-family: PrimaryFont;
 font-size: asize;
@@ -211,7 +209,6 @@ font-size: asize;
 font-family: SecondaryFont;
 weight: bold;
 }
-
 </pre>
 
 ## 封面图片设置指南
