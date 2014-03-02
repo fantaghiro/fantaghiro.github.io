@@ -102,7 +102,7 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 
 <pre>
 p.para {
-    font-family: “Times New Roman”;
+    font-family: "Times New Roman";
     font-size: 4em;
     margin-bottom: 0;
     margin-top: 0;
@@ -130,7 +130,7 @@ p.para {
 }
 </pre>
 <pre>
-&lt;p class=“para”>&lt;span class=“dropcaps”>T&lt;/span>here is a sample
+&lt;p class="para">&lt;span class="dropcaps">T&lt;/span>here is a sample
 </pre>
 
 **Rule 9. 自定义字体选择**
@@ -142,13 +142,13 @@ p.para {
 <pre>
 &lt;html>
 &lt;body>
-&lt;p style=“font-family: PrimaryFont”>
+&lt;p style="font-family: PrimaryFont">
 Primary font content&lt;/p>
-&lt;p style=“font-family: SecondaryFont”>
+&lt;p style="font-family: SecondaryFont">
 Secondary font content&lt;/p>
-&lt;p style=“font-family: PrimaryFont”>
+&lt;p style="font-family: PrimaryFont">
 Primary font content&lt;/p>
-&lt;p style=“font-family: PrimaryFont”>
+&lt;p style="font-family: PrimaryFont">
 Primary ofnt content&lt;/p>
 &lt;/body>
 &lt;/html>
@@ -158,9 +158,9 @@ Primary ofnt content&lt;/p>
 
 <pre>
 &lt;html>
-&lt;body style=“font-family: PrimaryFont”>
+&lt;body style="font-family: PrimaryFont">
 &lt;p>Primary font content&lt;/p>
-&lt;p style=“font-family: SecondaryFont”>
+&lt;p style="font-family: SecondaryFont">
 Secondary font content&lt;/p>
 &lt;p>Primary font content&lt;/p>
 &lt;p>Primary font content&lt;/p>
@@ -227,7 +227,7 @@ weight: bold;
 <pre>
 &lt;manifest>
 ...
-&lt;item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
+&lt;item id="cimage" media-type="image/jpeg" href="other_cover.jpg" properties="cover-image"/>
 ...
 &lt;/manifest>
 </pre>
@@ -239,18 +239,18 @@ weight: bold;
 <pre>
 &lt;metadata>
 ...
-&lt;meta name=“cover” content=“my-cover-image” />
+&lt;meta name="cover" content="my-cover-image" />
 ...
 &lt;/metadata>
 ...
 &lt;manifest>
 ...
-&lt;item href=“MyCoverImagejpg” id=“my-cover-image” media-type=“image/jpeg” />
+&lt;item href="MyCoverImagejpg" id="my-cover-image" media-type="image/jpeg"/>
 ...
 &lt;/manifest>
 </pre>
 
-在metadata里面使用name=“cover”是必须的。
+在metadata里面使用name="cover"是必须的。
 
 **Rule. 3 内容封面不能出现两次**
 
@@ -266,7 +266,7 @@ type="application/xhtml+xml" /> &lt;/manifest>
 ...
 </pre>
 
-其中，linear=“no”是必须的。
+其中，linear="no"是必须的。
 
 同时，在landmarks nav元素中，添加如下标签：
 
@@ -275,7 +275,7 @@ type="application/xhtml+xml" /> &lt;/manifest>
 &lt;ol> &lt;li>&lt;a epub:type="cover" href="cover.html "> Cover Image &lt;/a> &lt;/li>&lt;/ol> &lt;/nav>
 </pre>
 
-其中，epub: type=“cover”是必须的。
+其中，epub: type="cover"是必须的。
 
 设置封面，还可以在OPF文件中使用下面一种写法，而非使用landmarks nav元素：
 
@@ -283,7 +283,7 @@ type="application/xhtml+xml" /> &lt;/manifest>
 &lt;guide> &lt;reference type="cover" title="Cover Image" href="cover.html" /> &lt;/guide>
 </pre>
 
-其中，type=“cover”是必须的。
+其中，type="cover"是必须的。
 
 ## 图表内容设置指南
 <hr>
@@ -305,10 +305,10 @@ toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec
 例：
 
 <pre>
-&lt;nav epub: type=“toc”>
+&lt;nav epub: type="toc">
 &lt;ol>
-&lt;li>&lt;a href=”Sway_body.html#preface_1">AUTHOR'S NOTE&lt;/a>&lt;/li>
-&lt;li>&lt;a href=”Sway_body.html#part_1">PART ONE&lt;/a>
+&lt;li>&lt;a href="Sway_body.html#preface_1">AUTHOR'S NOTE&lt;/a>&lt;/li>
+&lt;li>&lt;a href="Sway_body.html#part_1">PART ONE&lt;/a>
    &lt;ol>
    &lt;li>&lt;a href="Sway_body.html#chapter_1">THE HOUSES, 1969&lt;/a>&lt;/li>
    &lt;li>&lt;a href="Sway_body.html#chapter_2">ROCK AND ROLL, 1962&lt;/a>&lt;/li>
@@ -331,7 +331,7 @@ type="application/xhtml+xml"/>
 可以选择将其用于&lt;spine&gt;标签，这样就可以被用来当作HTML目录。
 <pre>
 &lt;spine>
-&lt;itemref idref=“toc” />
+&lt;itemref idref="toc" />
 </pre>
 
 * 用NCX创建逻辑目录
@@ -369,10 +369,10 @@ NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 8
 
 <pre>
 &lt;manifest>
-&lt;item id=“toc” media-type=“appication/x-dtbncx+xml” href=“toc.ncx” />
+&lt;item id="toc" media-type="appication/x-dtbncx+xml" href="toc.ncx" />
 </pre>
 将其用在&lt;spine&gt;中：
 <pre>
-&lt;spine toc=“toc”>
+&lt;spine toc="toc">
 </pre>
 
