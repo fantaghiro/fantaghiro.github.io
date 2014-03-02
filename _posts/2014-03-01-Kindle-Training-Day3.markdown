@@ -138,7 +138,7 @@ p. para {
 一本书最基本最主要的字体应该时设置在&lt;body&gt;上。如果你想添加一些额外的字体设置，比如粗体或者斜体，那么要保证这些样式是设置在文本上的而不是字体上的，这样不论用户选择哪一种字体，这些带有样式的元素都能正确显示。以下是两组正确以及错误的自定义字体的方式。
 
 * 错误的HTML代码
-{% highlight html %}
+{% highlight ruby %}
 <html>
 <body>
 
@@ -159,7 +159,7 @@ Primary ofnt content</p>
 {% endhighlight %}
 
 * 正确的HTML代码
-{% highlight html %}
+{% highlight ruby %}
 <html>
 <body style=“font-family: PrimaryFont”>
 
@@ -216,6 +216,7 @@ weight: bold;
 {%  endhighlight %}
 
 ## 封面图片设置指南
+<hr>
 
 **Rule 1. 营销封面必须得有**
 
@@ -236,7 +237,7 @@ weight: bold;
 通过OPF文件来设置封面，可以通过以下这两种方法：
 
 方法一：
-{% highlight html %}
+{% highlight ruby %}
 <manifest>
 ...
 <item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
@@ -246,7 +247,7 @@ weight: bold;
 以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values)。
 
 方法二：
-{% highlight xml %}
+{% highlight ruby %}
 <metadata>
 ...
 <meta name=“cover” content=“my-cover-image” />
@@ -267,7 +268,7 @@ weight: bold;
 除了上面提到的方法之外，不要再在内容中添加封面，如果添加了，那么可能在图书中会出现两次封面。
 
 但是对于流式排版的书籍来说有一种特殊情况：如果你希望封面是HTML格式的，从而能够兼容其他供应商的软件，那么除了按照上面方式设置好封面以外，还要在OPF文件中，添加如下标签：
-{% highlight xml %}
+{% highlight ruby %}
 <spine> <itemref idref="my-html-cover" linear="no" /> </spine>
   ...
 <manifest> <item id="my-html-cover" href="cover.html" media-
@@ -277,19 +278,20 @@ type="application/xhtml+xml" /> </manifest>
 其中，linear=“no”是必须的。
 
 同时，在landmarks nav元素中，添加如下标签：
-{% highlight xml %}
+{% highlight ruby %}
 <nav epub:type="landmarks">
 <ol> <li><a epub:type="cover" href="cover.html "> Cover Image </a> </li></ol> </nav>
 {% endhighlight %}
 其中，epub: type=“cover”是必须的。
 
 设置封面，还可以在OPF文件中使用下面一种写法，而非使用landmarks nav元素：
-{% highlight xml %}
+{% highlight ruby %}
 <guide> <reference type="cover" title="Cover Image" href="cover.html" /> </guide>
 {% endhighlight %}
 其中，type=“cover”是必须的。
 
 ## 图表内容设置指南
+<hr>
 
 亚马逊强烈建议您为所有书籍设置HTML TOC。HTML目录适用与大多数书籍，固定布局的童书、绘本或漫画除外。
 
@@ -306,7 +308,7 @@ toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec
 创建toc nav元素能够同时创建逻辑目录和HTML目录。
 
 例：
-{% highlight html%}
+{% highlight ruby%}
 <nav epub: type=“toc”>
 <ol>
 <li><a href=”Sway_body.html#preface_1">AUTHOR'S NOTE</a></li>
@@ -324,7 +326,7 @@ toc nav元素符合IDPF 3.0标准，详情可见：[http://idpf.org/epub/30/spec
 下面这段取自OPF文件的代码告诉你如何在&lt;manifest&gt;标签中声明toc nav元素。
 
 例：
-{% highlight xml %}
+{% highlight ruby %}
 <manifest>
 <item id="toc" properties="nav" href="xhtml/toc.xhtml" media-
 type="application/xhtml+xml"/>
@@ -340,7 +342,7 @@ type="application/xhtml+xml"/>
 NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX](http://www.niso.org/workrooms/daisy/Z39- 86-2005.html#NCX)。
 
 例：
-{% highlight xml %}
+{% highlight ruby %}
 <navMap>
 <navPoint class="titlepage" id="L1T" playOrder="1">
 <navLabel><text>AUTHOR'S NOTE</text></navLabel>
@@ -365,19 +367,12 @@ NCX时IDPF2.0的一部分，请参见[http://www.niso.org/workrooms/daisy/Z39- 8
 </navMap>
 {% endhighlight %}
 下面这段取自OPF文件的代码说明了如何将NCX目录添加到一本书中。在&lt;manifest&gt;标签中声明NCX：
-{% highlight xml %}
+{% highlight ruby %}
 <manifest>
 <item id=“toc” media-type=“appication/x-dtbncx+xml” href=“toc.ncx” />
 {% endhighlight %}
 将其用在&lt;spine&gt;中：
-{% highlight xml %}
+{% highlight ruby %}
 <spine toc=“toc”>
 {% endhighlight %}
-
-
-
-
-
-
-
 
