@@ -141,19 +141,14 @@ p.para {
 <pre>
 &lt;html>
 &lt;body>
-
 &lt;p style=“font-family: PrimaryFont”>
 Primary font content&lt;/p>
-
 &lt;p style=“font-family: SecondaryFont”>
 Secondary font content&lt;/p>
-
 &lt;p style=“font-family: PrimaryFont”>
 Primary font content&lt;/p>
-
 &lt;p style=“font-family: PrimaryFont”>
 Primary ofnt content&lt;/p>
-
 &lt;/body>
 &lt;/html>
 </pre>
@@ -162,16 +157,11 @@ Primary ofnt content&lt;/p>
 <pre>
 &lt;html>
 &lt;body style=“font-family: PrimaryFont”>
-
 &lt;p>Primary font content&lt;/p>
-
 &lt;p style=“font-family: SecondaryFont”>
 Secondary font content&lt;/p>
-
 &lt;p>Primary font content&lt;/p>
-
 &lt;p>Primary font content&lt;/p>
-
 &lt;/body>
 &lt;/html>
 </pre>
@@ -182,12 +172,10 @@ Secondary font content&lt;/p>
 body {
 font-size: asize;
 }
-
 .indent {
 font-size: asize;
 font-family: PrimaryFont;
 }
-
 .sidebar-text {
 font-family: SecondaryFont;
 weight: bold;
@@ -200,11 +188,9 @@ body {
 font-family: PrimaryFont;
 font-size: asize;
 }
-
 .indent {
 font-size: asize;
 }
-
 .sidebar-text {
 font-family: SecondaryFont;
 weight: bold;
