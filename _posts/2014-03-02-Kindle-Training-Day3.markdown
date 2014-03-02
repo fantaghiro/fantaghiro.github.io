@@ -226,11 +226,11 @@ weight: bold;
 方法一：
 
 <pre>
-&lt;manifest>
+&lt;manifest&gt;
 ...
-&lt;item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
+&lt;item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/&gt;
 ...
-&lt;/manifest>
+&lt;/manifest&gt;
 </pre>
 
 以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values)。
