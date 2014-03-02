@@ -109,7 +109,7 @@ p.para {
     text-align: justify;
     text-indent: 0;
 }
-@media amzn-kf8
+\@media amzn-kf8
 {
     span.dropcaps
     {
@@ -120,7 +120,7 @@ p.para {
         margin-bottom: -0.3245em;
     }
 }
-@media amzn-mobi
+\@media amzn-mobi
 {
     span.dropcaps
     {
@@ -129,6 +129,7 @@ p.para {
     }
 }
 </pre>
+
 <pre>
 &lt;p class="para">&lt;span class="dropcaps">T&lt;/span>here is a sample
 </pre>
