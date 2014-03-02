@@ -64,7 +64,7 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 
 亚马逊推荐在HTML文件中的<code>&lt;head></code>部分中用<code>&lt;meta></code>标签。例如：
 
-{% highlight html %}
+{% highlight HTML %}
 &lt;html&gt;
 &lt;head&gt;
 ...
