@@ -140,3 +140,31 @@ p.para {
 * 错误的HTML代码
 
 
+<pre>
+&lt;html>
+&lt;body>
+&lt;p style=“font-family: PrimaryFont”>
+Primary font content&lt;/p>
+&lt;p style=“font-family: SecondaryFont”>
+Secondary font content&lt;/p>
+&lt;p style=“font-family: PrimaryFont”>
+Primary font content&lt;/p>
+&lt;p style=“font-family: PrimaryFont”>
+Primary ofnt content&lt;/p>
+&lt;/body>
+&lt;/html>
+</pre>
+
+* 正确的HTML代码
+
+<pre>
+&lt;html>
+&lt;body style=“font-family: PrimaryFont”>
+&lt;p>Primary font content&lt;/p>
+&lt;p style=“font-family: SecondaryFont”>
+Secondary font content&lt;/p>
+&lt;p>Primary font content&lt;/p>
+&lt;p>Primary font content&lt;/p>
+&lt;/body>
+&lt;/html>
+</pre>
