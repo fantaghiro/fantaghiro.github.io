@@ -100,7 +100,7 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 
 例：
 
-{% highlight css %}
+<pre>
 p.para {
     font-family: “Times New Roman”;
     font-size: 4em;
@@ -168,7 +168,7 @@ Secondary font content&lt;/p>
 
 同样的结果也可以用CSS样式表实现。下面是一组正确以及错误的CSS代码。
 * 错误的CSS代码
-{% highlight css %}
+<pre>
 body {
 font-size: asize;
 }
