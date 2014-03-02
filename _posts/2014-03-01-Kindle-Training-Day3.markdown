@@ -100,36 +100,3 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<c
 
 例：
 
-{% highlight ruby %}
-p.para {
-    font-family: “Times New Roman”;
-    font-size: 4em;
-    margin-bottom: 0;
-    margin-top: 0;
-    text-align: justify;
-    text-indent: 0;
-}
-
-@media amzn-kf8
-{
-    span.dropcaps
-    {
-        font-weight: normal;
-        font-size: 320%;
-        float: left;
-        margin-top: -0.3225em;
-        margin-bottom: -0.3245em;
-    }
-}
-
-@media amzn-mobi
-{
-    span.dropcaps
-    {
-        font-size: 3em;
-        font-weight: bold;
-    }
-}
-&lt;p class=“para”>&lt;span class=“dropcaps”>T&lt;/span>here is a sample
-{% endhighlight %}
-
