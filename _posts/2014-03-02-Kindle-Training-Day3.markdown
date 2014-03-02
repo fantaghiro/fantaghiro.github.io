@@ -202,3 +202,35 @@ weight: bold;
 }
 </pre>
 
+## 封面图片设置指南
+<hr>
+
+**Rule 1. 营销封面必须得有**
+
+营销封面最好是2560×1600px、350dpi。这样的图片在高清的Kindle设备上可以确保显示清晰。图片大小不得超过5MB。
+
+营销封面如果没有达到2560×1600，那么在上传的时候，会有一个提示。如果图片最小边小于500px，那么在网站上根本就不显示了。
+
+如果封面图片小于推荐的大小，那么亚马逊强烈推荐您重新制作一幅符合推荐大小的图片。不要拉伸图片来达标，因为这样图片显示出来效果可能会很差。
+
+封面图片上的内容：
+* 不能侵犯其他出版社或艺术家的版权
+* 不要提到价格或者其他临时性的促销活动
+
+**Rule 2. 内容封面也必须得有**
+
+请提供一幅高分辨率的大图片作为内容封面，因为如果封面太小的话，亚马逊的质检环节不会让这本书通过。
+
+通过OPF文件来设置封面，可以通过以下这两种方法：
+
+方法一：
+
+<pre>
+&lt;manifest>
+...
+&lt;item id=“cimage” media-type=“image/jpeg” href=“other_cover.jpg” properties=“cover-image”/>
+...
+&lt;/manifest>
+</pre>
+
+以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30- publications-20111011.html#sec-item-property-values)。
