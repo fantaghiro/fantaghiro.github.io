@@ -8,7 +8,7 @@ tags:
 ---
 Hi, there. I'm testing here.
 
-{% highlight html %}
+{% highlight ruby %}
 <html>
 <body style=“font-family: PrimaryFont”>
 <p>Primary font content</p>
