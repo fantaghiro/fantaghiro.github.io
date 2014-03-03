@@ -8,10 +8,10 @@ tags:
 ---
 
 Hi, there, I'm testing.
-{% highlight html %}
+{% highlight css %}
 
-<body>
-<span></span>
-</body>
+.para {
+weight: bold;
+color: red;
 
 {% endhighlight %}
