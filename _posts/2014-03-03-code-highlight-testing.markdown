@@ -9,5 +9,7 @@ tags:
 hi, there, I'm testing!
 
 {% highlight html  %}
+<body>
 <div></div>
+</body>
 {% endhighlight  %}
