@@ -10,8 +10,6 @@ tags:
 Hi, there, I'm testing.
 {% highlight css %}
 
-.para {
-weight: bold;
-color: red;
+blablablabal
 
 {% endhighlight %}
