@@ -8,7 +8,7 @@ tags:
 ---
 
 Hi, there, I'm testing.
-{% highlight ruby %}
+{% highlight bash %}
 
 blablablabal
 
