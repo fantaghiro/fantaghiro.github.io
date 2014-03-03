@@ -9,13 +9,7 @@ tags:
 Hi, there. I'm testing here.
 
 {% highlight ruby %}
-&lt;html>
-&lt;body style=“font-family: PrimaryFont”>
-&lt;p>Primary font content&lt;/p>
-&lt;p style=“font-family: SecondaryFont”>
-Secondary font content&lt;/p>
-&lt;p>Primary font content&lt;/p>
-&lt;p>Primary font content&lt;/p>
-&lt;/body>
-&lt;/html>
+def foo
+  puts 'foo'
+end
 {% endhighlight %}
