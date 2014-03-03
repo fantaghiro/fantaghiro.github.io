@@ -8,8 +8,8 @@ tags:
 ---
 hi, there, I'm testing!
 
-{% highlight html  %}
+{% highlight html linenos %}
 <body>
 <div></div>
 </body>
-{% endhighlight  %}
+{% endhighlight %}
