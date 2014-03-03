@@ -9,13 +9,13 @@ tags:
 Hi, there. I'm testing here.
 
 {% highlight ruby %}
-<html>
-<body style=“font-family: PrimaryFont”>
-<p>Primary font content</p>
-<p style=“font-family: SecondaryFont”>
-Secondary font content</p>
-<p>Primary font content</p>
-<p>Primary font content</p>
-</body>
-</html>
+&lt;html>
+&lt;body style=“font-family: PrimaryFont”>
+&lt;p>Primary font content&lt;/p>
+&lt;p style=“font-family: SecondaryFont”>
+Secondary font content&lt;/p>
+&lt;p>Primary font content&lt;/p>
+&lt;p>Primary font content&lt;/p>
+&lt;/body>
+&lt;/html>
 {% endhighlight %}
