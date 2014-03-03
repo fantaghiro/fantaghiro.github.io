@@ -67,9 +67,9 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<p
 {% highlight html %}
 <html>
 <head>
-...
+<!--...-->
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-...
+<!--...-->
 {% endhighlight %}
 
 **3.1.5 空格以及UNICODE字符**
