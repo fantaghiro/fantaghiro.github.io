@@ -264,8 +264,7 @@ weight: bold;
 {% highlight xml %}
 <spine> <itemref idref="my-html-cover" linear="no" /> </spine>
 <!--...-->
-<manifest> <item id="my-html-cover" href="cover.html" media-
-type="application/xhtml+xml" /> </manifest>
+<manifest> <item id="my-html-cover" href="cover.html" media-type="application/xhtml+xml" /> </manifest>
 <!--...-->
 {% endhighlight %}
 
