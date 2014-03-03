@@ -237,7 +237,7 @@ weight: bold;
 </manifest>
 {% endhighlight %}
 
-以上这种写法符合IDPF 3.0标准，详情请参见http://idpf.org/epub/30/spec/epub30-publications-20111011.html#sec-item-property-values。
+以上这种写法符合IDPF 3.0标准，详情请参见[http://idpf.org/epub/30/spec/epub30-publications-20111011.html#sec-item-property-values](http://idpf.org/epub/30/spec/epub30-publications-20111011.html#sec-item-property-values)。
 
 方法二：（下划线内容为必须、下同）
 
@@ -294,7 +294,7 @@ type="application/xhtml+xml" /> </manifest>
 逻辑目录时通过toc nav元素或者用于XML应用的导航控制文件（NCX）生成的。**注意：**固定布局的书不支持嵌套的锚点标签。
 用toc nav元素创建逻辑目录
 
-toc nav元素符合IDPF 3.0标准，详情可见： http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model和http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc。
+toc nav元素符合IDPF 3.0标准，详情可见： [http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model)和[http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-toc)。
 
 创建toc nav元素能够同时创建逻辑目录和HTML目录。
 
@@ -427,7 +427,7 @@ Kindle平台支持用landmarks nav元素来定义封面、目录以及开始位�
 
 注意！landmarks nav元素，尤其是TOC landmark nav元素并不能替代目录本身。
 
-landmarks nav元素是IDPF3.0标准中的一部分，请参见：http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model和http://www.idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-landmarks
+landmarks nav元素是IDPF3.0标准中的一部分，请参见：[http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model](http://idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-model)和[http://www.idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-landmarks](http://www.idpf.org/epub/30/spec/epub30-contentdocs-20111011.html#sec-xhtml-nav-def-types-landmarks)
 
 ##3.5 GUIDE ITEM设置指南
 <hr>
@@ -596,7 +596,7 @@ Kindle平台支持GIF、BMP、JPEG、不透明的PNG以及SVG图片。
 &lt;tspan> 
 &lt;use>
 
-请参阅：http://www.webkit.org/projects/svg/status.xml
+请参阅：[http://www.webkit.org/projects/svg/status.xml](http://www.webkit.org/projects/svg/status.xml)
 
 ##3.7 表格制作指南
 <hr>
