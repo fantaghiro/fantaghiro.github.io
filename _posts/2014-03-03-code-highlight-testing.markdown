@@ -9,7 +9,16 @@ tags:
 hi, there, I'm testing!
 
 {% highlight html linenos %}
+<html>
 <body>
-<div></div>
+<p style="font-family: PrimaryFont">
+Primary font content</p>
+<p style="font-family: SecondaryFont">
+Secondary font content</p>
+<p style="font-family: PrimaryFont">
+Primary font content</p>
+<p style="font-family: PrimaryFont">
+Primary ofnt content</p>
 </body>
+</html>
 {% endhighlight %}
