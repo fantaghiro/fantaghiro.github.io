@@ -12,7 +12,7 @@ tags:
 KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<p>使用缩进样式。比如：
 
 {% highlight html %}
-<p style="text-indent: 0"> <!-- 首行无缩进 -->
-<p style="text-indent: 10%"> <!-- 首行缩进10% -->
-<p style="text-indent: 5em"> <!-- 首行缩进5个字符宽度 -->
+<p style="text-indent: 0"> 
+<p style="text-indent: 10%"> 
+<p style="text-indent: 5em"> 
 {% endhighlight %}
