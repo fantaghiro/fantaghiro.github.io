@@ -54,34 +54,3 @@ KindleGen会自动为每段首行缩进。如果要改变这一设置，请为<p
 <p style="text-indent: 5em"> <!-- 首行缩进5个字符宽度 -->
 {% endhighlight %}
 
-要给每段之前添加一些间隙，在<p>标签上使用margin-top样式。
-
-**3.1.4 其他支持的编码**
-
-只要满足以下两个条件，Kindle电子书就支持该编码：
-* HTML文件中明确声明了编码
-* 用于将源文件转码的电脑支持该编码并且知道如何将其转为UNICODE编码
-
-亚马逊推荐在HTML文件中的<head>部分中用<meta>标签。例如：
-
-{% highlight html %}
-<html>
-<head>
-<!--...-->
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-<!--...-->
-{% endhighlight %}
-
-**3.1.5 空格以及UNICODE字符**
-
-仅支持正常空格字符、不可分空格字符(\&nbsp;)以及零宽不连字（\&zwnj;）。用其他空格会干扰选择区域、字典查词还有换行的算法。
-不要使用UNICODE格式字符，它们也会造成问题。
-
-**3.1.6 支持等宽字符**
-
-如果使用以下标签或者属性，Kindle可以显示为等宽字符：&lt;pre>、&lt;samp>、&lt;kbd>、&lt;tt>、&lt;font face="courier">、&lt;font face="monospace">。
-
-除了&lt;pre>标签以外，上面列出的标签都不会改变文本的对齐方式。如果要使文本左对齐的话，那么将这些标签包在一个<div>标签里面，然后对这个<div>设置text-align: left的CSS样式。
-
-出版商可以用自己的字体。亚马逊有质量检查环节，可以确保这些字体能够在电子墨水设备上显示正常，而且不影响阅读体验。但是不要用Charis字体，在Kindle阅读器中已经用更高质量的字体替换它。
-
