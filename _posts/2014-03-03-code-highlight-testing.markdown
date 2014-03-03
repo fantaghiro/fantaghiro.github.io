@@ -628,4 +628,149 @@ colspan和rowspan这样的属性值必须小于等于表格的总列或行数。
 
 **3.7.5 优化表格，使其达到最佳大小**
 
-优化后的表格不能大于Kindle屏幕的10倍大小。Kindle屏幕大约是24行60个字符，Kindle DX可以显示更多字符。字数限制指的是每行上显示的字符数。
+优化后的表格不能大于Kindle屏幕的10倍大小。Kindle屏幕大约是24行60个字符，Kindle DX可以显示更多字符。字数限制指的是每行上显示的字符数。行数和每行上的最多字符数有多种搭配（详见下图）。如果给定行数的表格，字符数超过了限制，那么就请将该表格分割为更小的表格或图片。
+
+行数、（每行）最多字数
+
+1—24、600
+
+25—48、300
+
+49—72、180
+
+72—120、120
+
+121—240、60
+
+##3.8 Adobe Digital Editions兼容性指南
+<hr>
+
+当使用Adobe Digital Editions的时候，确保manifest里面item的id是唯一的。Adobe Digital Editions并不强制ID的唯一性，这一点与IDPF的标准是不一致的。
+
+{% highlight xml %}
+<manifest>
+<item id="css1" href="core.css" media-type="text/css"/>
+<item id="css2" href="template.css" media-type="text/css"/>
+</manifest>
+{% endhighlight %}
+
+## 3.9 样式指南
+<hr>
+
+**3.9.1 用缩进式的HTML目录**
+
+要创建一个实用的、可导航的、多层级的目录，亚马逊推荐在HTML目录中使用如下语法。下面这个例子说明了利用style属性和CSS类写同一效果的两种方法：
+
+使用style属性：
+
+{% highlight html %}
+<div>Section 1</div> 
+<div style="margin-left:1em;">Chapter 1</div>
+<div style="margin-left:1em;">Chapter 2</div>
+<div style="margin-left:1em;">Chapter 3</div>
+<div style="margin-left:2em;">Subchapter 1</div>
+<div style="margin-left:2em;">Subchapter 2</div>
+<div style="margin-left:1em;">Chapter 4</div> 
+<div style="margin-left:2em;">Subchapter 1</div>
+<div>Section 2</div>
+{% endhighlight %}
+
+使用CSS类：
+{% highlight html %}
+<style> 
+div.chapter { margin-left: 1em} 
+div.subchapter { margin-left: 2em} 
+</style>
+<div>Section 1</div>
+<div class="chapter">Chapter 1</div> 
+<div class="chapter">Chapter 2</div> 
+<div class="chapter">Chapter 3</div> 
+<div class="subchapter">Subchapter 1</div> 
+<div class="subchapter">Subchapter 2</div> 
+<div class="chapter">Chapter 4</div> 
+<div class="subchapter">Subchapter 1</div> 
+<div>Section 2</div>
+{% endhighlight %}
+
+**3.9.2 正确设置侧边栏**
+
+要给KF8格式的书中添加侧边栏内容，通过CSS添加float元素。但是，如果电子书格式是Mobi 7，则要在侧边栏内容的上下添加&lt;hr />标签，将其与主干内容的文本区分开来。当指定浮动元素的位置的时候，避免使用负的em值。
+
+## 3.10 HTML指南
+<hr>
+
+**3.10.1 建立结构清晰的HTML文档（XHTML）**
+
+KF8支持HTML5.0，但是下面这些HTML的特性无法完全支持：forms、frames和Javascript。
+当为Kindle建立HTML或者XHTML源文档的时候，请参阅下面这几本启蒙书，它会告诉你如何创建结构清晰的HTML文档。
+
+[HTML, XHTML, and CSS by Elizabeth Castro (published by Peachpit Press)](http://www.amazon.com/HTML-XHTML-and-CSS/dp/B000SEFC5Q)、[Beginning HTML with CSS and XHTML: Modern Guide and Reference by David Schultz and Craig Cook (published by Apress)](http://www.amazon.com/Beginning-HTML-CSS-XHTML-Reference/dp/B001D25ZPE)和[Beginning Web Programming with HTML, XHTML, and CSS by John Duckett (published by Wrox)](http://www.amazon.com/Beginning-Programming-HTML-XHTML-ebook/dp/B000VZQVVG)。
+
+**3.10.2 锚点必须加在格式标签的前面**
+
+对的写法：
+
+{% highlight html %}
+<a name=”Chapter1”/><h1>Chapter 1</h1>
+{% endhighlight %}
+
+错的写法：
+
+{% highlight html %}
+<h1><a name=”Chapter1”/>Chapter 1</h1>
+{% endhighlight %}
+
+**3.10.3 Epub中的Guide Item是可选的**
+
+Guide item在Epub格式中是可选的，但是非常推荐可以添加进去。Kindle支持封面、目录以及文本guide item。如果你选择不添加封面、目录的guide item，这些项目也还是会在Kindle目录中出现，不过是以灰化不可点击的形式。
+
+**3.10.4 使用单列布局；避免绝对位置**
+
+使用单列布局，尽量避免使用position: absolute来进行对齐。
+
+**3.10.5 用position: absolute来设定图片上面显示的文字**
+
+图片上面显示的文字需要精确定位，因此可以用position: absolute来实现。仅将该属性设置用于例如童书这样的固定布局的书籍，使文字固定在相对于背景图片元素的特定位置。
+
+**3.10.6 避免使用负值**
+
+在定位文本和设定外边距的时候，避免使用负值。以负值来定位，而且没有用内边距抵消的话，会造成内容显示到屏幕外面。比如说，如果你想要text-indent: -2em，那么要同时设置padding-left: 2em。
+
+**3.10.7 避免使用脚本**
+
+不支持脚本。在转换的时候，所有源文件中的脚本都会被删去。带有动画的SVG也是不支持的。
+
+**3.10.8 避免对行高使用负值**
+
+不要将行高设为负值。不支持这样的设置。
+
+##3.11 嵌入字体指南
+<hr>
+
+KF8支持在电子书中嵌入字体。这些字体可以是Open Type（OTF）或True Type（TTF）。Kindle不推荐使用Type 1（Postscript）字体。为了能够给Kindle读者以最佳阅读体验，使用Type 1字体的流式排版的电子书都会用Kindle的默认字体显示。在支持KF8的设备或者应用中，用户可以选择是否使用出版社提供的字体。
+
+对嵌入电子书的字体文件进行了有意识的混淆，从而减少复用的可能性，但是出版商自己也有责任确保拥有字体的使用权限和许可。除非嵌入的字体对于内容意义有影响，否则亚马逊推荐使用安装在Kindle设备和应用中的默认系列字体，因为这些字体本身就经过挑选，以保证高质量的文字显示。
+
+目前，在设备以及应用中，只有嵌入的字体是不可得的。出版商不需要在Kindle书中包含进Charis字体，因为这是一种开源授权字体。当选择某一种字体的时候，请考虑有视觉障碍的人的使用和视觉感受，选择简单、清晰，并且在所有平板或电子墨背景上能够产生鲜明对照的字体。
+
+##3.12 外部链接指南
+<hr>
+
+只有在能够直接提升阅读体验、完善阅读内容的情况下，才考虑在Kindle电子书中添加外部链接。下面几种是可以考虑添加外链的情况：
+
+* 链接至与内容直接相关的多媒体内容
+* 链接至额外的辅助资源（例如：核对清单、评测表格、模型图案等类似的可供打印的材料）
+* 链接至主题网址（例如：在关于美国政府的书中添加链接至whitehouse.gov的链接）
+* 链接至图书或作者的社交媒体（例如：Twitter）
+
+下面是避免添加的一些外链：
+
+* 链接至淫秽内容
+* 链接至亚马逊以外的eBook网店
+* 链接至需要填入用户信息的网页表单（例如：邮箱、地址等）
+* 链接至违法、有害、侵权或粗鲁的内容
+* 链接至恶意内容（例如：病毒、钓鱼网站等）。
+
+亚马逊保留自行移除这些链接的权利。
+
+
