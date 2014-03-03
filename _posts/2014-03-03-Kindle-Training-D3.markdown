@@ -21,9 +21,3 @@ tags:
 * 用户反馈说他们拥有选择设备中提供的默认字体的选择权，这一点的体验非常好。
 
 
-{% highlight html %}
-<p style="text-indent: 0"> <!-- 首行无缩进 -->
-<p style="text-indent: 10%"> <!-- 首行缩进10% -->
-<p style="text-indent: 5em"> <!-- 首行缩进5个字符宽度 -->
-{% endhighlight %}
-
