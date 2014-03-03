@@ -7,3 +7,7 @@ tags:
 - 代码高亮
 ---
 hi, there, I'm testing!
+
+{% highlight html  %}
+<div></div>
+{% endhighlight  %}
