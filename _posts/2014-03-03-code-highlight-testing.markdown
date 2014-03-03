@@ -9,7 +9,7 @@ tags:
 
 Hi, there, I'm testing.
 {% highlight html %}
-<body>
-<span></span>
-</body>
+&lt;body>
+&lt;span>&lt;/span>
+&lt;/body>
 {% endhighlight %}
