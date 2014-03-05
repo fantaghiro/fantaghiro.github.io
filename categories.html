@@ -6,8 +6,20 @@ title: 文章分类
 <div class="page-categories">
     <ul class="list-group">
     {% for cat in site.categories %}
+    
+    {% case cat[0] %} 
+    {% when writeups %} 
+    {% categoryTitle = "随便写写" %} 
+    {% when publishing %} 
+    {% categoryTitle = "出版业态" %} 
+    {% when edu %} 
+    {% categoryTitle = "数字教育" %}     
+    {% else %} 
+    {% categoryTitle = "英语好玩" %} 
+    {% endcase %}
+    
     <li class="list-group-item">
-        <a href="#{{ cat[0] }}-ref" class="category-heading" title="分类:{{ cat[0] }}" >{{ cat[0] }}</a>
+        <a href="#{{ cat[0] }}-ref" class="category-heading" title="分类:{{ cat[0] }}" >{{ categoryTitle }}</a>
         <span class="badge">{{ cat[1].size }}</span>        
     </li>
     {% endfor %}
