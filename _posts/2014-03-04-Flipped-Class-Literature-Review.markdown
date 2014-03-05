@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 翻转课堂文献研究笔记压缩
-category: edu
+category: 数字教育
 tags:
 - 翻转课堂
 - 教育技术
