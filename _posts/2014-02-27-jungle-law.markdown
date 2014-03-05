@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 就是技术歧视，有本事你别用！
-category: 随便写写
+category: writeups
 tags:
 - 随笔
 - 社会观察

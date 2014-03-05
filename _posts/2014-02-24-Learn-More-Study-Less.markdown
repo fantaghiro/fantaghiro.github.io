@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 《如何高效学习》读书笔记
-category: 随便写写
+category: writeups
 tags:
 - 读书笔记
 - 学习方法

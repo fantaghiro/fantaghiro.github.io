@@ -1,7 +1,7 @@
 ---
 layout: post
 title: origin不是“原始的”意思吗？
-category: 英语好玩
+category: english
 tags:
 - 词汇
 - 学习方法

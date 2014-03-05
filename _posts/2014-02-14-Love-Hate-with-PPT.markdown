@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 我与PPT的爱恨情仇
-category: 数字教育
+category: edu
 tags:
 - 随笔
 - PPT

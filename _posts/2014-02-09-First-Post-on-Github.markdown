@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Github上第一帖
-category: 随便写写
+category: writeups
 tags:
 - 随笔
 ---

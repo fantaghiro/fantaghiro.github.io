@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 对MOOC进行的文献研究笔记压缩
-category: 数字教育
+category: edu
 tags:
 - MOOC
 - 慕课

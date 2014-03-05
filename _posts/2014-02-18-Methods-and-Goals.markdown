@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 剑客与铁匠
-category: 随便写写
+category: writeups
 tags:
 - 随笔
 ---
