@@ -7,8 +7,8 @@ title: 文章分类
     <ul class="list-group">
     {% for cat in site.categories %}
     <li class="list-group-item">
-        <span class="badge">{{ cat[1].size }}</span>
         <a href="#{{ cat[0] }}-ref" class="category-heading" title="分类:{{ cat[0] }}" >{{ cat[0] }}</a>
+        <span class="badge">{{ cat[1].size }}</span>        
     </li>
     {% endfor %}
     </ul>
