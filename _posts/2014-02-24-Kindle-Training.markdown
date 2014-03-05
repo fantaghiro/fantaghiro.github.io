@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 亚马逊Kindle电子书培训（一）
-category: publishing
+category: 出版业态
 tags:
 - kindle
 - 电子书
