@@ -4,6 +4,7 @@ layout: default
 
 <p class="meta">
   {{ page.date | date: "%B %d, %Y" }} 
+  &nbsp;&nbsp;|&nbsp;&nbsp;
   <span id="post-tags">
     {% for tag in page.tags %}
       <a href="/tags.html#{{ tag }}-ref">{{ tag }}</a>
