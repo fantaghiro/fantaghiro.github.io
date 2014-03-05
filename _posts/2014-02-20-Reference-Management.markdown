@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 我的文献管理环境
-category: edu
+category: 数字教育
 tags:
 - 文献管理
 - 科研
