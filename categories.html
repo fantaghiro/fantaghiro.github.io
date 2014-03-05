@@ -9,13 +9,13 @@ title: 文章分类
     
     {% case cat[0] %} 
     {% when 'writeups' %} 
-    {% categoryTitle = '随便写写' %} 
+    {% assign categoryTitle = '随便写写' %} 
     {% when 'publishing' %} 
-    {% categoryTitle = '出版业态' %} 
+    {% assign categoryTitle = '出版业态' %} 
     {% when 'edu' %} 
-    {% categoryTitle = '数字教育' %}     
+    {% assign categoryTitle = '数字教育' %}     
     {% else %} 
-    {% categoryTitle = '英语好玩' %} 
+    {% assign categoryTitle = '英语好玩' %} 
     {% endcase %}
     
     <li class="list-group-item">
