@@ -8,14 +8,14 @@ title: 文章分类
     {% for cat in site.categories %}
     
     {% case cat[0] %} 
-    {% when “writeups” %} 
-    {% categoryTitle = "随便写写" %} 
-    {% when “publishing” %} 
-    {% categoryTitle = "出版业态" %} 
-    {% when “edu” %} 
-    {% categoryTitle = "数字教育" %}     
+    {% when 'writeups' %} 
+    {% categoryTitle = '随便写写' %} 
+    {% when 'publishing' %} 
+    {% categoryTitle = '出版业态' %} 
+    {% when 'edu' %} 
+    {% categoryTitle = '数字教育' %}     
     {% else %} 
-    {% categoryTitle = "英语好玩" %} 
+    {% categoryTitle = '英语好玩' %} 
     {% endcase %}
     
     <li class="list-group-item">
