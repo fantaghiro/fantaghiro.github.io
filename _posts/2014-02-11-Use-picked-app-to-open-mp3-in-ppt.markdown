@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 在PPT中使用指定音频程序打开指定MP3文件的方法
-category: edu
+category: 数字教育
 tags:
 - PPT
 - 教育技术
