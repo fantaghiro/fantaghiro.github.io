@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PPT电子教案导航设计思考
-category: edu
+category: 数字教育
 tags:
 - PPT
 ---
