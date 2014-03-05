@@ -4,17 +4,17 @@ layout: default
 
 <p class="meta">
   {{ page.date | date: "%B %d, %Y" }} 
+  <span id="post-tags">
+    {% for tag in page.tags %}
+      <a href="/tags.html#{{ tag }}-ref">{{ tag }}</a>
+    {% endfor %}
+  </span>
   <a href="/">
     <i class="home fa fa-home"></i>
   </a>
 </p>
 
 <h1 class="title">{{ page.title }}</h1>
-<div id="post-tags">
-{% for tag in page.tags %}
-<a href="/tags.html#{{ tag }}-ref">{{ tag }}</a>
-{% endfor %}
-</div>
 
 <div id="post">
   {{ content }}
