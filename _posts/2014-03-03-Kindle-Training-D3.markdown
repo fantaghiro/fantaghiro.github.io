@@ -3,7 +3,7 @@ layout: post
 title: 亚马逊Kindle电子书培训（三）
 category: publishing
 tags:
-- Kindle
+- kindle
 - 电子书
 - 亚马逊
 - 培训
