@@ -25,7 +25,37 @@ title: 文章分类
     {% endfor %}
     </ul>
 </div>
+<hr>
 
+<div class="page-blank">
+{% for cat in site.categories %}
+
+    {% case cat[0] %} 
+    {% when 'writeups' %} 
+    {% assign categoryTitle = '随便写写' %} 
+    {% when 'publishing' %} 
+    {% assign categoryTitle = '出版业态' %} 
+    {% when 'edu' %} 
+    {% assign categoryTitle = '数字教育' %}     
+    {% else %} 
+    {% assign categoryTitle = '英语好玩' %} 
+    {% endcase %}
+
+    <div class="page-list">
+        <h3 id="{{ categoryTitle }}-ref"> {{ cat[0] }}</h3>
+        <ul>
+            {% for post in cat[1] %}
+            <li>
+                <span>{{ post.date | date:"%Y年%m月%d日" }} </span>
+                <a href="{{ post.url }}">{{post.title}} </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}
+</div>
+
+<hr>
 <div>
   <h2 id="edu-ref"><i class="icon-book"></i> 数字教育</h2>
   <ul id="blog-posts" class="posts">
