@@ -345,7 +345,7 @@ table {
 }
 table td {
   border: 1px solid #ddd;
-  padding: 6px 13px;
+  padding: 0.5em;
 }
 table tr:nth-child(2n) {
   background-color: #f8f8f8;
