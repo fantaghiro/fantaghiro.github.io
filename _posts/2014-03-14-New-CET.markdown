@@ -115,3 +115,15 @@ tags:
 4. Dictation：
 > 填空原文字数249。每读一次大约3分50秒。
 
+<!--下面添加table的样式-->
+<script>
+function loadStyles(url) {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = url;
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(link);
+}
+loadStyles("./assets/css/table.css")
+</script>
