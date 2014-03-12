@@ -16,22 +16,22 @@ tags:
 
 四级和六级的试卷结构、测试内容、测试题型、分值比例和考试时间如下：
 
-<table style="border: 1px solid black; padding: 2px;">
-        <tr style="border: 1px solid black; padding: 2px;">
+<table>
+        <tr>
             <td>试卷结构</td>
             <td colspan="2">测试内容</td>
             <td>测试题型</td>
             <td>分值比例</td>
             <td>考试时间</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td>写作</td>
             <td colspan="2">写作</td>
             <td>短文写作</td>
             <td>15%</td>
             <td>30分钟</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td rowspan="4" style="vertical-align: middle">听力理解</td>
             <td rowspan="2">听力对话</td>
             <td>短对话</td>
@@ -39,47 +39,47 @@ tags:
             <td>8%</td>
             <td rowspan="4" style="vertical-align: middle">30分钟</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td>长对话</td>
             <td>多项选择</td>
             <td>7%</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td rowspan="2">听力短文</td>
             <td>短文理解</td>
             <td>多项选择</td>
             <td>10%</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td>短文听力</td>
             <td>单词及词组听写</td>
             <td>10%</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td rowspan="3" style="vertical-align: middle">阅读理解</td>
             <td colspan="2">词汇理解</td>
             <td>选词填空</td>
             <td>5%</td>
             <td rowspan="3" style="vertical-align: middle">40分钟</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td colspan="2">长篇阅读</td>
             <td>匹配</td>
             <td>10%</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td colspan="2">仔细阅读</td>
             <td>多项选择</td>
             <td>20%</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td>翻译</td>
             <td colspan="2">汉译英</td>
             <td>段落翻译</td>
             <td>15%</td>
             <td>30分钟</td>
         </tr>
-        <tr style="border: 1px solid black; padding: 2px;">
+        <tr>
             <td colspan="4">总计</td>
             <td>100%</td>
             <td>130分钟</td>
