@@ -114,16 +114,3 @@ tags:
 > 第一段字数306（包含了Questions的字数以及M.和W.）；不包含Questions的字数是260。第二段：297、264。第三段：276、231。前两段约三分半钟；第三段约3分10秒。
 4. Dictation：
 > 填空原文字数249。每读一次大约3分50秒。
-
-<!--下面添加table的样式-->
-<script>
-function loadStyles(url) {
-    var link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.type = "text/css";
-    link.href = url;
-    var head = document.getElementsByTagName("head")[0];
-    head.appendChild(link);
-}
-loadStyles("assets/css/table.css")
-</script>
