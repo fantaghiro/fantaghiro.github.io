@@ -331,5 +331,24 @@
 	.remove-bottom { margin-bottom: 0 !important; }
 	.half-bottom { margin-bottom: 10px !important; }
 	.add-bottom { margin-bottom: 20px !important; }
+	
+/* 添加表格样式
+================================================== */
+table {
+ width: 100%;
+ overflow: auto;
+ display: block;
+ border-collapse: collapse;
+ border-spacing: 0;
+ box-sizing: border-box;
+ border-color: gray;
+}
+table td {
+  border: 1px solid #ddd;
+  padding: 6px 13px;
+}
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
 
 
