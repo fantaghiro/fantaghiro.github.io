@@ -15,8 +15,8 @@ tags:
 <hr>
 
 四级和六级的试卷结构、测试内容、测试题型、分值比例和考试时间如下：
+
 <table>
-    <thead>
         <tr>
             <td>试卷结构</td>
             <td colspan="2">测试内容</td>
@@ -24,8 +24,6 @@ tags:
             <td>分值比例</td>
             <td>考试时间</td>
         </tr>
-    </thead>
-    <tbody>
         <tr>
             <td>写作</td>
             <td colspan="2">写作</td>
@@ -86,7 +84,6 @@ tags:
             <td>100%</td>
             <td>130分钟</td>
         </tr>
-    </tbody>
 </table>
 
 ##二、新题型说明
