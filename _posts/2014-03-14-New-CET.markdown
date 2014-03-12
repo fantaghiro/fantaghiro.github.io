@@ -125,5 +125,5 @@ function loadStyles(url) {
     var head = document.getElementsByTagName("head")[0];
     head.appendChild(link);
 }
-loadStyles("../assets/css/table.css")
+loadStyles("assets/css/table.css")
 </script>
