@@ -9,9 +9,9 @@ tags:
 - 外教社
 ---
 
-#《全景商务英语（Double Dealing）》
-#初级教程（暂略）
-#中级教程（INTERMEDIATE BUSINESS ENGLISH COURSE）
+<b>初级教程</b>（暂略）
+<b>中级教程（INTERMEDIATE BUSINESS ENGLISH COURSE）</b>
+<hr>
 ## 教材基本信息：
 - 编者：James Schofield (james@summertown.co.uk)
 - 出版社：Cengage Learning、外教社
@@ -190,8 +190,8 @@ Self-study的内容设置：
 
 下面是各版块简要的教学提示、练习题答案以及音频脚本
 
-#高级教程
-
+<b>高级教程</b>
+<hr>
 高级教程板块设置比中级教程简单，每单元包含以下四部分：
 - Business Briefing / Focus
 - Business Language
