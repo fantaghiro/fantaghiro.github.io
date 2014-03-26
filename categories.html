@@ -14,8 +14,10 @@ title: 文章分类
     {% assign categoryTitle = '出版业态' %} 
     {% when 'edu' %} 
     {% assign categoryTitle = '数字教育' %}     
-    {% else %} 
+    {% when 'english' %} 
     {% assign categoryTitle = '英语好玩' %} 
+    {% else %} 
+    {% assign categoryTitle = '教材研究' %}    
     {% endcase %}
     
     <li class="list-group-item">
@@ -38,8 +40,10 @@ title: 文章分类
     {% assign categoryTitle = '出版业态' %} 
     {% when 'edu' %} 
     {% assign categoryTitle = '数字教育' %}     
-    {% else %} 
+    {% when 'english' %} 
     {% assign categoryTitle = '英语好玩' %} 
+    {% else %} 
+    {% assign categoryTitle = '教材研究' %}     
     {% endcase %}
 
     <div class="page-list">
