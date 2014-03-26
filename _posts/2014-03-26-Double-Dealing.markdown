@@ -10,6 +10,7 @@ tags:
 ---
 
 <b>初级教程</b>（暂略）
+<hr>
 <b>中级教程（INTERMEDIATE BUSINESS ENGLISH COURSE）</b>
 <hr>
 ## 教材基本信息：
