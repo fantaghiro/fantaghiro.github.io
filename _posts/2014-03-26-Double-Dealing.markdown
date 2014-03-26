@@ -15,7 +15,7 @@ tags:
 ## 教材基本信息：
 - 编者：James Schofield (james@summertown.co.uk)
 - 出版社：Cengage Learning、外教社
-- ISBN 978-7-5446-1122-0/F·0025
+- ISBN 978-7-5446-1122-0/F·0025<!--more-->
 - 前言中叙述的特点：
   - 集商务英语语言知识和商务技能于一体的情景式商务英语教材
   - 突出“以人为本”
