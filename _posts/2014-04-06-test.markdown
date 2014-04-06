@@ -8,7 +8,6 @@ tags:
 - 前端
 ---
 
-\+ \- / \* 
 
 {{% highlight js linenos %}}
 function getElementsByClassName(node, classname) {
