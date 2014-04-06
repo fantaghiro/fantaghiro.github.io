@@ -100,7 +100,7 @@ beatles.vocalist = lennon; 那么beatles.vocalist.name得值就是"John"。
 = 用于赋值
 
 ()
-
+<!--
 \+\+ \-\-
 
 \+ 可用于拼接字符串
@@ -142,7 +142,6 @@ if (condition) {
 ## 循环语句
 
 ### while循环
-<!--
 
 while (condition) {
   statements;
