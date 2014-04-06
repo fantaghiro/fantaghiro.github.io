@@ -8,6 +8,8 @@ tags:
 - 前端
 ---
 
+{{ toc }}
+
 # 一、JavaScript简史
 
 # 二、JavaScript语法
