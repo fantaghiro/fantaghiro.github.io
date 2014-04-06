@@ -1,0 +1,1008 @@
+---
+layout: post
+title: JavaScript DOM编程艺术（第2版）读书笔记
+category: writeups
+tags:
+- 读书笔记
+- javascript
+- 前端
+---
+
+<!--more-->
+
+<p><div class="toc"><div class="toc">
+<ul>
+<li><a href="#一javascript简史">一、JavaScript简史</a></li>
+<li><a href="#二javascript语法">二、JavaScript语法</a><ul>
+<li><a href="#语法">语法</a><ul>
+<li><a href="#语句">语句</a></li>
+<li><a href="#注释">注释</a></li>
+<li><a href="#变量">变量</a></li>
+<li><a href="#数据类型">数据类型</a></li>
+<li><a href="#数组">数组</a></li>
+<li><a href="#对象">对象</a></li>
+</ul>
+</li>
+<li><a href="#操作">操作</a><ul>
+<li><a href="#算数操作符">算数操作符</a></li>
+</ul>
+</li>
+<li><a href="#条件语句">条件语句</a><ul>
+<li><a href="#比较操作符">比较操作符</a></li>
+<li><a href="#逻辑操作符">逻辑操作符</a></li>
+</ul>
+</li>
+<li><a href="#循环语句">循环语句</a><ul>
+<li><a href="#while循环">while循环</a></li>
+<li><a href="#for-循环">for 循环</a></li>
+</ul>
+</li>
+<li><a href="#函数">函数</a><ul>
+<li><a href="#变量的作用域">变量的作用域</a></li>
+</ul>
+</li>
+<li><a href="#对象-1">对象</a><ul>
+<li><a href="#内建对象">内建对象</a></li>
+<li><a href="#宿主对象">宿主对象</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#三dom">三、DOM</a><ul>
+<li><a href="#文档dom中的d">文档：DOM中的“D”</a></li>
+<li><a href="#对象dom中的o">对象：DOM中的“O”</a></li>
+<li><a href="#模型dom中的m">模型：DOM中的“M”</a></li>
+<li><a href="#节点">节点</a></li>
+<li><a href="#获取元素">获取元素</a></li>
+<li><a href="#盘点知识点">盘点知识点</a></li>
+<li><a href="#获取和设置属性">获取和设置属性</a><ul>
+<li><a href="#getattribute">getAttribute</a></li>
+<li><a href="#setattribute">setAttribute</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#四案例研究javascript图片库">四、案例研究：JavaScript图片库</a><ul>
+<li><a href="#事件处理函数">事件处理函数</a><ul>
+<li><a href="#childnodes属性">childNodes属性</a></li>
+<li><a href="#nodetype属性">nodeType属性</a></li>
+<li><a href="#nodevalue属性">nodeValue属性</a></li>
+<li><a href="#firstchild和lastchild属性">firstChild和lastChild属性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#五最佳实践">五、最佳实践</a><ul>
+<li><a href="#平稳退化优雅降级">平稳退化（优雅降级）</a><ul>
+<li><a href="#javascript伪协议不推荐">“Javascript:”伪协议——不推荐</a></li>
+<li><a href="#内嵌的事件处理函数如果js被禁用也照样无效">内嵌的事件处理函数——如果JS被禁用，也照样无效</a></li>
+<li><a href="#能够优雅降级的方案">能够优雅降级的方案</a></li>
+</ul>
+</li>
+<li><a href="#向css学习">向CSS学习</a></li>
+<li><a href="#分离javascript">分离JavaScript</a></li>
+<li><a href="#向后兼容">向后兼容</a><ul>
+<li><a href="#对象检测">对象检测</a></li>
+<li><a href="#浏览器嗅探技术">浏览器嗅探技术</a></li>
+</ul>
+</li>
+<li><a href="#性能考虑">性能考虑</a><ul>
+<li><a href="#尽量少访问dom和尽量减少标记">尽量少访问DOM和尽量减少标记</a></li>
+<li><a href="#合并和放置脚本">合并和放置脚本</a></li>
+<li><a href="#压缩脚本">压缩脚本</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#六案例研究图片库改进版">六、案例研究：图片库改进版</a><ul>
+<li><a href="#它支持平稳退化吗">它支持平稳退化吗</a></li>
+<li><a href="#它的javascript语html标记是分离的吗">它的JavaScript语HTML标记是分离的吗</a><ul>
+<li><a href="#添加事件处理函数">添加事件处理函数</a></li>
+<li><a href="#共享onload事件">共享onload事件</a></li>
+<li><a href="#不要做太多的假设">不要做太多的假设</a></li>
+<li><a href="#优化">优化</a></li>
+<li><a href="#键盘访问">键盘访问</a></li>
+<li><a href="#把javascript与css结合起来">把JavaScript与CSS结合起来</a></li>
+<li><a href="#dom-core和html-dom">DOM Core和HTML-DOM</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#七动态创建标记">七、动态创建标记</a><ul>
+<li><a href="#一些传统方法">一些传统方法</a><ul>
+<li><a href="#documentwrite">document.write</a></li>
+<li><a href="#innerhtml属性">innerHTML属性</a></li>
+</ul>
+</li>
+<li><a href="#dom方法">DOM方法</a><ul>
+<li><a href="#createelement方法">createElement方法</a></li>
+<li><a href="#appendchild方法">appendChild方法</a></li>
+<li><a href="#createtextnode方法">createTextNode方法</a></li>
+<li><a href="#在已有元素前插入一个新元素">在已有元素前插入一个新元素</a></li>
+<li><a href="#在现有方法后插入一个新元素">在现有方法后插入一个新元素</a></li>
+</ul>
+</li>
+<li><a href="#ajax">Ajax</a><ul>
+<li><a href="#xmlhttprequest对象">XMLHttpRequest对象</a></li>
+<li><a href="#渐进增强与ajax">渐进增强与Ajax</a></li>
+<li><a href="#hijax">Hijax</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#八充实文档的内容">八、充实文档的内容</a><ul>
+<li><a href="#不应该做什么">不应该做什么</a></li>
+<li><a href="#检索和添加信息">检索和添加信息</a></li>
+</ul>
+</li>
+<li><a href="#九css-dom">九、CSS-DOM</a><ul>
+<li><a href="#三位一体的网页">三位一体的网页</a><ul>
+<li><a href="#结构层structural-layer">结构层（structural layer）</a></li>
+<li><a href="#表示层presentation-layer">表示层（presentation layer）</a></li>
+<li><a href="#行为层behavior-layer">行为层（behavior layer）</a></li>
+<li><a href="#分离">分离</a></li>
+</ul>
+</li>
+<li><a href="#style属性">style属性</a><ul>
+<li><a href="#获取样式">获取样式</a></li>
+<li><a href="#设置样式">设置样式</a></li>
+</ul>
+</li>
+<li><a href="#何时该用dom脚本设置样式">何时该用DOM脚本设置样式</a><ul>
+<li><a href="#根据元素在节点树里的位置来设置样式">根据元素在节点树里的位置来设置样式</a></li>
+<li><a href="#根据某种条件反复设置某种样式">根据某种条件反复设置某种样式</a></li>
+<li><a href="#响应事件">响应事件</a></li>
+</ul>
+</li>
+<li><a href="#classname属性">className属性</a></li>
+</ul>
+</li>
+<li><a href="#十用javascript实现动画效果">十、用JavaScript实现动画效果</a><ul>
+<li><a href="#动画基础知识">动画基础知识</a><ul>
+<li><a href="#位置">位置</a></li>
+<li><a href="#时间">时间</a></li>
+<li><a href="#时间递增量">时间递增量</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#十一html5">十一、HTML5</a><ul>
+<li><a href="#html5简介">HTML5简介</a></li>
+<li><a href="#来自朋友的忠告">来自朋友的忠告</a></li>
+<li><a href="#几个示例">几个示例</a><ul>
+<li><a href="#canvas">Canvas</a></li>
+<li><a href="#音频和视频">音频和视频</a></li>
+<li><a href="#表单">表单</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#十二综合示例略">十二、综合示例（略）</a></li>
+<li><a href="#附录-javascript库略">附录 JavaScript库（略）</a></li>
+</ul>
+</div>
+</div>
+</p>
+
+<h1 id="一javascript简史">一、JavaScript简史</h1>
+
+<h1 id="二javascript语法">二、JavaScript语法</h1>
+
+<h2 id="语法">语法</h2>
+
+<h3 id="语句">语句</h3>
+
+<p>可换行分割也可分号分割，推荐后者</p>
+
+<h3 id="注释">注释</h3>
+
+<ul>
+<li>单行注释用 //</li>
+<li>多行注释用 /* */</li>
+</ul>
+
+<h3 id="变量">变量</h3>
+
+<ul>
+<li>赋值</li>
+<li>声明变量是好习惯但JS没有强制 <br>
+<ul><li>var mood, age;</li>
+<li>var mood = “happy”, age = 33;</li></ul></li>
+<li>变量名 <br>
+<ul><li>允许包含字母、数字、美元符号、下划线</li>
+<li>第一个字符不可以是数字</li>
+<li>一般通过下划线或驼峰格式命名长变量名</li></ul></li>
+</ul>
+
+<h3 id="数据类型">数据类型</h3>
+
+<p>JS是弱类型语言（weakly typed）</p>
+
+<p>【1】 字符串</p>
+
+<p>可以用单引号或双引号。用双引号包住单引号，里面的单引号前面要嫁反斜线\进行转义；单引号包住双引号也如此。</p>
+
+<p>【2】 数值</p>
+
+<p>JS允许任意位小数，这样的数成为浮点数。也可以使用负数和负数浮点数。</p>
+
+<p>【3】 布尔值</p>
+
+<p>true 或 false</p>
+
+<p>布尔值不是字符串，不要用引号括起来</p>
+
+<h3 id="数组">数组</h3>
+
+<ul>
+<li>var beatles = Array(4);</li>
+<li>var beatles = Array();</li>
+<li>beatles[0] = “John”;</li>
+<li>var beatles = [“John”, “Paul”, “George”, “Ringo”];</li>
+<li>var lennon = [“John”, 1940, false];</li>
+<li>var name = “John”; beatles[0] = name;</li>
+<li>var names = [“Ringo”, “John”, “George”, “Paul”]; beatles[1] = name [3];</li>
+<li>var lennon = [“John”, 1940, false]; var beatles = []; beatles[0] = lennon; beatles[0][0] = “John”;</li>
+</ul>
+
+<p>关联数组：用字符串代替数字值</p>
+
+<p>var lennon = Array(); lennon[“name”] = “John”; lennon[“year”] = 1940; lennon[“living”] = false;</p>
+
+<p>但是不推荐使用关联数组，这种情况下推荐使用对象（object）。</p>
+
+<h3 id="对象">对象</h3>
+
+<p>var lennon = Object(); <br>
+lennon.name = “John”; <br>
+lennon.year = 1940; <br>
+lennon.living = false;</p>
+
+<p>也可以写成</p>
+
+<p>var lennon = { name:”John”, year:1940, living:false };</p>
+
+<p>如果建立 var beatles = Array(); beatles[0] = lennon; 那么beatles[0].name的值就是”John”。</p>
+
+<p>也可以把beatles数组声明为对象而不是传统数组，如：</p>
+
+<p>var beatles = {}; <br>
+beatles.vocalist = lennon; 那么beatles.vocalist.name得值就是”John”。</p>
+
+<h2 id="操作">操作</h2>
+
+<h3 id="算数操作符">算数操作符</h3>
+
+<p>+ - / * </p>
+
+<p>= 用于赋值</p>
+
+<p>()</p>
+
+<p>++ –</p>
+
+<p>+ 可用于拼接字符串</p>
+
+<p>alert(“10” + 20); 会返回字符串”2010“</p>
+
+<p>alert (10 + 20); 会返回数值30</p>
+
+<p>+= 它可以一次性完成“加法和赋值”操作，例如：</p>
+
+<p>var year = 2010; <br>
+var message = “The year is “; <br>
+message += year;</p>
+
+<p>执行完上面语句后，变量message得值将是”The year is 2010”。</p>
+
+<h2 id="条件语句">条件语句</h2>
+
+<p>if (condition) { <br>
+  statements; <br>
+}</p>
+
+<p>if (condition) { <br>
+  statements;  <br>
+} else { <br>
+  statements; <br>
+}</p>
+
+<h3 id="比较操作符">比较操作符</h3>
+
+<p>&gt; &lt; &gt;= &lt;= == != === !==</p>
+
+<h3 id="逻辑操作符">逻辑操作符</h3>
+
+<p>&amp;&amp; || !</p>
+
+<h2 id="循环语句">循环语句</h2>
+
+<h3 id="while循环">while循环</h3>
+
+<p>while (condition) { <br>
+  statements; <br>
+}</p>
+
+<p>do … while 循环</p>
+
+<p>do { <br>
+  statements; <br>
+} while (condition);</p>
+
+<h3 id="for-循环">for 循环</h3>
+
+<p>for (initial condition; test condition; alter condition) { <br>
+  statements; <br>
+}</p>
+
+<p>如：</p>
+
+<p>var beatles = Array (“John”, “Paul”, “George”, “Ringo”);</p>
+
+<p>for (var count = 0; count &lt; beatles.length; count++) { <br>
+  alert(beatles[count]); <br>
+}</p>
+
+<h2 id="函数">函数</h2>
+
+<p>定义函数的语法：</p>
+
+<p>function name(arguments) { <br>
+  statements; <br>
+}</p>
+
+<p>函数可以用变量传入数据，也可以用return返回数据。我们还可以把函数当作一种数据类型来使用，这意味着可以把一个函数的调用结果赋给一个变量。</p>
+
+<h3 id="变量的作用域">变量的作用域</h3>
+
+<p>全局变量 VS 局部变量</p>
+
+<p>如果在某个函数中使用了var，那个变量就将被视为一个局部变量。函数在行为方面应该像是一个自给自足得脚本，在定义一个函数时，一定要把它内部的变量全部明确声明为局部变量。</p>
+
+<h2 id="对象-1">对象</h2>
+
+<p>对象里的数据可以通过两种形式访问：属性、方法</p>
+
+<ul>
+<li>属性：隶属于某个特定对象才能调用的函数</li>
+<li>方法：只有某个特定对象才能调用的函数</li>
+</ul>
+
+<p>在JS里，属性和方法都使用“点”来访问：</p>
+
+<ul>
+<li>Object.property</li>
+<li>Object.method()</li>
+</ul>
+
+<p>为给定对象创建一个实例需要使用new关键字。</p>
+
+<p>我们可以利用JS创建自己的对象，JS中还有一系列预先定义的“内建对象”。</p>
+
+<h3 id="内建对象">内建对象</h3>
+
+<p>如Array对象、Math对象、Date对象等。</p>
+
+<h3 id="宿主对象">宿主对象</h3>
+
+<p>由浏览器提供的预定义对象被称为宿主对象，如Form、Image、Element等。</p>
+
+<h1 id="三dom">三、DOM</h1>
+
+<h2 id="文档dom中的d">文档：DOM中的“D”</h2>
+
+<h2 id="对象dom中的o">对象：DOM中的“O”</h2>
+
+<ul>
+<li>用户定义对象</li>
+<li>内建对象</li>
+<li>宿主对象</li>
+</ul>
+
+<p>window对象对应着浏览器窗口本身，这个对象的属性和方法通常统称为BOM（浏览器对象模型）.BOM提供了window.open和window.blur等方法。BOM在JS中名声不好。</p>
+
+<h2 id="模型dom中的m">模型：DOM中的“M”</h2>
+
+<h2 id="节点">节点</h2>
+
+<ul>
+<li>元素节点</li>
+<li>文本节点</li>
+<li>属性节点</li>
+</ul>
+
+<h2 id="获取元素">获取元素</h2>
+
+<ul>
+<li>getElementById(id)</li>
+<li>getElementsByTagName(tag) 注意这种方法返回的永远是一个对象数组（首先返回的是数组，第二、数组里每一项都是对象）</li>
+<li>getElementsByClassName(class) 注意：HTML5 DOM才支持；要指定多个类名，只要在字符串参数中用空格分隔类名即可）</li>
+</ul>
+
+<p>getElementsByClassName方法很有用，但是要较新浏览器才可以，为了弥补不足，通常用下面的方法来实现自己得getElementByClassName:</p>
+
+<p>{{% highlight js linenos %}} <br>
+function getElementsByClassName(node, classname) { <br>
+  if (node.getElementsByClassName) { <br>
+    //使用现有方法 <br>
+    return node.getElementsByClassName(classname); <br>
+  } else { <br>
+    var results = new Array(); <br>
+    var elems = node.getElementsByTagName(“*”); <br>
+    for (var i=0; i<elems.length; i++)="" {="" <br="">
+      if(elems[i].className.indexOf(classname) != -1) { <br>
+        results[results.length] = elems[i]; <br>
+      } <br>
+    } <br>
+    return results; <br>
+  } <br>
+} <br>
+{{% endhighlight %}}</elems.length;></p>
+
+<h2 id="盘点知识点">盘点知识点</h2>
+
+<ul>
+<li>一份文档就是一棵节点树</li>
+<li>节点分为：元素节点、属性节点、文本节点等</li>
+<li>getElementById返回一个对象，对应一个特定的元素节点</li>
+<li>getElementsByTagName和getElementsByClassName将返回一个对象数组，分别对应着文档里的一组特定的元素节点</li>
+<li>每一个节点都是一个对象</li>
+</ul>
+
+<h2 id="获取和设置属性">获取和设置属性</h2>
+
+<h3 id="getattribute">getAttribute</h3>
+
+<p>object.getAttribute(attribute)</p>
+
+<h3 id="setattribute">setAttribute</h3>
+
+<p>object.setAttribute(attribute, value)</p>
+
+<p>注意：通过setAttribute对文档做出修改后，在通过浏览器得view source选项去查看文档的源代码时看到的仍将是改变前的属性值，也就是说，setAttribute做出的修改不会反映在文档本身的源代码里。这种“表里不一”得现象源自DOM得工作模式：先加载文档的静态内容，再动态刷新，动态刷新不影响文档的静态内容。这正是DOM的真正威力：对页面内容进行刷新却不需要在浏览器里刷新页面。</p>
+
+<h1 id="四案例研究javascript图片库">四、案例研究：JavaScript图片库</h1>
+
+<h2 id="事件处理函数">事件处理函数</h2>
+
+<ul>
+<li>onmouseover</li>
+<li>onmouseout</li>
+<li>onclick</li>
+</ul>
+
+<p>添加事件处理函数的语法为：event = “JavaScript statement(s)”</p>
+
+<p>事件处理函数的工作机制：在给某个元素添加了事件处理函数后，一旦事件发生，相应的JavaScript代码就会执行。被调用的JavaScript代码可以返回一个值，这个值将被传递给那个事件处理函数。例如，给某个链接电价一个onclick事件处理函数，并让这个处理函数所触发的JavaScript代码返回布尔值true或false。这样依赖，当这个链接被点击时，如果那段JS代码返回的值是true，onclick事件处理函数就认为“这个链接被点击了”；反之，如果返回的值是false，onclick事件处理函数就认为“这个链接没有被点击”。</p>
+
+<p>在onclick事件处理函数所触发的JS代码里增加一条return false语句，就可以防止用户被带到目标链接窗口。</p>
+
+<h3 id="childnodes属性">childNodes属性</h3>
+
+<p>在一棵节点树上，childNotes属性可以用来获取任何一个元素的所有子元素，它是一个包含这个元素全部子元素的数组：element.childNodes</p>
+
+<h3 id="nodetype属性">nodeType属性</h3>
+
+<p>用法：node.nodeType</p>
+
+<p>nodeType属性总共有12种可取值，但其中仅有3种具有实用价值：</p>
+
+<ul>
+<li>元素节点的nodeType属性值是1</li>
+<li>属性节点的nodeType属性值为2</li>
+<li>文本节点的nodeType属性值是3</li>
+</ul>
+
+<h3 id="nodevalue属性">nodeValue属性</h3>
+
+<p>如果想改变一个文本节点的值，那就使用DOM提供的nodeValue属性，它用来得到（和设置）一个节点的值：node.nodeValue</p>
+
+<h3 id="firstchild和lastchild属性">firstChild和lastChild属性</h3>
+
+<p>node.firstChild等价于node.childNodes[0]</p>
+
+<p>node.lastChild等价于node.childNodes[node.childNodes.length-1]</p>
+
+<h1 id="五最佳实践">五、最佳实践</h1>
+
+<h2 id="平稳退化优雅降级">平稳退化（优雅降级）</h2>
+
+<h3 id="javascript伪协议不推荐">“Javascript:”伪协议——不推荐</h3>
+
+<h3 id="内嵌的事件处理函数如果js被禁用也照样无效">内嵌的事件处理函数——如果JS被禁用，也照样无效</h3>
+
+<h3 id="能够优雅降级的方案">能够优雅降级的方案</h3>
+
+<p>{{% highlight js %}} <br>
+    function popUp(winURL) { <br>
+      window.open(winURL, “popup”, “width=320, height=480”); <br>
+{{% endhighlight %}}</p>
+
+<p>{{% highlight html %}} <br>
+    &lt;a href=”http://www.example.com/” onclick=”popup(this.href; return false;)”&gt; Example&lt;/a&gt; <br>
+{{% endhighlight %}}</p>
+
+<p>按照上面的例子，将href设为真实值，即使js被禁用，依然还是可用的，虽然链接功能上有一点折扣（因为没有打开一个新窗口），但是并未彻底失效。</p>
+
+<h2 id="向css学习">向CSS学习</h2>
+
+<ul>
+<li>结构与样式分离</li>
+<li>渐进增强</li>
+</ul>
+
+<h2 id="分离javascript">分离JavaScript</h2>
+
+<p>JS不要求事件必须在HTML文档里处理，我们可以在外部JavaScript文件里把一个事件添加到HTML文档中的某个元素上：element.event = action…</p>
+
+<h2 id="向后兼容">向后兼容</h2>
+
+<h3 id="对象检测">对象检测</h3>
+
+<p>if (method) { <br>
+statements <br>
+}</p>
+
+<p>例如：</p>
+
+<p>function myFunction() { <br>
+  if (document.getElementById) { <br>
+    statements using getElementById <br>
+  } <br>
+}</p>
+
+<p>另一种方法：</p>
+
+<p>if (!method)</p>
+
+<p>例如：</p>
+
+<p>if (!getElementById) return false;</p>
+
+<h3 id="浏览器嗅探技术">浏览器嗅探技术</h3>
+
+<h2 id="性能考虑">性能考虑</h2>
+
+<h3 id="尽量少访问dom和尽量减少标记">尽量少访问DOM和尽量减少标记</h3>
+
+<h3 id="合并和放置脚本">合并和放置脚本</h3>
+
+<p>脚本在标记中的位置对页面的初次加载时间也有很大影响。传统上，我们都把脚本放在文档的&lt;head&gt;区域，这种放置方法有问题。位于&lt;head&gt;块中的脚本会导致浏览器无法并行加载其他文件（如图像或其他脚本）。一般来说，根据HTTP规范，浏览器每次从同一个域名中最多只能同时下载两个文件。而在下载脚本期间，浏览器不会下载其他任何文件，即使是来自不同域名得文件也不会下载，所有其他资源都要等脚本加载完毕后才能下载。</p>
+
+<p>把所有&lt;script&gt;标签都放到文档的末尾，&lt;/body&gt;之前，就可以让页面变得更快。</p>
+
+<h3 id="压缩脚本">压缩脚本</h3>
+
+<p>应该有两个js版本，一个是工作副本，可以修改代码看注释；另一个是精简副本，通常在文件名里面加上min字样。</p>
+
+<h1 id="六案例研究图片库改进版">六、案例研究：图片库改进版</h1>
+
+<h2 id="它支持平稳退化吗">它支持平稳退化吗</h2>
+
+<h2 id="它的javascript语html标记是分离的吗">它的JavaScript语HTML标记是分离的吗</h2>
+
+<h3 id="添加事件处理函数">添加事件处理函数</h3>
+
+<p>1）检查点</p>
+
+<blockquote>
+  <p>结构化程序设计中有一条：函数应该只有一个入口和一个出口。但是作者认为，函数可以有多个出口。如果出口有多个，则要集中在函数开头部分才可以接受</p>
+</blockquote>
+
+<p>2）变量名里有什么</p>
+
+<p>3）遍历</p>
+
+<p>4）改变行为</p>
+
+<p>5）完成JavaScript函数</p>
+
+<h3 id="共享onload事件">共享onload事件</h3>
+
+<p>方法一：</p>
+
+<p>window.onload = function(){ <br>
+  firstFunction(); <br>
+  secondFunction(); <br>
+}</p>
+
+<p>方法二：</p>
+
+<p>{{% highlight js %}} <br>
+function addLoadEvent(func) { <br>
+  var oldonload = window.onload; <br>
+  if (typeof window.onload != ‘function’) { <br>
+    window.onload = func; <br>
+  } else { <br>
+    window.onload = function() { <br>
+    oldonload(); <br>
+    func(); <br>
+    } <br>
+  } <br>
+} <br>
+{{% endhighlight %}}</p>
+
+<p>addLoadEvent函数将要完成的操作：</p>
+
+<ul>
+<li>把现有的window.onload事件处理函数的值存入变量oldonload</li>
+<li>如果在这个处理函数上还没有绑定任何函数，就像平时那样把新函数添加给它</li>
+<li>如果在这个处理函数上已经绑定了一些函数，就把新函数追加到现有指令的末尾</li>
+</ul>
+
+<p>这样如果在页面加载完毕的时候执行两个函数，就可以写：</p>
+
+<p>{{% hightlight js %}} <br>
+addLoadEvent(firstFunction); <br>
+addLoadEvent(secondFunction); <br>
+{{% endhighlight %}}</p>
+
+<h3 id="不要做太多的假设">不要做太多的假设</h3>
+
+<h3 id="优化">优化</h3>
+
+<p>三元操作符：</p>
+
+<p>variable = condition? if true : if false</p>
+
+<h3 id="键盘访问">键盘访问</h3>
+
+<p>有些用户可能更喜欢使用键盘。另外，用Tab键跳到一个链接上，然后按下回车也将启用当前链接。因此对于链接来说，有时onclick事件是不够的，还需要onkeypress事件来处理键盘事件。</p>
+
+<p>按下任何一个按键都会触发onkeypress事件。有一种简单的方法能够使onkeypress事件模仿onclick事件，如：</p>
+
+<p>{{% highlight js %}} <br>
+links[i].onkeypress = links[i].onclick; <br>
+{{% endhighlight %}}</p>
+
+<p>但是，小心onkeypress！</p>
+
+<p>尽量不要用onkeypress，有很多情况下会出错！幸运的是onclick事件处理函数比想象得更聪明。即使用tab键移动到某个链接然后按下回车的动作也会触发onclick事件。</p>
+
+<h3 id="把javascript与css结合起来">把JavaScript与CSS结合起来</h3>
+
+<h3 id="dom-core和html-dom">DOM Core和HTML-DOM</h3>
+
+<p>迄今为止学到的几个DOM方法“</p>
+
+<ul>
+<li>getElementById</li>
+<li>getElementsByTagName</li>
+<li>getAttribute</li>
+<li>setAttribute</li>
+</ul>
+
+<p>这些都是DOM Core得组成部分，不专属于JavaScript。支持DOM的任何一种程序设计语言都可以使用它们。不仅可用于处理网页，还可用于处理任何一种标记语言（比如XML）编写出来的文档。</p>
+
+<p>仅用于网页的话，可以考虑使用HTML-DOM，例如在HTML-DOM中</p>
+
+<p>document.getElementsByTagName(“forms”)可以简化为document.forms</p>
+
+<p>element.getAttribute(“src”)可以简化为element.src</p>
+
+<h1 id="七动态创建标记">七、动态创建标记</h1>
+
+<h2 id="一些传统方法">一些传统方法</h2>
+
+<h3 id="documentwrite">document.write</h3>
+
+<p>缺点：违背了”行为应该与表现分离“的原则；使代码变得不易阅读</p>
+
+<h3 id="innerhtml属性">innerHTML属性</h3>
+
+<p>{{% highlight html %}} <br>
+&lt;div id=”testdiv”&gt; <br>
+&lt;p&gt;This is &lt;em&gt;my&lt;/em&gt; content.&lt;/p&gt; <br>
+&lt;/div&gt; <br>
+{{% endhighlight %}}</p>
+
+<p>上面这串代码得结构如下：</p>
+
+<ul>
+<li>元素节点div下面有属性节点id=”testdiv”、元素节点p</li>
+<li>元素节点p下面有文本节点This is、元素节点em、文本节点 content.</li>
+<li>元素节点em下面有文本节点my</li>
+</ul>
+
+<p>但是id为testdiv的div得innerHTML是整个的</p>
+
+<p>{{% highlight html %}} <br>
+&lt;p&gt;This is &lt;em&gt;my&lt;/em&gt; content.&lt;/p&gt; <br>
+{{% endhighlight %}}</p>
+
+<h2 id="dom方法">DOM方法</h2>
+
+<h3 id="createelement方法">createElement方法</h3>
+
+<p>如：document.createElement(“p”);</p>
+
+<p>两步：</p>
+
+<ul>
+<li>创建一个新元素</li>
+<li>把这个新元素插入节点树</li>
+</ul>
+
+<h3 id="appendchild方法">appendChild方法</h3>
+
+<p>如：parent.appendChild(child);</p>
+
+<h3 id="createtextnode方法">createTextNode方法</h3>
+
+<p>语法：document.createTextNode(text);</p>
+
+<h3 id="在已有元素前插入一个新元素">在已有元素前插入一个新元素</h3>
+
+<p>语法：parentElement.insertBefore(newElement, targetElement);</p>
+
+<p>其中</p>
+
+<ul>
+<li>新元素：你想插入的元素(newElement)</li>
+<li>目标元素：你想把这个新元素插入到哪个元素(targetElement)之前</li>
+<li>父元素：目标元素的父元素(parentElement)</li>
+</ul>
+
+<h3 id="在现有方法后插入一个新元素">在现有方法后插入一个新元素</h3>
+
+<p>【1】编写insertAfter函数</p>
+
+<p>{{% highlight js %}} <br>
+function insertAfter(newElement, targetElement) { <br>
+  var parent = targetElement.parentNode; <br>
+  if (parent.lastChild == targetElement) { <br>
+    parent.appendChild(newElement); <br>
+} else { <br>
+  parent.insertBefore(newElement, targetElement.nextSibling); <br>
+} <br>
+{{% endhighlight %}}</p>
+
+<p>【2】使用insertAfter函数</p>
+
+<h2 id="ajax">Ajax</h2>
+
+<h3 id="xmlhttprequest对象">XMLHttpRequest对象</h3>
+
+<h3 id="渐进增强与ajax">渐进增强与Ajax</h3>
+
+<h3 id="hijax">Hijax</h3>
+
+<h1 id="八充实文档的内容">八、充实文档的内容</h1>
+
+<h2 id="不应该做什么">不应该做什么</h2>
+
+<p>理论上，你可以用JS把一些重要的内容添加到网页上。事实上这是一个坏主意，因为这样依赖JS就没有任何空间去平稳退化。那些缺乏必要的JS支持的访问者就会永远也看不到你的重要内容。</p>
+
+<p>因此下面两条原则要牢记在心：</p>
+
+<ul>
+<li>渐进增强</li>
+<li>平稳退化</li>
+</ul>
+
+<h2 id="检索和添加信息">检索和添加信息</h2>
+
+<p>在需要对文档里的现有信息进行检索时，以下DOM方法最有用：</p>
+
+<ul>
+<li>getElementById</li>
+<li>getElementByTagName</li>
+<li>getAttribute</li>
+</ul>
+
+<p>在需要把信息添加到文档里去时，以下DOM方法最有用：</p>
+
+<ul>
+<li>createElement</li>
+<li>createTextNode</li>
+<li>appendChild</li>
+<li>insertBefore</li>
+<li>setAttribute</li>
+</ul>
+
+<h1 id="九css-dom">九、CSS-DOM</h1>
+
+<h2 id="三位一体的网页">三位一体的网页</h2>
+
+<ul>
+<li>结构层</li>
+<li>表示层</li>
+<li>行为层</li>
+</ul>
+
+<h3 id="结构层structural-layer">结构层（structural layer）</h3>
+
+<p>由HTML或XHTML之类的标记语言负责创建。标签（tag），也就是那些出现在尖括号里的单词，对网页内容的语义含义做出描述。</p><div class="se-section-delimiter"></div>
+
+<h3 id="表示层presentation-layer">表示层（presentation layer）</h3>
+
+<p>由CSS负责完成</p>
+
+<h3 id="行为层behavior-layer">行为层（behavior layer）</h3>
+
+<p>行为层负责内容应该如何响应事件这一问题。这是JavaScript语言和DOM主宰得领域。</p>
+
+<h3 id="分离">分离</h3>
+
+<ul>
+<li>使用(X)HTML去搭建文档的结构；</li>
+<li>使用CSS去设置文档的呈现效果</li>
+<li>使用DOM脚本去实现文档的行为</li>
+</ul>
+
+<p>不过，这三种技术之间存在着一些潜在的重叠区域。</p>
+
+<h2 id="style属性">style属性</h2>
+
+<p>style属性是一个对象</p>
+
+<h3 id="获取样式">获取样式</h3>
+
+<p>element.style.property</p>
+
+<p>例如：</p>
+
+<ul>
+<li>element.style.color</li>
+<li>element.style.fontFamily</li>
+</ul>
+
+<p>注意：不管CSS样式属性的名字里有多少个连字符，DOM一律采用驼峰命名法来表示它们。如CSS属性background-color对应着DOM属性backgroundColor</p>
+
+<p>通过style属性获取样式有很大的局限性，因为style属性只能返回内嵌样式，来自外部文件的样式不能用DOM style属性检索出來。</p>
+
+<h3 id="设置样式">设置样式</h3>
+
+<p>复制操作来设置样式：</p>
+
+<p>element.style.property = value</p>
+
+<p>注释：style对象的属性值永远是一个字符串。如果赋值的时候，value没有加引号，那么JS会把它当作变量处理。</p>
+
+<h2 id="何时该用dom脚本设置样式">何时该用DOM脚本设置样式</h2>
+
+<h3 id="根据元素在节点树里的位置来设置样式">根据元素在节点树里的位置来设置样式</h3>
+
+<h3 id="根据某种条件反复设置某种样式">根据某种条件反复设置某种样式</h3>
+
+<h3 id="响应事件">响应事件</h3>
+
+<h2 id="classname属性">className属性</h2>
+
+<p>可以用setAttribute得方式做这件事，例如：element.setAttribute(“class”, “intro”);</p>
+
+<p>也可以用下面的这种方式：element.className = “intro”;</p>
+
+<p>不过这样只能替换类名，要追加类名用这种方式： <br>
+element.className += ” intro; 注意在intro前面有空格</p>
+
+<p>也可以用如下函数实现。实现步骤如下：</p>
+
+<ol>
+<li>检查className属性的值是否为null</li>
+<li>如果是，把新的class设置值直接赋给className属性</li>
+<li>如果不是，把一个空格和新的class设置值追加到className属性上去</li>
+</ol>
+
+<p>函数代码如下：</p>
+
+<p>{{% highlight js %}} <br>
+function addClass(element, value) { <br>
+  if (!element.className) { <br>
+    element.className = value; <br>
+  } else { <br>
+    newClassName = element.className; <br>
+    newClassName += ” “; <br>
+    newClassName += value; <br>
+    element.className = newClassName; <br>
+  } <br>
+} <br>
+{{% endhighlight %}}</p>
+
+<p>注意对函数进行抽象，使其更具有通用性。</p>
+
+<h1 id="十用javascript实现动画效果">十、用JavaScript实现动画效果</h1>
+
+<h2 id="动画基础知识">动画基础知识</h2>
+
+<h3 id="位置">位置</h3>
+
+<h3 id="时间">时间</h3>
+
+<p>JavaScript函数setTimeout能够让某个函数在经过一段预定的时间之后才开始执行。这个函数带有两个参数：第一个参数通常是一个字符串，其内容是将要执行的那个函数的名字；第二个参数是一个数值，它以毫秒为单位设定了需要经过多长时间后才开始执行第一个参数所给出的函数：</p>
+
+<p>setTimeout(“function”, interval);</p>
+
+<p>在绝大多数时候，把这个函数调用赋值给一个变量将是个好主意：</p>
+
+<p>variable = setTimeout(“function”, interval);</p>
+
+<p>如果想取消某个正在排队等待执行的函数，就必须事先像上面这样把setTimeout函数的返回值赋给一个变量。你可以用一个名为clearTimeout得函数来取消“等待执行”队列里的某个函数。这个函数需要一个参数——保存着某个setTimeout函数调用返回值的变量：</p>
+
+<p>clearTimeout(variable);</p>
+
+<h3 id="时间递增量">时间递增量</h3>
+
+<p>JS中的parseInt可以把字符串里的数值信息提取出来。如果把一个以数字开头的字符串传递给这个函数，它将返回一个数值：</p>
+
+<p>parseInt(string)</p>
+
+<p>例如：parseInt(“39 steps”); 这个函数调用将返回数值：39</p>
+
+<p>parseInt函数的返回值通常是整数。如果需要提取的是带小数点的数值（也就是浮点数），就应该使用相应得parseFloat函数：</p>
+
+<p>parseFloat(string)</p>
+
+<p>例子：moveElement函数</p>
+
+<p>{{% highlight js %}} <br>
+function moveElement(elementID, final_x, final_y, interval) { <br>
+  if (!document.getElementById) return false; <br>
+  if (!document.getElementById(elementID)) return false; <br>
+  var elem = document.getElementById(elementID);</p>
+
+<p>/*如果上一个movement动画还没有执行完毕， <br>
+  就停止执行上一个，而执行下一个*/ <br>
+  if (elem.movement) { <br>
+    clearTimeout(elem.movement); <br>
+  }</p>
+
+<p>var xpos = parseInt(elem.style.left); <br>
+  var ypos = parseInt(elem.style.top); <br>
+  if (xpos == final_x &amp;&amp; ypos == final_y) { <br>
+    return true; <br>
+  } <br>
+  if (xpos &lt; final_x) { <br>
+    xpos++; <br>
+  } <br>
+  if (xpos &gt; final_x) { <br>
+    xpos–; <br>
+  } <br>
+  if (ypos &lt; final_y) { <br>
+    ypos++; <br>
+  } <br>
+  if (ypos &gt; final_y) { <br>
+    ypos–; <br>
+  } <br>
+  elem.style.left = xpos + “px”; <br>
+  elem.style.top = ypos + “px”; <br>
+  var repeat = “moveElement(‘”+elementID+”’,”+final_x+”，“+final_y+”，”+interval+”)”; <br>
+  movement = setTimeout(repeat, interval); <br>
+} <br>
+{{% endhighlight %}}</p>
+
+<h1 id="十一html5">十一、HTML5</h1>
+
+<h2 id="html5简介">HTML5简介</h2>
+
+<h2 id="来自朋友的忠告">来自朋友的忠告</h2>
+
+<p><a href="http://www.modernizr.com/">Modernizr</a></p>
+
+<p>要使用Modernizr编写文档，通常都要给元素添加一个no-js类：</p>
+
+<p>{{% highlight html %}} <br>
+&lt;html class=”no-js”&gt; <br>
+{{% endhighlight %}}</p>
+
+<p>利用这个类，可以在浏览器不支持JS得情况下应用CSS样式。</p>
+
+<p>{{% highlight css %}} <br>
+.nojs selector { <br>
+  style properties  <br>
+} <br>
+{{% endhighlight %}}</p>
+
+<p>Modernizr脚本一定要放在&lt;head&gt;元素中。这是为了能够让它在文档呈现之前能够创建好新的HTML5元素。如果把它放到文档末尾，等不到它发挥作用，浏览器就开始呈现文档并应用样式了。</p>
+
+<h2 id="几个示例">几个示例</h2>
+
+<h3 id="canvas">Canvas</h3>
+
+<h3 id="音频和视频">音频和视频</h3>
+
+<h3 id="表单">表单</h3>
+
+<h1 id="十二综合示例略">十二、综合示例（略）</h1><div class="se-section-delimiter"></div>
+
+<h1 id="附录-javascript库略">附录 JavaScript库（略）</h1>
