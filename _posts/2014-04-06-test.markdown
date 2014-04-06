@@ -11,7 +11,7 @@ tags:
 hi
 hullo
 
-{{% highlight js linenos %}}
+{{% highlight html linenos %}}
 function getElementsByClassName(node, classname) {
   if (node.getElementsByClassName) {
     //使用现有方法
