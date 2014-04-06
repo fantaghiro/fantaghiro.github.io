@@ -26,7 +26,7 @@ tags:
 - 单行注释用 //
 - 多行注释用 /\* \*/
 
-<!--
+
 ### 变量
 
 - 赋值
@@ -94,7 +94,7 @@ beatles.vocalist = lennon; 那么beatles.vocalist.name得值就是"John"。
 ## 操作
 
 ### 算数操作符
-
+<!--
 
 \+ \- / \* 
 
