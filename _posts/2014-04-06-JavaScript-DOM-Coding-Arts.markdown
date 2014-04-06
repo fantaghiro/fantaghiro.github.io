@@ -1,5 +1,5 @@
 ---
-layout: toc
+layout: post
 title: JavaScript DOM编程艺术（第2版）读书笔记
 category: writeups
 tags:
@@ -7,8 +7,6 @@ tags:
 - javascript
 - 前端
 ---
-
-{{ toc }}
 
 # 一、JavaScript简史
 
