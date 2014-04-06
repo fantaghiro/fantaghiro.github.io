@@ -162,7 +162,7 @@ for (initial condition; test condition; alter condition) {
 }
 
 如：
-
+<!--
 var beatles = Array ("John", "Paul", "George", "Ringo");
 
 for (var count = 0; count < beatles.length; count++) {
@@ -186,7 +186,7 @@ function name(arguments) {
 如果在某个函数中使用了var，那个变量就将被视为一个局部变量。函数在行为方面应该像是一个自给自足得脚本，在定义一个函数时，一定要把它内部的变量全部明确声明为局部变量。
 
 ##对象
-<!--
+
 
 对象里的数据可以通过两种形式访问：属性、方法
 
