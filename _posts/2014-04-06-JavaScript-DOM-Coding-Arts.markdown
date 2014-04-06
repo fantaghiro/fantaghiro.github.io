@@ -92,7 +92,7 @@ var beatles = {};
 beatles.vocalist = lennon; 那么beatles.vocalist.name得值就是"John"。
 
 ## 操作
-
+<!--
 ### 算数操作符
 
 \+ \- / \* 
@@ -100,7 +100,7 @@ beatles.vocalist = lennon; 那么beatles.vocalist.name得值就是"John"。
 = 用于赋值
 
 ()
-<!--
+
 \+\+ \-\-
 
 \+ 可用于拼接字符串
