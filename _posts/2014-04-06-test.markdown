@@ -9,7 +9,7 @@ tags:
 ---
 
 
-{{% highlight js linenos %}}
+{{% highlight html %}}
 function getElementsByClassName(node, classname) {
   if (node.getElementsByClassName) {
     //使用现有方法
