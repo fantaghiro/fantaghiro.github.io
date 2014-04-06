@@ -142,7 +142,7 @@ if (condition) {
 ## 循环语句
 
 ### while循环
-
+<!--
 
 while (condition) {
   statements;
@@ -162,7 +162,7 @@ for (initial condition; test condition; alter condition) {
 }
 
 如：
-<!--
+
 var beatles = Array ("John", "Paul", "George", "Ringo");
 
 for (var count = 0; count < beatles.length; count++) {
