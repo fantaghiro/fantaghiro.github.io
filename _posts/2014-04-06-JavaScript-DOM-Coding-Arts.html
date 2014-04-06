@@ -421,23 +421,23 @@ message += year;</p>
 
 <p>getElementsByClassName方法很有用，但是要较新浏览器才可以，为了弥补不足，通常用下面的方法来实现自己得getElementByClassName:</p>
 
-<p>{{% highlight js linenos %}} <br>
-function getElementsByClassName(node, classname) { <br>
-  if (node.getElementsByClassName) { <br>
+<code>
+function getElementsByClassName(node, classname) { 
+  if (node.getElementsByClassName) { 
     //使用现有方法 <br>
-    return node.getElementsByClassName(classname); <br>
+    return node.getElementsByClassName(classname); 
   } else { <br>
-    var results = new Array(); <br>
-    var elems = node.getElementsByTagName(“*”); <br>
-    for (var i=0; i<elems.length; i++)="" {="" <br="">
-      if(elems[i].className.indexOf(classname) != -1) { <br>
-        results[results.length] = elems[i]; <br>
-      } <br>
-    } <br>
+    var results = new Array(); 
+    var elems = node.getElementsByTagName(“*”); 
+    for (var i=0; i<elems.length; i++) {
+      if(elems[i].className.indexOf(classname) != -1) { 
+        results[results.length] = elems[i]; 
+      } 
+    } 
     return results; <br>
-  } <br>
-} <br>
-{{% endhighlight %}}</elems.length;></p>
+  } 
+} 
+</code>
 
 <h2 id="盘点知识点">盘点知识点</h2>
 
