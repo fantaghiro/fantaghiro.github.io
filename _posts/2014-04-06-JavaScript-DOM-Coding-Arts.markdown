@@ -234,8 +234,8 @@ window对象对应着浏览器窗口本身，这个对象的属性和方法通�
 - getElementsByClassName(class) 注意：HTML5 DOM才支持；要指定多个类名，只要在字符串参数中用空格分隔类名即可）
 
 getElementsByClassName方法很有用，但是要较新浏览器才可以，为了弥补不足，通常用下面的方法来实现自己得getElementByClassName:
-
-{{% highlight js linenos %}}
+<!--
+{{% highlight js %}}
 function getElementsByClassName(node, classname) {
   if (node.getElementsByClassName) {
     //使用现有方法
@@ -787,3 +787,4 @@ Modernizr脚本一定要放在&lt;head&gt;元素中。这是为了能够让它�
 #十二、综合示例（略）
 
 #附录 JavaScript库（略）
+-->
