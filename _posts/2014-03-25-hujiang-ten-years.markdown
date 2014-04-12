@@ -19,8 +19,6 @@ tags:
 
 <h1 style="text-align: center; color: green; font-weight: bold">《2005-2014中国互联网教育蓝皮书暨“日语十年”回顾与展望》</h1>
 
-{:toc}
-
 #第一篇
 ##第一章 中国教育大环境十年变迁（2005-2014年）
 一、教育民生大计，财政性教育支出逐年上涨
