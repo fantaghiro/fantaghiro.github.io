@@ -19,7 +19,8 @@ tags:
 
 <h1 style="text-align: center; color: green; font-weight: bold">《2005-2014中国互联网教育蓝皮书暨“日语十年”回顾与展望》</h1>
 
-*以下是目录
+
+- 以下是目录
 {:toc}
 
 #第一篇
