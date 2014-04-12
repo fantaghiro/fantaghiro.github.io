@@ -47,6 +47,14 @@ ul {
   list-style: disc;
 }
 
+ul ul {
+  list-style: circle;
+}
+
+ul ul ul {
+  list-style: square;
+}
+
 a {
   color: {{ site.theme.highlight_color }};
   text-decoration: none;
