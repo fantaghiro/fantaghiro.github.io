@@ -28,7 +28,7 @@ tags:
 
 下面是第一段小JS脚本，很粗糙（#￣▽￣#）。会好的！
 
-{% highlight html %}
+{% highlight html linenos %}
 
 <!Doctype html>
 <html>
