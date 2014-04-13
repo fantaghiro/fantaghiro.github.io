@@ -31,7 +31,7 @@ freemind的兼容性很好，可以导出为各种格式。这一点xmind和很�
 
 1. 按照正常做的那样在Markdown中写各级标题。例如：
 
-{% highlight markdown %}
+{% highlight html %}
 
 # Header1
 {:.no_toc}
@@ -73,7 +73,7 @@ content under subheader2-2
 
 2. 在想要插入目录的位置添加一个有序或无序列表。第一个列表项的内容无所谓，因为生成的目录会自动替换这一行的内容，在第一个列表项下面添加{:toc}，例如：
 
-{% highlight markdown %}
+{% highlight html %}
 - 这里是一个目录
 {:toc}
 {% endhighlight %}
