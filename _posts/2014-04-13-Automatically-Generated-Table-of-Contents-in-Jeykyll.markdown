@@ -31,7 +31,7 @@ freemind的兼容性很好，可以导出为各种格式。这一点xmind和很�
 
 1. 按照正常做的那样在Markdown中写各级标题。例如：
 
-{% hightlight markdown %}
+{% highlight markdown %}
 
 # Header1
 {:.no_toc}
