@@ -7,63 +7,11 @@ title: Blog Posts
 
   <h2><i class="icon-bookmark"></i> 最新文章</h2>
   <ul id="blog-posts" class="posts">
-      {% for post in paginator.posts %}
+      {% for post in site.posts %}
       <li><span>{{ post.date | date_to_string }} &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li>
           <div class="post-abstract">
               {{  post.content || split:'<!--more-->' | first }}<span><a href="{{ post.url }}"> &raquo;阅读更多</a></span>
           </div>
       {% endfor %}
   </ul>
-  <hr>
-<div class="page-pagination">
-    <ul class="pagination">
-        <li><span>页面导航:</span></li>
-    {% assign page_begin = paginator.page | minus: 5 %}
-    {% assign page_end = paginator.page | plus: 5 %}
-    {% if page_begin < 1 %}
-            {% assign page_begin = 1 %}
-    {% endif %}
-    {% if page_end > paginator.total_pages %}
-            {% assign page_end = paginator.total_pages %}
-    {% endif %}
-        <li><a href="/">第一页</a></li>
-    {% if paginator.previous_page %}
-    {% if paginator.previous_page == 1 %}
-        <li><a href="/">&larr;</a></li>
-    {% else %}
-        <li><a href="/page{{paginator.previous_page}}">&larr;</a></li>
-    {% endif %}
-    {% endif %}
-    {% if 6 < paginator.page %}
-        <li><a class="disabled">...</a></li>
-    {% endif %}
-    {% for count in (page_begin..page_end) %}
-    {% if 1 == count %} 
-        {% if paginator.page == 1 %}
-        <li><a href="/" class="active">1</a></li>
-        {% else %}
-        <li><a href="/">1</a></li>
-        {% endif %}
-    {% else %}
-    {% if count == paginator.page %}
-        <li><a href="/page{{count}}" class="active">{{count}}</a></li>
-    {% else %}
-        <li><a href="/page{{count}}">{{count}}</a></li>
-    {% endif %}
-    {% endif %}
-    {% endfor %}
-    {% if page_end < paginator.total_pages %}
-        <li><a class="disabled">...</a></li>
-    {% endif %}
-    {% if paginator.next_page %}
-        <li><a class="next" href="/page{{paginator.next_page}}">&rarr;</a></li>
-    {% endif %}
-    {% if paginator.page == 1 %}
-        <li><a href="/">最后页</a></li>
-    {% else %}
-        <li><a href="/page{{paginator.total_pages}}">最后页</a></li>
-    {% endif %}
-        <li><span>共{{ paginator.total_posts }}篇</span></li>
-    </ul>
-</div>  
 </div>
