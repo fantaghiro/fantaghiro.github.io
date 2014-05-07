@@ -35,6 +35,7 @@ tags:
 支持格式转换的工具很多，其中[Pandoc](http://johnmacfarlane.net/pandoc/)脱颖而出，成为各类格式转换的瑞士军刀。在Pandoc的首页上，言明其支持的源文件格式和最终格式：
 
 > 源文件格式
+>
 > - markdown
 > - reStructuredText
 > - textile
@@ -46,6 +47,7 @@ tags:
 > - Haddock markup
 
 > 目标文件格式
+>
 > - HTML格式（支持使用[Slidy](http://www.w3.org/Talks/Tools/Slidy2/Overview.html#(1)), [reveal.js](http://lab.hakim.se/reveal-js/), [Slideous](http://goessner.net/articles/slideous/), [S5](http://meyerweb.com/eric/tools/s5/), 或[DZSlides](http://paulrouget.com/dzslides/)显示的HTML幻灯
 > - 文字处理格式 Docx, ODT, OpenDocument XML
 > - 电子书格式 epub, FictionBook2
