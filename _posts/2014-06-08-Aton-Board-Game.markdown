@@ -12,7 +12,7 @@ tags:
 
 有幸得见天日的第一款二人桌游名为Aton，官方名称不知道怎么叫，不过M君亲切地呼唤其为“啊痛！”
 
-<img style="width: 80%" src="http://pic.yupoo.com/fantaghiro_v/DQcqZ2Qw/15hJPX.jpg" />
+<img style="width: 50%" src="http://pic.yupoo.com/fantaghiro_v/DQcqZ2Qw/15hJPX.jpg" />
 
 游戏的设定是这样的：它模拟的是两大祭司争取埃及底比斯四个最大神庙的席位的故事。两大祭司分别代表埃及的阿顿神和阿蒙神。这个游戏是德国设计师Thorsten Gimmler的作品。我到wikipedia上查了一下，Aton在古埃及神话里面就是太阳的意思；Amon则为生命和生殖之神。Amon据传长这幅模样：
 
