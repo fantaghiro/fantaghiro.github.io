@@ -14,7 +14,7 @@ tags:
 box-shadow的语法是这样的：
 
 '''
-Formal syntax: none | [inset? && [ <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color>? ] ]#
+Formal syntax: none | [inset? && [ &lt;offset-x> &lt;offset-y> &lt;blur-radius>? &lt;spread-radius>? &lt;color>? ] ]#
 '''
 
 ==各项设置说明==
@@ -25,21 +25,21 @@ Formal syntax: none | [inset? && [ <offset-x> <offset-y> <blur-radius>? <spread-
 
 一旦设置了inset，阴影部分就出现在box里面（就好像里面的内容在box里面被压了下去）。inset的阴影是在边框里面绘制的（即使边框是透明的也没关系），同时inset阴影位于背景之上，内容之下。
 
-===<offset-x><offset-y>===
+===&lt;offset-x>&lt;offset-y>===
 
-这是两个长度值，用于指定阴影偏移的距离。<offset-x>用于指定横向偏移距离。如果设为负值，就会将阴影置于元素左侧。<offset-y>设定的是纵向的偏移，负值会将阴影置于元素的上方。
+这是两个长度值，用于指定阴影偏移的距离。&lt;offset-x>用于指定横向偏移距离。如果设为负值，就会将阴影置于元素左侧。&lt;offset-y>设定的是纵向的偏移，负值会将阴影置于元素的上方。
 
-如果这两个数值都设为0，那么阴影是位于元素后面（而且如果设置了<blur-radius>和/或<spread-radius>的话，可能会产生一个模糊的效果）。
+如果这两个数值都设为0，那么阴影是位于元素后面（而且如果设置了&lt;blur-radius>和/或&lt;spread-radius>的话，可能会产生一个模糊的效果）。
 
-===<blur-radius>===
+===&lt;blur-radius>===
 
 这是第三个长度值。该值越大，模糊范围就越大，阴影就会随之变大变浅。该值不允许设为负值。如果没有设置该值，那么默认为0（也就是说阴影边缘是锋利的）。
 
-===<spread-radius>===
+===&lt;spread-radius>===
 
 这是第四个长度值。正值会导致阴影扩张变大；负值会导致阴影缩小。如果没有具体设置数值，那么默认为0（也就是说阴影的大小与元素大小相当）。
 
-===<color>===
+===&lt;color>===
 
 设置阴影的颜色。如果没有具体设置的话，阴影颜色要取决于浏览器——通常情况下会采用color的值，但是需要注意的是，Safari浏览器目前碰到这种情况，会绘制一个透明的阴影。
 
