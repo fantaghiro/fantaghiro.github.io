@@ -1,6 +1,6 @@
 ---
 layout: post
-title: box-shadow学习笔记
+title: CSS3 gradient 学习笔记
 category: study
 tags:
 - CSS
@@ -8,81 +8,106 @@ tags:
 - 笔记
 ---
 
-昨天练习着看别人写的代码，是关于页面效果的。对于阅读结果的预期不如一开始所想的。原本已经看过的知识已经显得生疏。虽然最终磕磕绊绊地把代码看下来了，但是对自己还是很不满意。于是决定把里面生疏的一些地方拿出来好好再看一下。于是有了这样第一篇文章，关于CSS中box-shadow样式的学习总结。
-<!--more-->
-
-box-shadow的语法是这样的：
-
-```
-Formal syntax: none | [inset? && [ <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color>? ] ]#
-```
-
-
 - 这里是一个目录
 {:toc}
 
-##各项设置说明##
+##总述
 
-###inset###
+CSS中的&lt;gradient>指的是一种image，可以看到&lt;gradient>通常设置到background或者background-image上。但是这种image没有大小，会随着被应用的对象大小而改变。gradient一次在英文是坡度的意思，也含有逐渐改变的意思。在CSS中表示的就是两个或多个颜色的渐进过渡。
+<!--more-->
 
-在没有设置inset的情况下，阴影部分默认方向是在box之外，向右向下延伸的（就好像box是在内容之上）。
+CSS中的过渡gradient包含有四种形式：linear-gradient、radial-gradient、repeating-linear-gradient、repeating-radial-gradient。这四种类型下面各举一例：
 
-一旦设置了inset，阴影部分就出现在box里面（就好像里面的内容在box里面被压了下去）。inset的阴影是在边框里面绘制的（即使边框是透明的也没关系），同时inset阴影位于背景之上，内容之下。
-
-###&lt;offset-x>&lt;offset-y>###
-
-这是两个长度值，用于指定阴影偏移的距离。&lt;offset-x>用于指定横向偏移距离。如果设为负值，就会将阴影置于元素左侧。&lt;offset-y>设定的是纵向的偏移，负值会将阴影置于元素的上方。
-
-如果这两个数值都设为0，那么阴影是位于元素后面（而且如果设置了&lt;blur-radius>和/或&lt;spread-radius>的话，可能会产生一个模糊的效果）。
-
-###&lt;blur-radius>###
-
-这是第三个长度值。该值越大，模糊范围就越大，阴影就会随之_变大_变浅。该值不允许设为负值。如果没有设置该值，那么默认为0（也就是说阴影边缘是锋利的）。
-
-###&lt;spread-radius>###
-
-这是第四个长度值。正值会导致阴影扩张变大；负值会导致阴影缩小。如果没有具体设置数值，那么默认为0（也就是说阴影的大小与元素大小相当）。
-
-###&lt;color>###
-
-设置阴影的颜色。如果没有具体设置的话，阴影颜色要取决于浏览器——通常情况下会采用color的值，但是需要注意的是，Safari浏览器目前碰到这种情况，会绘制一个透明的阴影。
-
-##具体实例##
-
-<p data-height="518" data-theme-id="2146" data-slug-hash="tLxpc" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/tLxpc/'>box-shadow-test</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="268" data-theme-id="2146" data-slug-hash="JbECi" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/JbECi/'>JbECi</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
-###实例说明###
+##linear-gradient
 
-> 从第1、2个box可以看出，设置了blur-radius会使阴影周围出现模糊。但是虽然设置了blur-radius，但是由于box2的offset-x和offset-y与box1相同，整个可视阴影范围也大致相当。据称，设置了blur-radius的阴影范围实际上是大于原范围的，但是由于边缘模糊，真正的可视范围的大小并不会有太大改变。
+###定义
 
-> box3中，由于将blur-radius设置为负值，导致任何阴影都没有出现，对box-shadow的样式设置无效。
+linear-gradient是线性过渡。它是由一个轴——过渡线(gradient line)——定义的。在gradient line上的每一个点颜色都不同。垂直于gradient line的每一条线上的颜色都相同，都是该垂直线与gradient line相交的焦点的颜色。如下图所示：
 
-> box4中，针对不同方向上的阴影可以设置不同颜色以及blur-radius值。设置了blur-radius的绿色阴影就比红色阴影模糊。
+<img src="http://pic.yupoo.com/fantaghiro_v/DR7CkQuj/j12bE.png">
 
-> box5中，由于没有设置offset-y值，因此阴影仅在横向上发生偏移。但是看box1—4，由于设置了offset-y值，都在纵向上发生了便宜。对于box-shadow，我之前错误的认为，阴影是添加上去的，其实不然。在没有添加spread-radius的情况下，阴影是与元素大小相同，如果没有设置inset，阴影是位于元素下方。出现阴影是由于阴影相对于元素的位置发生偏移造成的。因此，将阴影添加到元素上的东西是认识错误，将阴影与元素视为叠着的两层，出现x和y 的偏移时，两层的相对位置就被错开了一点，这样更有助于理解。
+gradient line是通过box中点并有一定倾角的轴线。过渡色是由不同点来定义的，包括起始点（starting point）、终止点（ending point）以及中间可选的停色点（stop-color points）。
 
-> box6与box5对比看，box6比5多了1em的blur-radius，即使在纵向上没有发生偏移，box6在纵向上仍然呈现出有阴影的摸样。这说明blur-radius确实让阴影范围变大了，但是变大的并不是很多。
+起始点是gradient line上颜色开始的位置。该位置是gradient line与通过同一象限元素一角且与gradient line垂直的线的交点处。同理可得终止点。更简单的说法是：终止点是与起始点对称的位置。
 
-> box7增加了spread-radius的设置，阴影范围明显增大。可以看出，spread-radius是在原阴影四周都增加了长度。
+除了起始点与终止点以外，还可以定义额外的位于gradient line之上的color-stop points。这样可以设置多色的渐变效果。
 
-> box8—12对比来看，能够清晰看出blur-radius对模糊的作用和spread-radius对于阴影大小的作用。值得注意的是spread-radius可以设为负值，见box12。
+linear-gradient不允许设置重复的渐变，但是通过灵活运用color-stop points，可以实现同样的效果。如果要实现真正的重复渐变，可以使用repeating-linear-gradient。
 
-> 从box13—15看来，blur-radius也作用于添加的spread-radius上。
+如果没有指定color-stop point，那么它就默认位于前一个点与后一个点的正中间。当然color-stop point也可以明显地通过使用长度和百分比来进行设置。
 
-> box16、17是关于inset的演示。如果设置了inset，那么offset-x如果设置为正值，阴影会在元素内部的左侧出现；设置为负值，会在元素右侧出现。offset-y如果设置了正值，阴影会在元素内部的上侧出现；设为负值，会在元素内部的下侧出现。
+> 需要注意的是，要将gradient line与视觉上亮色的模糊分界线区分开来。双色渐变经常可以用肉眼辨识出一条亮色的分界线，这条线并不是gradient line，而是与gradient line垂直的一根线。
 
-> box18说明，针对内、外阴影，可以有不同的设置。
+###语法
 
-> box19说明，如果针对同一位置有不同的阴影设置，那么先设置的值位于后设置的值上方。box19中的黄色阴影位于黑色阴影之上。
+```
+linear-gradient(  [ <angle> | to <side-or-corner> ,]? <color-stop> [, <color-stop>]+ )
+```
 
-> box20说明，如果有两层阴影叠加，并且前面一层阴影有blur-radius设置，后面一层阴影就会透出来一些。可以看到box20的设置了blur-radius的黄色阴影就没有box19的黄色阴影那么亮。
+以上语法中：
 
-> box21说明，阴影的形状是跟随元素形状改变的。元素变为圆角，阴影就自动变为圆角。
+- [&lt;angle> | to &lt;side-or-color>,] 这一部分用于定义gradient line
+    - 其中 &lt;side-or-color> = [left | right] || [top | bottom] 
+- &lt;color-stop> [, &lt;color-stop>]+ 用于定义color-stop point列表
+    - 其中 &lt;color-stop> = &lt;color> [ &lt;percentage> | &lt;length> ]?
 
-> box22—24对比来看，对于阴影的颜色可以设置一定的透明度。如果将两个有透明度的同色的阴影叠加，则颜色会变深，可以看到box23是box22同样的阴影叠加了两边，颜色就比box22明显要深。但是box23两个阴影叠加起来还是没有box24的实色颜色深。
+下面是具体说明。
 
-> box25说明，对于阴影的不同设置，用逗号分隔，可以加很多条，组合起来会造成十分复杂的效果。
+####&lt;side-or-corner>
 
+该属性设置的是gradient line上的starting-point。它包括两个关键词：第一个关键词是水平方向上的：left或right；第二个是垂直方向上的top或bottom。按照什么顺序写都可以，而且这些关键词都是可选的。
+
+如果设置了to top, to bottom, to left或to right，其实可以视为设置angle为 0deg、180deg、270deg、90deg。应当可以这样理解。当gradient line穿过元素中心，并且是自下而上的垂直方向时，可视为0deg，由于gradient line是自下向上的，因此是to top，starting-point是在下面；当gradient从0deg顺时针旋转180度后，方向变成自上而下，这时是to bottom，起始点在上方；然后gradient line继续顺时针方向旋转90度，也就是从0deg顺时针旋转270度时，gradient是水平的，方向是自右向左，因此是to left，起始点在右边；to right同理可得。如果设置为这四个值以外的值，比如to top right、to left bottom等，在定义这些角的时候，starting-point与所述角是在同一个象限内，同时该starting-point与该角构成的直线与gradient line垂直。这样可以确保后续设置&lt;color-stop>的时候，这个颜色刚好是那个角上那个点的颜色。
+
+    315deg    0deg   45deg
+               ^
+               |
+    270deg <---+---> 90deg
+               |
+               v
+    225deg   180deg  135deg
+    
+<hr>
+    
+    top-left     top      top-right
+                  ^
+                  |
+    left      <---+--->       right
+                  |
+                  v
+    bottom-left bottom bottom-right
+
+
+由于starting-point已经设置，那么ending-point是以元素中心为中心，与starting-point对称的那个点，因此也相应确定了。
+
+####&lt;angle>
+
+angle角度，定义的就是渐变的方向。当渐变方向不是垂直，水平，也无法用元素的各个角定义的话，就要祭出这个值。
+
+####&lt;color-stop>
+
+该值是由一个&lt;color>值，后面跟着一个可选的stop position（可以用百分比表示，也可以用长度表示，百分比和长度都是针对gradient line定义的。）CSS中的color-stop的设置规则与SVG渐变中的color-stop设置规则相同。
+
+###linear-gradient实例
+
+以下四个例子有助于理解gradient line以及angle的设置。注意是同to top, to top right与0deg和45deg的不同设置方式，但是却获得同样的效果。注意领会starting point的位置。注意领会“to”一词内涵的方向含义。
+
+<p data-height="268" data-theme-id="2146" data-slug-hash="Jsyew" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/Jsyew/'>Jsyew</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
+###linear-gradient加厂商前缀与不加厂商前缀的写法区别
+
+由于历史问题，linear-gradient在加上厂商前缀与不加厂商前缀时，写法略有区别。这个地方十分tricky，也容易引起混淆。主要区别有如下两点：
+
+1. 加上厂商前缀的设定方向的关键词不带“to”，代表的是渐变的起始位置，那么就真好与带to的不加厂商前缀的方向是正好相反的。例如，-webkit-linear-gradient(**top**, blue, red); 指的是元素**从上往下**，由blue向red渐变；同一个意义，如果用不带厂商前缀的标准写法来写就变成 linear-gradient(**to bottom**, blue, red);
+2. 如果不使用关键词，而使用angle来进行设置的话。在没有厂商前缀时，angle是垂直向上为0deg，该轴顺时针旋转为增加deg，逆时针则为负deg；但是如果添加了厂商前缀，angle为水平向右的方向为0deg，顺时针为负deg，逆时针则为正deg。
+
+下面是添加了厂商前缀的一些例子，可以跟上面不加厂商前缀的例子进行比较。
+
+<p data-height="298" data-theme-id="2146" data-slug-hash="lmCnq" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/lmCnq/'>lmCnq</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
 
 
