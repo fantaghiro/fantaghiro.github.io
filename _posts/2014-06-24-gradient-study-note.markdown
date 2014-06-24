@@ -11,6 +11,8 @@ tags:
 ##总述
 
 CSS中的&lt;gradient>指的是一种image，可以看到&lt;gradient>通常设置到background或者background-image上。但是这种image没有大小，会随着被应用的对象大小而改变。gradient一次在英文是坡度的意思，也含有逐渐改变的意思。在CSS中表示的就是两个或多个颜色的渐进过渡。
+<!--more-->
+
 CSS中的过渡gradient包含有四种形式：linear-gradient、radial-gradient、repeating-linear-gradient、repeating-radial-gradient。这四种类型下面各举一例：
 
 <p data-height="268" data-theme-id="2146" data-slug-hash="JbECi" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/JbECi/'>JbECi</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
