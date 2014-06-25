@@ -49,10 +49,10 @@ linear-gradient(  [ <angle> | to <side-or-corner> ,]? <color-stop> [, <color-sto
 
 以上语法中：
 
-- [&lt;angle> | to &lt;side-or-color>,] 这一部分用于定义gradient line
-    - 其中 &lt;side-or-color> = [left | right] || [top | bottom] 
-- &lt;color-stop> [, &lt;color-stop>]+ 用于定义color-stop point列表
-    - 其中 &lt;color-stop> = &lt;color> [ &lt;percentage> | &lt;length> ]?
+- <code> [&lt;angle> | to &lt;side-or-color>,] </code>这一部分用于定义gradient line
+    - 其中 <code>&lt;side-or-color></code> = <code>[left | right] || [top | bottom]</code> 
+- <code>&lt;color-stop> [, &lt;color-stop>]+</code> 用于定义color-stop point列表
+    - 其中 <code>&lt;color-stop></code> =<code> &lt;color> [ &lt;percentage> | &lt;length> ]?</code>
 
 下面是具体说明。
 
