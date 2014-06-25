@@ -157,16 +157,46 @@ radial-gradient不允许设置重复的渐变，如果要实现重复的径向�
 ###语法
 
 {% highlight css %}
-  radial-gradient( [[ circle               || <length> ]                     [ at <position> ]? , | 
-                    [ ellipse              || <length> | <percentage> ]{2}] [ at <position> ]? , |
-                    [ [ circle | ellipse ] || <extent-keyword> ]             [ at <position> ]? , |
-                                                                               at <position> ,     <color-stop> [ , <color-stop> ]+ )
+  radial-gradient( [[ circle               || &lt;length> ]                     [ at &lt;position> ]? , | 
+                    [ ellipse              || [&lt;length> | &lt;percentage> ]{2}] [ at &lt;position> ]? , |
+                    [ [ circle | ellipse ] || &lt;extent-keyword> ]             [ at &lt;position> ]? , |
+                                                                               at &lt;position> ,     &lt;color-stop> [ , &lt;color-stop> ]+ )
                    \------------------------------------------------------------------------------/\--------------------------------/
                                  Definition of the contour, size and position of the ending shape         List of color stops  
     
-          where <extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
-            and <color-stop> = <color> [ <percentage> | <length> ]?
+          where &lt;extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
+            and &lt;color-stop> = &lt;color> [ &lt;percentage> | &lt;length> ]?
 {% endhighlight %}
+
+**定义ending shape**
+
+- radial-gradient( circle, … )
+等同于 radial-gradient( circle farthest-corner, …) 
+
+- radial-gradient( ellipse, … )
+等同于radial-gradient( ellipse farthest-corner, …) 
+
+- radial-gradient( &lt;extent-keyword>, … )
+会画出一个正圆
+
+- radial-gradient( circle radius, … ) 
+一个位于中心的正圆，具有固定半径。不可以用百分比。
+
+- radial-gradient( ellipse x-axis y-axis, … ) 
+给出两个椭圆半轴的长度，现是水平方向，然后是垂直方向
+
+**定义图形的位置**
+
+- radial-gradient(... at &lt;position>, ...)
+
+**定义color stop**
+
+- radial-gradient(..., &lt;color-stop>)
+- radial-gradient(..., &lt;color-stop>, &lt;color-stop>)
+
+下面是具体说明。
+
+####&lt;position>
 
 
 
