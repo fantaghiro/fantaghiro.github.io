@@ -142,5 +142,31 @@ angle角度，定义的就是渐变的方向。当渐变方向不是垂直，水
 <p data-height="624" data-theme-id="2146" data-slug-hash="KoqfE" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/KoqfE/'>KoqfE</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
+##radial-gradient
+
+###定义
+
+radial-gradient由中心（center）、结束图形轮廓（ending shape contour）、位置（position）和color stop确定。radial-gradient包括了连续的从其中心一直到结束轮廓以及更远的位置的同心且与结束图形轮廓一致的图形。color stop定位在一条虚拟的渐变射线（virtual gradient ray）上。这个virtual gradient ray是水平从中心开始向正右方延伸。如果是用百分比表示位置的话，那么从中心到virtual gradient ray与结束图形轮廓之间的焦点这么一段线段为100%。从中心开始逐渐扩大的并且与结束轮廓形状一致的每个形状都是单色的，其颜色由它与gradient ray相交的交点的颜色决定。
+
+**结束形状只能是正圆（circle）或椭圆（ellipse）。**
+
+radial-gradient不允许设置重复的渐变，如果要实现重复的径向渐变，可以使用repeating-radial-gradient。
+
+<img style="max-width: 90%;" src="http://pic.yupoo.com/fantaghiro_v/DRiOmtI9/H727n.png" >
+
+###语法
+
+{% highlight css %}
+  radial-gradient( [[ circle               || &lt;length> ]                     [ at &lt;position> ]? , | 
+                    [ ellipse              || [&lt;length> | &lt;percentage> ]{2}] [ at &lt;position> ]? , |
+                    [ [ circle | ellipse ] || &lt;extent-keyword> ]             [ at &lt;position> ]? , |
+                                                                               at &lt;position> ,     &lt;color-stop> [ , &lt;color-stop> ]+ )
+                   \------------------------------------------------------------------------------/\--------------------------------/
+                                 Definition of the contour, size and position of the ending shape         List of color stops  
+    
+          where &lt;extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
+            and &lt;color-stop> = &lt;color> [ &lt;percentage> | &lt;length> ]?
+{% endhighlight %}
+
 
 
