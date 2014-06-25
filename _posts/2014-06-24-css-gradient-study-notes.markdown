@@ -43,9 +43,9 @@ linear-gradient不允许设置重复的渐变，但是通过灵活运用color-st
 
 ###语法
 
-```
+{% highlight css %}
 linear-gradient(  [ <angle> | to <side-or-corner> ,]? <color-stop> [, <color-stop>]+ )
-```
+{% endhighlight %}
 
 以上语法中：
 
