@@ -98,6 +98,7 @@ angle角度，定义的就是渐变的方向。当渐变方向不是垂直，水
 <p data-height="268" data-theme-id="2146" data-slug-hash="Jsyew" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/Jsyew/'>Jsyew</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
 
+
 ###linear-gradient加厂商前缀与不加厂商前缀的写法区别
 
 由于历史问题，linear-gradient在加上厂商前缀与不加厂商前缀时，写法略有区别。这个地方十分tricky，也容易引起混淆。主要区别有如下两点：
@@ -109,5 +110,36 @@ angle角度，定义的就是渐变的方向。当渐变方向不是垂直，水
 
 <p data-height="298" data-theme-id="2146" data-slug-hash="lmCnq" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/lmCnq/'>lmCnq</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
+
+下面是同一种渐变效果的几种不同的写法：
+
+```
+.grad { 
+  background-color: #F07575; /* fallback color if gradients are not supported */
+  background-image: -webkit-linear-gradient(top, hsl(0, 80%, 70%), #bada55); /* For Chrome and Safari */
+  background-image:    -moz-linear-gradient(top, hsl(0, 80%, 70%), #bada55); /* For old Fx (3.6 to 15) */
+  background-image:     -ms-linear-gradient(top, hsl(0, 80%, 70%), #bada55); /* For pre-releases of IE 10*/
+  background-image:      -o-linear-gradient(top, hsl(0, 80%, 70%), #bada55); /* For old Opera (11.1 to 12.0) */ 
+  background-image:         linear-gradient(to bottom, hsl(0, 80%, 70%), #bada55); /* Standard syntax; must be last */
+}
+```
+<p data-height="268" data-theme-id="2146" data-slug-hash="vfstA" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/vfstA/'>vfstA</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
+注意，不带厂商前缀的标准写法一定要放到最后。同时最好在一开始设置一个fallback 背景色。注意带厂商前缀和不带厂商前缀中关键词的选用正好是相反的。
+
+
+###linear-gradient的灵活运用
+
+<p data-height="268" data-theme-id="2146" data-slug-hash="rHJsb" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/rHJsb/'>rHJsb</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
+从上例中可以看出，linear-gradient可以设置多色渐变。通过巧妙设置color stop，也能够构成清晰的条纹图案。linear-gradient支持透明设置。并且可以多次设置linear-gradient效果。不同的效果会产生叠加。先设置的颜色位于上层，后设置的位于下层。如果上层的颜色设置有透明，那么下层的颜色则会透出来。
+
+此外，还可以通过设置background-size来巧妙地实现渐变效果的重复平铺。见下面的例子：
+
+<p data-height="624" data-theme-id="2146" data-slug-hash="KoqfE" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/KoqfE/'>KoqfE</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
 
 
