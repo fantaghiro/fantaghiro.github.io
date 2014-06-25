@@ -157,15 +157,15 @@ radial-gradient不允许设置重复的渐变，如果要实现重复的径向�
 ###语法
 
 {% highlight css %}
-  radial-gradient( [[ circle               || &lt;length> ]                     [ at &lt;position> ]? , | 
-                    [ ellipse              || [&lt;length> | &lt;percentage> ]{2}] [ at &lt;position> ]? , |
-                    [ [ circle | ellipse ] || &lt;extent-keyword> ]             [ at &lt;position> ]? , |
-                                                                               at &lt;position> ,     &lt;color-stop> [ , &lt;color-stop> ]+ )
+  radial-gradient( [[ circle               || <length> ]                     [ at <position> ]? , | 
+                    [ ellipse              || <length> | <percentage> ]{2}] [ at <position> ]? , |
+                    [ [ circle | ellipse ] || <extent-keyword> ]             [ at <position> ]? , |
+                                                                               at <position> ,     <color-stop> [ , <color-stop> ]+ )
                    \------------------------------------------------------------------------------/\--------------------------------/
                                  Definition of the contour, size and position of the ending shape         List of color stops  
     
-          where &lt;extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
-            and &lt;color-stop> = &lt;color> [ &lt;percentage> | &lt;length> ]?
+          where <extent-keyword> = closest-corner | closest-side | farthest-corner | farthest-side
+            and <color-stop> = <color> [ <percentage> | <length> ]?
 {% endhighlight %}
 
 
