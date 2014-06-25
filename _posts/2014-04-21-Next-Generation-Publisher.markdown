@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 当我谈论知乎时，我在谈论出版
-category: pulishing
+category: publishing
 tags:
 - 知乎
 - 数字出版
