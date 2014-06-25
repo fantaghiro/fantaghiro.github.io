@@ -113,7 +113,7 @@ angle角度，定义的就是渐变的方向。当渐变方向不是垂直，水
 
 下面是同一种渐变效果的几种不同的写法：
 
-{% highlight css %}
+<pre>
 .grad { 
   background-color: #F07575; /* fallback color if gradients are not supported */
   background-image: -webkit-linear-gradient(top, hsl(0, 80%, 70%), #bada55); /* For Chrome and Safari */
@@ -122,7 +122,7 @@ angle角度，定义的就是渐变的方向。当渐变方向不是垂直，水
   background-image:      -o-linear-gradient(top, hsl(0, 80%, 70%), #bada55); /* For old Opera (11.1 to 12.0) */ 
   background-image:         linear-gradient(to bottom, hsl(0, 80%, 70%), #bada55); /* Standard syntax; must be last */
 }
-{% endhighlight %}
+</pre>
 
 <p data-height="268" data-theme-id="2146" data-slug-hash="vfstA" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/vfstA/'>vfstA</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
