@@ -245,3 +245,20 @@ radial-gradient不允许设置重复的渐变，如果要实现重复的径向�
 
 <p data-height="331" data-theme-id="2146" data-slug-hash="dJGvj" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/dJGvj/'>dJGvj</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
+
+###radial-gradient灵活使用
+
+<p data-height="307" data-theme-id="2146" data-slug-hash="sCpeJ" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/sCpeJ/'>sCpeJ</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
+从上述例子可以看出，radial-gradient可以作为图片来看待，可以定位；radial-gradient可以叠加，可以为radial-gradient添加底色。
+
+##repeating-linear-gradient
+
+简而言之，repeating-linear-gradient就是可以无限重复的linear-gradient。见下例：
+
+<p data-height="268" data-theme-id="2146" data-slug-hash="CHeAi" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/CHeAi/'>CHeAi</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
+需要注意的是：在设置repeating-linear-gradient时，与linear-gradient不同的是，不要给repeating-linear-gradient设置明确的end color。如果设置了，那么也就repeat不起来了。最后一个颜色一定要设置一定长度或百分比彩信。
+
