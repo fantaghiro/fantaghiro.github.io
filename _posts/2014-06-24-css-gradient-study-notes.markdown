@@ -241,7 +241,7 @@ radial-gradient不允许设置重复的渐变，如果要实现重复的径向�
     </tbody>
 </table>
 
-###实例
+###radial-gradient实例
 
 <p data-height="331" data-theme-id="2146" data-slug-hash="dJGvj" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/dJGvj/'>dJGvj</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>
