@@ -44,15 +44,15 @@ linear-gradient不允许设置重复的渐变，但是通过灵活运用color-st
 ###语法
 
 {% highlight css %}
-linear-gradient(  [ &lt;angle> | to &lt;side-or-corner> ,]? &lt;color-stop> [, &lt;color-stop>]+ )
+linear-gradient(  [ <angle> | to <side-or-corner> ,]? <color-stop> [, <color-stop>]+ )
 {% endhighlight %}
 
 以上语法中：
 
-- <code> [&lt;angle> | to &lt;side-or-color>,] </code>这一部分用于定义gradient line
-    - 其中 <code>&lt;side-or-color></code> = <code>[left | right] || [top | bottom]</code> 
-- <code>&lt;color-stop> [, &lt;color-stop>]+</code> 用于定义color-stop point列表
-    - 其中 <code>&lt;color-stop></code> =<code> &lt;color> [ &lt;percentage> | &lt;length> ]?</code>
+- <code> [<angle> | to <side-or-color>,] </code>这一部分用于定义gradient line
+    - 其中 <code><side-or-color></code> = <code>[left | right] || [top | bottom]</code> 
+- <code><color-stop> [, <color-stop>]+</code> 用于定义color-stop point列表
+    - 其中 <code><color-stop></code> =<code> <color> [ <percentage> | <length> ]?</code>
 
 下面是具体说明。
 
@@ -241,8 +241,7 @@ radial-gradient不允许设置重复的渐变，如果要实现重复的径向�
     </tbody>
 </table>
 
+###实例
 
-
-
-
-> Written with [StackEdit](https://stackedit.io/).
+<p data-height="331" data-theme-id="2146" data-slug-hash="dJGvj" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/fantaghiro/pen/dJGvj/'>dJGvj</a> by Pei (<a href='http://codepen.io/fantaghiro'>@fantaghiro</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
