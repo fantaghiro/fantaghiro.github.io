@@ -83,4 +83,6 @@ Formal syntax: none | [inset? && [ <offset-x> <offset-y> <blur-radius>? <spread-
 
 > box25说明，对于阴影的不同设置，用逗号分隔，可以加很多条，组合起来会造成十分复杂的效果。
 
+##相关文章收集##
 
+1. [这里](http://blog.codeschool.com/post/89758324803/designing-characters-with-box-shadow)有一位牛人，用box-shadow做像素动画！
