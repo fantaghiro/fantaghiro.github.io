@@ -4,7 +4,7 @@ url: http://fantaghiro.github.io
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
 permalink: /:month-:day-:year/:title.html
-markdown: kramdown
+markdown: redcarpet
 
 # Theme customization - please change from the defaults!
 theme:
