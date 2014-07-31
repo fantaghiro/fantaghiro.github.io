@@ -5,6 +5,10 @@ lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
 permalink: /:month-:day-:year/:title.html
 markdown: kramdown
+kramdown:
+  use_coderay: true
+  coderay:
+    coderay_line_numbers: table
 
 # Theme customization - please change from the defaults!
 theme:
