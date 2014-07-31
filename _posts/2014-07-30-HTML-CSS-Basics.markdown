@@ -12,7 +12,6 @@ tags:
 
 妙味课堂的课程讲得非常的清楚，受益匪浅。先把HTML和CSS基础课程部分视频的学习笔记记录如下：
 
-{{ page.content | fancytoc }}
 
 #PS基础
 
