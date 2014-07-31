@@ -62,11 +62,10 @@ tags:
 
 ##background
 
-```css
-#bg {
+~~~
 background: url(bg.jpg) center top no-repeat gray fixed;
 }
-```
+~~~
 
 等价于：
 
