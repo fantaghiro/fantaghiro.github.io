@@ -1,5 +1,5 @@
 # General Jekyll Config
-pygments: true
+pygments: false
 url: http://fantaghiro.github.io
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
@@ -9,6 +9,7 @@ kramdown:
   use_coderay: true
   coderay:
     coderay_line_numbers: table
+    coderay_css: style
 
 # Theme customization - please change from the defaults!
 theme:
