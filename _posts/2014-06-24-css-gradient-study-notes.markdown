@@ -11,7 +11,6 @@ tags:
 ##总述
 
 CSS中的&lt;gradient>指的是一种image，可以看到&lt;gradient>通常设置到background或者background-image上。但是这种image没有大小，会随着被应用的对象大小而改变。gradient一次在英文是坡度的意思，也含有逐渐改变的意思。在CSS中表示的就是两个或多个颜色的渐进过渡。
-<!--more-->
 
 - 这里是一个目录
 {:toc}
