@@ -9,7 +9,8 @@ tags:
 - 外教社
 ---
 
-<p></p>
+今天简单地对《全景商务英语》这套教材进行了一下研究。现记录总结内容如下：
+
 <b>初级教程</b>（暂略）
 <hr>
 <b>中级教程（INTERMEDIATE BUSINESS ENGLISH COURSE）</b>
