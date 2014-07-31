@@ -62,7 +62,7 @@ tags:
 
 ##background
 
-~~~ css
+~~~css
 background: {
     url(bg.jpg) center top no-repeat gray fixed;
 }
@@ -70,7 +70,7 @@ background: {
 
 等价于：
 
-~~~ css
+~~~css
 #bg {
 background-image: url(bg.jpg);
 background-position: center top;
@@ -138,7 +138,7 @@ background-attachment: fixed;
 - target="_self"/"_blank"
 - 在head中添加如下代码，可以让页面中所有的链接都在新页面中打开，其中base代表默认
 
-~~~ html
+~~~html
 <base target="_blank"/>
 ~~~
 
@@ -210,7 +210,7 @@ a伪类的兼容
 
 ##标签默认值样式重置
 
-~~~ css
+~~~css
 /* 默认样式重置（css reset） */
 body, p, h1, h2, h3, h4, h5, h6, dl, dd { margin: 0; font-size: 12px; /* font-family */ }
 ol, ul { list-style: none; padding: 0; margin: 0; }
@@ -300,7 +300,7 @@ clear控制元素的某个方向上不能有浮动元素
 
 - 方法四、 在浮动元素下边加上&lt;div class="clear"&gt;&lt;/div&gt;空标签清浮动（问题：IE6最小高度19px；解决后IE6下还有2px偏差）
 
-~~~ css
+~~~css
 .clear {
     height: 0px;
     clear: both;
@@ -317,7 +317,7 @@ clear控制元素的某个方向上不能有浮动元素
 - 方法五、在浮动元素下面加&lt;br clear="all" /&gt; （问题：不符合W3C标准，样式混入了html）
 - 方法六、给浮动元素的父级元素加上clear类，然后给该元素的after伪类设置如下样式（问题：IE6、7不支持after伪类，为了兼容IE6、7，还要给父级元素加上样式zoom:1）
 
-~~~ css
+~~~css
 .clear:after {
     content: "";
     display: block;
@@ -333,7 +333,7 @@ clear控制元素的某个方向上不能有浮动元素
 
 **最终推荐使用的清楚浮动的方法**
 
-~~~ css
+~~~css
 .clear { /*用来处理IE6、7*/
     zoom: 1;
 }
