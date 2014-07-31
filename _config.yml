@@ -6,7 +6,7 @@ exclude: [LICENSE, CNAME, README.md, .gitignore]
 permalink: /:month-:day-:year/:title.html
 markdown: redcarpet2
 redcarpet:
-extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
+extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data", "html_toc"]
 
 # Theme customization - please change from the defaults!
 theme:
