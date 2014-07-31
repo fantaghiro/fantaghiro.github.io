@@ -4,16 +4,7 @@ url: http://fantaghiro.github.io
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
 permalink: /:month-:day-:year/:title.html
-markdown: redcarpet
-redcarpet:
-  extensions: 
-  # 使用```快速开始代码块
-  - fenced_code_blocks
-  # 自动解析链接，这样就不用写讨厌的[http://link](http://link)格式了
-  - autolink
-  # 表格扩展
-  - tables
-  - with_toc_data
+markdown: kramdown
 
 # Theme customization - please change from the defaults!
 theme:
