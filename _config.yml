@@ -14,7 +14,6 @@ redcarpet:
   # 表格扩展
   - tables
   - with_toc_data
-  - html_toc
 
 # Theme customization - please change from the defaults!
 theme:
