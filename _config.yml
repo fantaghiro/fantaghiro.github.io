@@ -4,15 +4,9 @@ url: http://fantaghiro.github.io
 lsi: false
 exclude: [LICENSE, CNAME, README.md, .gitignore]
 permalink: /:month-:day-:year/:title.html
-markdown: KramdownPygments
+markdown: kramdown
 kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  input: GFM
-  use_coderay: true
+    use_coderay: true
   coderay:
     coderay_line_numbers: table
     coderay_css: style
