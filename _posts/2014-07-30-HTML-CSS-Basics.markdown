@@ -63,13 +63,14 @@ tags:
 ##background
 
 ~~~
-background: url(bg.jpg) center top no-repeat gray fixed;
+background: {
+    url(bg.jpg) center top no-repeat gray fixed;
 }
 ~~~
 
 等价于：
 
-```css
+~~~
 #bg {
 background-image: url(bg.jpg);
 background-position: center top;
@@ -77,7 +78,7 @@ background-repeat: no-repeat;
 background-color: gray;
 background-attachment: fixed;
 }
-```
+~~~
 
 ##border
 
@@ -137,9 +138,9 @@ background-attachment: fixed;
 - target="_self"/"_blank"
 - 在head中添加如下代码，可以让页面中所有的链接都在新页面中打开，其中base代表默认
 
-```html
+~~~
 <base target="_blank"/>
-```
+~~~
 
 - a标签的作用
     - 链接（a标签中放链接）
@@ -209,14 +210,14 @@ a伪类的兼容
 
 ##标签默认值样式重置
 
-```css
+~~~
 /* 默认样式重置（css reset） */
 body, p, h1, h2, h3, h4, h5, h6, dl, dd { margin: 0; font-size: 12px; /* font-family */ }
 ol, ul { list-style: none; padding: 0; margin: 0; }
 a { text-decoration: none; }
 img { border: none; }
 ……
-```
+~~~
 
 ##标签基本特性和转换
 
@@ -299,13 +300,13 @@ clear控制元素的某个方向上不能有浮动元素
 
 - 方法四、 在浮动元素下边加上&lt;div class="clear"&gt;&lt;/div&gt;空标签清浮动（问题：IE6最小高度19px；解决后IE6下还有2px偏差）
 
-```css
+~~~
 .clear {
     height: 0px;
     clear: both;
     font-size: 0;
 }
-```
+~~~
 
 **IE6下的最小高度问题：**
 
@@ -316,13 +317,13 @@ clear控制元素的某个方向上不能有浮动元素
 - 方法五、在浮动元素下面加&lt;br clear="all" /&gt; （问题：不符合W3C标准，样式混入了html）
 - 方法六、给浮动元素的父级元素加上clear类，然后给该元素的after伪类设置如下样式（问题：IE6、7不支持after伪类，为了兼容IE6、7，还要给父级元素加上样式zoom:1）
 
-```css
+~~~
 .clear:after {
     content: "";
     display: block;
     clear: both;
 }
-```
+~~~
 
 **注意：在IE6、7下，浮动元素的父级有宽度的话，就不用清除浮动。**
 
@@ -332,7 +333,7 @@ clear控制元素的某个方向上不能有浮动元素
 
 **最终推荐使用的清楚浮动的方法**
 
-```css
+~~~
 .clear { /*用来处理IE6、7*/
     zoom: 1;
 }
@@ -341,7 +342,7 @@ clear控制元素的某个方向上不能有浮动元素
     display: block; /*或display: table;也可以*/
     clear: both;
 }
-```
+~~~
 
 zoom的作用就是放大或缩小。zoom在不同浏览器中不兼容。
 
