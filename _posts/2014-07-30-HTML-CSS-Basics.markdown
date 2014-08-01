@@ -132,6 +132,7 @@ background-attachment: fixed;
 ##img
 
 - 注意写img的alt属性
+- 把img放到一个块里面，默认img与该块的下边框有几个像素的间距。为了解决这个问题，可以为img添加样式display: block;但是这种解决方法有局限性。另外一种方法是给图片添加vertical-align: top;也可以。
 
 ##a标签
 
@@ -274,7 +275,7 @@ inline-block的应用：分页导航
 8. ul, li/ ol, li/ dl, dt, dd拥有父子级关系的标签
 9. p, dt, h标签，里面不能嵌套块属性标签
 10. a标签不能嵌套a
-11. 尽量不要用内联元素去嵌套块
+11. 尽量不要用内联元素去嵌套块（例如：p标签中添加了h或者div块标签，一个p标签会被隔成两个。注意，这里指的是块标签。如果p里面放了span，然后把span的样式设置了display: block;，p标签不会被隔成两个。）
 
 ##浮动的原理 left/right/none 以及清除浮动的各种方法
 
@@ -314,7 +315,9 @@ clear控制元素的某个方向上不能有浮动元素
 
 在IE6下高度小于19px的元素，高度会被当作19px处理
 
-解决办法：给该元素加font-size: 0; 这样只能处理到最小2px，再小也没办法了。
+解决办法一：给该元素加font-size: 0; 这样只能处理到最小2px，再小也没办法了。
+
+解决方法二：为该元素添加overflow: hidden;样式 ——这也是处理IE6下最小高度的最常用方法。
 
 - 方法五、在浮动元素下面加&lt;br clear="all" /&gt; （问题：不符合W3C标准，样式混入了html）
 - 方法六、给浮动元素的父级元素加上clear类，然后给该元素的after伪类设置如下样式（问题：IE6、7不支持after伪类，为了兼容IE6、7，还要给父级元素加上样式zoom:1）
@@ -362,7 +365,140 @@ overflow的各个设置：
 要执行overflow样式，首先要检测父级元素中的内容是否超出其宽高。如果子元素是浮动元素，父级元素又设置了固定宽高的话，如果子元素大于固定宽高的父级元素，并且父级元素设置了overflow: auto;会看到有滚动条出现。那说明，overflow不仅可以检测到浮动元素是否溢出，而且也可以让父级元素包住浮动的子元素。那么，即使父级元素没有设置宽高，给父级元素设置了overflow的样式，也可以清除浮动。
 
 - 方法七：给浮动元素父级加overflow: hidden;或overflow: auto;来清除浮动，并且一定要配合zoom: 1使用。（问题：IE6下，overflow没有包住浮动子元素的功能，为了兼容，还是要加zoom: 1来解决一下）。
+- 方法八：给浮动元素的父级元素添加position: absolute或者position: fixed，都可以清除浮动。
 
+##浮动的问题
+
+- 推荐在IE6、7下，元素浮动要并在同一行的元素都要加浮动(例如，第一个box浮动，第二个div里面的文字会排到第一个box的同行后面，但是在IE6下，第二个元素中的文字与第一个float的box有3px的间距。但是在正常情况下，两者之间是不应该有间距的。)
+
+**兼容性问题**
+
+- IE6双边距bug（IE6下块属性标签浮动，并且有横向margin，横向margin加倍。）
+    - IE6
+    - 浮动
+    - 横向margin
+    - 块属性标签（解决方法：加display: inline;)
+- IE6下li部分兼容性问题：
+    - 左右两列布局，右边右浮动IE6、7下折行；（解决方法：不仅右侧元素向右浮动；左边元素也要添加向左浮动）
+    - IE6、7 li中的元素都浮动。在IE6、7下li元素下方会产生4px间隙问题；（在IE6、7下li本身没有浮动，但是其中的内容浮动了，li下就会多出来几个px的间隙）（解决方法1： 给li也加浮动。注意给ul清除浮动。解决方法2：不给li加浮动，但是给li加vertical-align: top/middle;都可以）
+
+**vertical-align**的作用
+
+- 作用一：vertical-align是垂直对齐样式。要给每个要对齐的元素都加上这个属性。vertical-align对于浮动的元素是失效的，浮动元素是默认顶部对齐的。
+- 作用二：用于清理图片下方的空隙。（将img放在块中，img下方会有几个像素的空隙。可以为img设置display: block;来清理，但是这种方法有局限性，因此推荐给img添加vertical-align: top;样式来清理。）
+
+##相对定位
+
+添加了position: relative;的元素就变成了定位元素，具有以下特性：
+
+- 不影响元素本身的特性
+- 不使元素脱离文档流
+- 如果没有定位偏移量，对元素本身没有任何影响
+
+**定位元素位置控制**
+
+- top/right/bottom/left 定位元素偏移量
+
+##绝对定位
+
+- 使元素完全脱离文档流
+- 使内嵌支持宽高
+- 块属性标签内容撑开宽度
+- 如果有定位父级相对于定位父级（而不是结构父级）发生偏移，没有定位父级相对于整个文档（不是body）发生偏移（body、html和文档之间的关系是body之上有html，html之上有文档）
+- 相对定位一般都是配合绝对定位元素使用
+
+z-index: [number]; 定位层级
+
+- 定位元素默认后者层级高于前者（不论是相对定位还是绝对定位）
+
+##滤镜和遮罩弹窗
+
+~~~ html
+<div class="mask"></div> //遮罩
+<div class="alert"></div> //弹窗
+~~~
+
+~~~ css
+body, html { //这里是为了兼容IE6。如果不给body和html加height: 100%的话，IE6下的蒙板只在最上面显示一条）
+  height: 100%;
+}
+.mask { //遮罩的样式
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  filter:alpha(opacity=50);
+}
+.alert { //弹窗的样式
+  width: 400px;
+  height: 200px;
+  background: #fff;
+  border: 2px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -102px; //注意盒子的高度是200像素加上边框宽度×2，也就是204px
+  margin-left: -202px; //注意盒子的高度是404，而不是400.所以一般就是202px。此处一定要注意。
+}
+~~~
+
+##固定定位
+
+position: fixed 固定定位：与绝对定位的特性基本一致，差别是始终相对整个文档进行定位；
+
+问题：IE6不支持固定定位
+
+**滤镜**
+
+- 标准浏览器下：不透明度：opacity: 0~1; 0是完全透明；1是完全不透明。
+- IE私有滤镜：filter:alpha(opacity=0~100); 0是完全透明，100是完全不透明。(IE Tester是不支持IE的filter滤镜的)
+
+##定位其他
+
+position: relative | absolute | fixed | static | inherit;
+
+- position: static; //默认值
+- position: inherit; //从父元素继承定位属性的值
+
+##定位的一些问题
+
+**相对定位的一些问题**
+
+在IE6下，父级的overflow: hidden; 是包不住子集的相对定位的。例如：
+
+~~~ css
+#box1 {width: 500px; height: 300px; background: blue; overflow: hidden;}
+#box2 {width: 300px; height: 500px; background: yellow; position: relative;}
+~~~
+
+这两个盒子，子元素box2比父元素box1要长，虽然父级添加了overflow: hidden; 但是一旦子元素添加了position: relative; 在IE6下，子元素还是会撑破父元素。
+
+解决方法，在父级也加一个相对或绝对定位position: relative/absolute; 就可以包住子元素了。
+
+**绝对定位的一些问题**
+
+- IE6下，定位元素的父级的宽高是奇数的话，那么该定位元素的right和bottom都有1像素的偏差。例如：
+
+~~~ css
+#box1 {width: 300px; height: 300px; border: 1px solid black; position: relative;}
+#box2 {width: 50px; height: 50px; backgruond: #7c1; position: absolute; right: -1px; bottom: -1px;} 
+~~~
+
+其中box2是box1的子元素。请仔细观察。当box1的宽高为300px的时候，box2会遮掉box1右下角的边框，这是正常的。但是当box1的宽高是301、303等奇数时，在IE6下，box2没有遮掉box1右下角的边框，这正是因为出现了1px的偏差。这个问题，没有好办法规避。
+
+- position: absolute; 绝对定位的元素子级的浮动可以不用写清浮动方法
+
+**固定定位的一些问题**
+
+position: fixed; 固定定位元素子级的浮动可以不用写清浮动方法；（IE6不兼容）
+
+
+
+    
+    
 
 
 
