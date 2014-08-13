@@ -12,8 +12,7 @@ tags:
 
 妙味课堂的课程讲得非常的清楚，受益匪浅。先把HTML和CSS基础课程部分视频的学习笔记记录如下：
 
-- 这里是目录
-{:toc}
+[toc]
 
 #PS基础
 
@@ -62,15 +61,15 @@ tags:
 
 ##background
 
-~~~css
+```css
 bac kground: {
     url(bg.jpg) center top no-repeat gray fixed;
 }
-~~~
+```
 
 等价于：
 
-~~~ css
+``` css
 #bg {
 background-image: url(bg.jpg);
 background-position: center top;
@@ -78,7 +77,7 @@ background-repeat: no-repeat;
 background-color: gray;
 background-attachment: fixed;
 }
-~~~
+```
 
 ##border
 
@@ -471,10 +470,10 @@ position: relative | absolute | fixed | static | inherit;
 
 在IE6下，父级的overflow: hidden; 是包不住子集的相对定位的。例如：
 
-~~~ css
+``` css
 #box1 {width: 500px; height: 300px; background: blue; overflow: hidden;}
 #box2 {width: 300px; height: 500px; background: yellow; position: relative;}
-~~~
+```
 
 这两个盒子，子元素box2比父元素box1要长，虽然父级添加了overflow: hidden; 但是一旦子元素添加了position: relative; 在IE6下，子元素还是会撑破父元素。
 
@@ -484,10 +483,10 @@ position: relative | absolute | fixed | static | inherit;
 
 - IE6下，定位元素的父级的宽高是奇数的话，那么该定位元素的right和bottom都有1像素的偏差。例如：
 
-~~~ css
+``` css
 #box1 {width: 300px; height: 300px; border: 1px solid black; position: relative;}
 #box2 {width: 50px; height: 50px; backgruond: #7c1; position: absolute; right: -1px; bottom: -1px;} 
-~~~
+```
 
 其中box2是box1的子元素。请仔细观察。当box1的宽高为300px的时候，box2会遮掉box1右下角的边框，这是正常的。但是当box1的宽高是301、303等奇数时，在IE6下，box2没有遮掉box1右下角的边框，这正是因为出现了1px的偏差。这个问题，没有好办法规避。
 
@@ -496,6 +495,702 @@ position: relative | absolute | fixed | static | inherit;
 **固定定位的一些问题**
 
 position: fixed; 固定定位元素子级的浮动可以不用写清浮动方法；（IE6不兼容）
+
+##表格标签特性与默认样式重置
+
+**一个完整的表格结构：**
+
+- table
+    - thead
+        - tr
+            - th ...
+    - tbody
+        - tr
+            - td ...
+        - tr
+            - td ...
+    - tfoot
+        - tr
+            - td ...
+
+**table的默认样式重置**
+
+``` css
+th, td { padding: 0; }
+table {border-collapse: collapse; }
+/* table css reset */
+```
+
+注意事项：
+
+1. 不要给table, th, td以外的表格标签加样式
+2. 单元格默认平分table的宽度
+3. th里面的内容默认加粗，并且左右上下居中显示
+4. td里面的内容默认上下居中，左右居左显示
+5. table的宽度决定整个表格的宽度
+6. table里面的单元格宽度会被转换成百分比
+7. 建议表格里面的每一列都必须有宽度（防止单元格内容变更，使整个表格布局改变）
+8. 表格中同一竖列继承最大宽度
+9. 表格中同行继承最大高度
+
+**table的标签基本特性就是display: table，既不是块也不是内嵌。**
+
+单元格合并
+
+- colspan：属性规定单元格可横跨的列数
+- rowspan：属性规定单元格可竖跨的行数
+
+##表单元素和样式重置
+
+表单元素大多是inline-block
+
+- form 表单
+- &lt;input type="..." name="" value="" /&gt;
+    - text 文本框
+    - password 密码
+    - radio 单选（为多个选项添加同一个name，实现单选）
+    - checkbox 复选（checked：默认选中；disabled：禁用）
+    - submit 提交
+    - reset 重置
+    - button 按钮
+    - image 图片（基本不太用）
+    - file 上传（不同浏览器没法兼容）
+    - hidden 隐藏
+    - select标签配合option使用 下拉选框（默认显示第一项，也可以用selected指定默认选项）
+    - textarea 文本域
+
+label的用法（用for进行关联）：
+
+``` html
+<input type="radio" name="gender" id="a" /><label for="a">男</label>
+<input type="radio" name="gender" id="b" /><label for="b">女</label>
+```
+
+**默认样式重置**
+
+``` css
+form {margin: 0;} //IE下form是有外边距的
+input {margin: 0; padding:0;}
+select {margin: 0;}
+textarea {margin: 0; padding: 0; resize: none; overflow: auto;}
+```
+
+select元素支持宽度、高度支持并不完善。单选框、复选框对宽高的支持不完善
+
+可以用outline: none去掉表单元素的焦点线。
+
+##表单元素的问题
+
+**表单元素兼容性问题**
+
+IE6下input背景滚动：
+
+文本框：当内容比框宽的时候，该文本框背景会被挤跑。解决方法：将该文本框用一个div包起来。在这个div上设置背景图片。然后把该文本框的宽高设置为与div相同；把文本框的边框去掉，文本框的背景设置为无。
+
+``` html
+<div class="box">
+    <input type="text name="" class="text" />
+</div>
+```
+
+``` css
+/* input {margin: 0; padding: 0;}
+.text {width: 300px; height: 40px; border: 1px solid blue; background: url(sun.jpg) 0 center no-repeat #ffc;}
+*/
+//以上这种仅针对input的样式设置，在IE6下，当输入的内容宽于文本框时，背景会跑掉。
+
+.box {width: 300px; margin-top: 50px; height: 40px; border: 1px solid blue; background: url(sun.jpg) 0 center no-repeat #ffc;}
+.box input {width: 300px; height: 40px; border: none;}
+//以上这种设置方式，其实是把样式加到div上，然后让文本框变成透明，并且与外面的div同样大小，从而变成同样的视觉效果。
+```
+
+**outline轮廓线：**
+
+a标签轮廓线去除方法：
+
+1. &lt;a href="#" onfocus="this.blur();"&gt;...&lt;/a&gt;
+2. &lt;a href="#" hidefocus&gt;...&lt;/a&gt;
+
+#HTML和CSS进阶
+
+##滑动门技术
+
+**滑动门的概念**
+
+滑动门并不是一项全新的技术。它是利用背景图像的可层叠性，并允许他们在彼此之上进行滑动，以创造一些特殊的效果。
+
+左上和又上是圆角的按钮实现方式（按钮宽度可以随意变动）：
+
+``` html
+<div class="btn">
+    <div class="btnL">
+        <div class="btnR">妙味课堂</div>
+    </div>
+</div>
+```
+
+``` css
+.btn {width: 100px; background: url(img/btn.png) repeat-x;) //btn.png为中间的一像素平铺
+.btnL {background: url(img/btnL.png) no-repeat;} //btnL.png是带左角的那一部分
+.btnR {height: 31px; background: url(img/btnR.png) no-repeat right 0;} //btnR.png是带右角的那一部分
+```
+
+以上方法比较麻烦；优化方法为（按钮宽度可以变动，但是不能宽于btn2.png的宽度）：
+
+``` html
+<div class="btn">
+    <div class="btnR"></div>
+</div>
+```
+
+``` css
+.btn {width: 100px; background: url(img/btn2.png) no-repeat;} //btn2.png是左角部分外加中间部分
+.btnR {height: 31px; background: url(img/btnR.png) no-repeat right 0;} //btnR.png是右角的那一部分
+```
+
+但是第二种方法没有第一种方法的扩展性好。第二种方法受到btn2.png这张图片宽度的限制。因此，对于扩展要求高、图片比较大的，尽量使用三层嵌套的方法。对扩展要求不高、图片比较小的，用两层嵌套。
+
+**元素的宽度由内容撑开：**
+
+- display: inline;
+- display: inline-block;
+- float
+- position: absolute;
+- position: fixed
+
+**宽高可扩展的圆角的实现方式**
+
+简单的方法：使用CSS3里面的border-radius
+
+利用滑动门的三层嵌套方法：
+
+``` html
+<div class="box>
+    <div class="boxHead">
+        <div class="boxHeadL">
+            <div class="boxHeadR"></div>
+        </div>
+    </div>
+    <div class="boxC">
+        圆角框中的内容
+    </div>
+    <div class="boxFoot">
+        <div class="boxFootL">
+            <div class="boxFootR"></div>
+        </div>
+    </div>
+</div>
+```
+
+``` css
+.box {width: 200px; margin: 30px auto;}
+.boxHead {background: url(boxH.png) repeat-x; height: 9px; overflow: hidden;}
+.boxHeadL {background: url(boxHL.png) no-repeat;}
+.boxHeadR {background: url(boxHR.png) no-repeat; right 0; height: 9px;}
+.boxFoot {background: url(boxF.png) repeat-x; height: 9px; overflow: hidden;}
+.boxFootL {background: url(boxFL.png) no-repeat;}
+.boxFootR {background: url(boxFR.png) no-repeat right 0; height: 9px;}
+.boxC {border-left: 1px solid #e5e5e5; border-right: 1px solid #e5e5e5;}
+```
+**背景透明的圆角框实现**
+
+首先在切图的时候，圆角的部分，就要切背景透明
+
+``` html
+<div class="btn">
+    <div class="btnL">
+        <div class="btnR"></div>
+    </div>
+</div>
+```
+
+``` css
+.btn {width: 100px; margin: 0 auto; background: url(btn.gif) repeat-x;}
+.btnL {background: url(btnL.gif) no-repeat; position: relative; left: -9px;}
+.btnR {background: url(btnR.gif) no-repeat right 0; height: 25px; position: relative; right: -18px;} 
+//注意，因为btnL设置了left: -9px; 导致btnR也向左移了9px，要让btnR比btn还要向右移除9px，就要设置一个相对右移的9*2=18像素才行
+```
+
+以上的写法有些麻烦，更为简便的方法是：
+
+``` html
+<div class="btnL">
+    <div class="btnR">
+        <div class="btn"></div>
+    </div>
+</div>
+<!-- 注意这种写法与上面的那种方法，标签嵌套的顺序变了 -->
+```
+
+``` css
+.btnL {width: 100px; margin: 0 auto; background: url(btnL.gif) no-repeat;}
+.btnR {background: url(btnR.gif) no-repeat right 0;}
+.btn {height: 25px; background: url(btn.gif) repeat-x; margin: 0 9px;}
+//这种方法是通过控制中间平铺的btn的宽度，使两边的圆角透出来的。
+```
+
+##CSS精灵
+
+利用backgroudn-poition的设置，将小图拼成一个大图，从而减少HTTP请求。
+
+CSS sprites的优缺点：
+
+- css精灵的有点
+    - 利用css精灵能很好地减少网页的http请求次数，从而大大提高页面性能。
+    - 减少图片大小
+- CSs精灵的缺点
+    - 降低开发效率
+    - 维护难度加大
+
+##兼容性
+
+**常见问题：**
+
+一、IE6中，内容的宽高会撑开父元素设置的宽高。因此计算一定要精确，不要让内容的宽高超出父元素设置的宽高。
+
+二、IE6（7？）下元素浮动，如果宽度需要内容撑开就给里边的块元素都加浮动。
+
+三、在IE6、7下，元素要通过浮动并在一行，就给这行元素都加浮动。（如果第一个用浮动，第二个用margin-left，那么在IE6、7下，这两个元素之间会出现3像素的间隙，这也就是所说的3像素的bug）
+
+四、注意标签嵌套规范，例如不要在p标签里面嵌套块标签。
+    
+五、IE6下的最小高度问题。IE6下元素的高度小于19px时，会被当作19px处理。解决方法：font-size: 0; 或者overflow: hidden; 推荐后面的方法。
+
+六、border的边框是1px dotted的点线的时候，在IE6下不支持。解决办法：切背景平铺。
+
+七：在IE6下，要解决margin传递，一定要触发haslayout。解决办法：添加zoom: 1;
+
+八，在IE6下，父级有边框的时候，子元素的margin值消失了。解决办法：触发父级的haslayout，也就是添加zoom: 1;
+
+（尽量在IE6下触发元素的haslayout，也就是添加zoom: 1; 可以避免掉很多兼容性问题。
+
+九：IE6、7只支持a标签的四个伪类，其他的伪类不支持
+
+十：在IE6、7下，inline-block是不支持块标签的。没有解决办法
+
+十一：IE6下的双边距bug。在IE6下，块元素有浮动和横向的margin值，横向的margin值会被放大成两倍。当设置的是margin-right的时候，是一行右侧第一个有双边距；当设置的是margin-left的时候，是一行左侧第一个元素有双边距，如果左右margin都设置了，那么一行的右侧第一个和左侧第一个都有双边距bug。解决办法：转成内嵌：display: inline; 
+
+十二：在IE6、7下，li本身没浮动，但是li其中的内容有浮动，那么li下面就会产生一个间隙。解决办法：第一种解决办法：给li添加浮动（有时为了效果，还需要为li设置宽度）；办法二：给li添加垂直对齐方式：vertical-align: top;。注意：当IE6、7下最小高度问题和li间隙问题同时出现的时候，给li加浮动。因为如果用overflow: hidden解决最小高度，同时用vertical-align: top解决间隙问题，会发现li下面仍有间隙。因此碰到这种情况，要用给li添加浮动的方法来解决。
+
+十三：IE6下，当一行子元素占有的宽度之和与父级的宽度相差超过3像素，或者有不满行状态的时候，最后一行子元素的下margin在IE6下失效。没发现有解决办法。
+
+十四：IE6下的文字溢出bug。子元素的宽度和父级的宽度相差小于3像素时，并且两个浮动元素中间有注释或者内嵌元素，就会出现文字溢出bug。解决办法：把中间的注释和内嵌元素用div抱起来；或者把父级元素调大一些也可以。
+
+十五：在IE6下，当浮动元素和绝对定位元素是并列关系的时候，绝对定位元素会消失。解决办法：给绝对元素外面包个div。
+
+十六：在IE6、7下，子元素有相对定位的话，父级的overflow就包不住子元素了。解决办法：给父级也添加相对定位。
+
+十七：在IE6下，绝对定位元素的父级宽高是奇数的时候，元素的rigt值和bottom值会有1px的偏差。
+
+十八：IE6不支持固定定位。要用JS解决
+
+十九：opacity透明度只有标准浏览器支持，在IE6、7、8要通过滤镜filter来解决。
+
+二十：如果tbody和其中包含的tr都有背景的话，tbody的背景就会消失；如果thead和其中的tr都有背景的话，thead的背景也会消失。因此不要给这两个同时加背景。
+
+二十一：在IE6、7下，输入类型的表单控件上下各有1px的间隙。解决方法：给input添加浮动。
+
+二十二：在IE6、7下，输入类型表单控件加border: none;无效。解决办法：border: 0; 或者给input重置下背景。
+
+二十三：在IE6、7下，输入类型表单控件输入文字的时候，背景图片会跟着一块儿移动。解决办法：方法一：给背景图片添加fixed属性，但是这种方法在IE7下，背景图片有些错位。方法二：把背景图片加给父级，然后把input自己的背景设置为background: none;
+
+二十四：png问题。IE6不支持png透明背景的图片。解决办法：引入js文件DD_belatedPNG
+
+**条件注释语句**
+
+下面这一段条件注释代码，IE6-9都可以解析出其中的内容，IE10以及其他标准浏览器则作为注释处理，不会在页面上显示。
+
+``` html
+<!--[if IE]>
+这是IE
+<![end if]-->
+```
+
+条件注释语句还有以下几种写法：
+
+``` html
+<!--[if IE 9]>
+这是IE9
+<![end if]-->
+```
+
+``` html
+<!--[if IE 8]>
+这是IE8
+<![end if]-->
+```
+
+``` html
+<!--[if IE 7]>
+这是IE7
+<![end if]-->
+```
+
+``` html
+<!--[if IE 6]>
+这是IE7
+<![end if]-->
+```
+
+**css hack**
+
+针对不同的浏览器写不同的css样式的过程，就叫css hack！
+
+远离CSS hack，有益身心健康！
+
+\9 IE10之前的IE浏览器解析
+
+星号*和加号+是IE7以及之前的IE浏览器解析
+
+_ 下划线是IE6以及IE6之前的IE浏览器解析
+
+针对chrome的css hack：@media screen and (-webkit-min-device-pixel-ratio: 0) {}
+
+用css hack解决IE6的png问题（原生的CSS办法，没法设置背景图片大小，也没法平铺）：
+
+``` css
+.box {width: 400px; height: 400px; background:url(img/png.png); _background: none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="img/png.png", sizingMethod="crop");
+```
+
+**样式优先级、提升样式优先级**
+
+- 默认 &lt; 类型 &lt; class&lt; id &lt; style (行间) &lt; js
+- !important提升样式优先级权重
+
+在IE6下，在important后面加一条同样的样式，会破坏掉important的提升优先级作用，会按照默认的优先级顺序来走。
+
+##两种特殊布局
+
+**圣杯布局（双飞翼布局）**
+
+左右宽度固定，中间宽度自适应伸缩，并且中间先加载
+
+``` html
+<div class="center"></div>
+<div class="left"></div>
+<div class="right"></div>
+```
+
+``` css
+body {margin: 0}
+.center {height: 600px; background: #f60; margin: 0 200px;}
+.left {width: 200px; background: #fc0; height: 600px; position: absolute; left: 0; top: 0}
+.right {width: 200px; background: #fcc; height: 600px;position: absolute; left: 0; top: 0}
+```
+
+**等高布局**
+
+``` html
+<div class="wrap">
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+```
+
+``` css
+body {margin: 0}
+.wrap {width: 900px; margin: 0 auto; overflow: hidden;}
+.left {width: 200px; background: red; float: left; padding-bottom: 10000px; margin-bottom: -10000px;}
+.right {width: 700px; background: blue; float: right; padding-bottom: 10000px; margin-bottom: -10000px;}
+```
+
+**IE6下使用margin负值的为题**
+
+在IE6下使用margin负值，超出边界的部分会被截掉。解决方法是为这些元素添加相对定位即可。
+
+#其他零散知识
+
+##热区
+
+``` html
+<img src="bigptr.jpg" usemap = "#Map" />
+<map name = "Map">
+    <area shape = "circle" coords = "378, 132, 56" href = "http://www.baidu.com">
+    <area shape = "rect" coords = 462, 157, 566, 217" href = "http://www.google.com">
+    <area shape = "poly" coords = "227, 251, 186, 220, 168, 221 ..." href = "http://www.qq.com">
+</map>
+```
+
+- map 热区
+- area 点击区域
+    - shape = "circle" 圆形 rect
+    - coords = "圆心点x, 圆心点y, 原的半径"
+    - href 跳转地址
+    - shape = "rect" 矩形
+    - coords = "矩形左上角x, 矩形左上角y, 矩形右下角x, 矩形右下角y"
+    - shape = "poly" 不规则多边形
+    - coords = "第一个点x, 第一个点y, 第二个点x, 第二个点y,…… "
+
+##data uri
+
+把图片src里面的地址用data uri代替
+
+- 优点：减少HTTP请求数
+- 缺点：无法被重复利用；会使文件变大
+
+在线工具: http://dancewithnet.com/lab/2009/data-uri-mhtml/create/1376100722.php
+
+##iframe
+
+iframe外联框架。现在已经不太用了。
+
+``` html
+<iframe src="http://www.baidu.com" width="1200" height="600" frameborder = "0" scrolling="no"></iframe>
+```
+
+##flash引入
+
+- &lt;embed src="1.swf width="400" height="400"&gt;&lt;/embed&gt; embed标签就好用object标签包起来
+
+```html
+<object>
+    <embed src="1.swf" width="400" height="400"></embed>
+</object>
+```
+
+- flash透明 &lt;param name="wmode" value="transparent"&gt; wmode="transparent":
+
+``` html
+<object>
+    <param name="wmode" value="transparent">
+    <embed src="1.swf" width="400" height="400" wmode="transparent"></embed>
+</object>
+```
+
+##引入视频
+
+在HTML5中：
+
+``` html
+<video></video>
+```
+
+如果要兼容IE的话，要用flash来做。常用的两种方法：
+
+1. 用Dreamweaver自带的视频播放器（只支持flv格式）
+2. 借助其他视频网站（优酷等），通过复制网站声称的代码，实现嵌入视频。
+
+##词内断行和省略号
+
+- text-overflow (clip ellipsis)
+- white-space: nowrap
+- word-break: break-all和word-wrap: break-word;
+
+文字溢出显示省略号，有三个样式设置缺一不可：一，给元素添加宽度width。二、设置overflow: hidden。三、white-space: nowrap。三个条件齐备之后，设置text-overflow: ellipsis才会其效果。给元素添加宽度是为了兼容IE6.在标准浏览器下，不给元素添加宽度，也可以。
+
+##盒模型的怪异模式
+
+- box-sizing 盒模型解析模式
+    - content-box 标准盒模型 width/height = border + padding + content
+    - border-box 怪异盒模型 width/height = content
+
+**可视宽高**
+
+- 可视宽： 元素的内蓉宽+padding+border
+- 元素的内容宽：元素里可以放内容的宽度
+
+**怪异模式/怪异盒模型解析**
+
+文档声明没有写或者写错，在IE6、7、8的盒模型解析就会进入怪异模式。
+
+- 可视宽：设置宽度
+- 内容宽：设置宽度-padding-border
+
+（可视高和元素的内容高同理。）
+
+##隐藏元素
+
+两种方法：
+
+- display: none; 元素原文档位置不保留
+- visibility: hidden; 元素的原文档位置会保留 
+
+##模拟固定定位
+
+IE6不支持固定定位。那么在IE下用绝对定位模拟固定定位的第一种方法如下：
+
+``` html
+<div class="box">
+    <div class="div"></div>
+</div>
+```
+
+``` css
+html {height: 100%; overflow: hidden;}
+body {margin: 0; height: 100%; overflow: auto;}
+.box {height: 2000px;}
+.div {width: 100px; height: 100px; background: red; position: absolute; left: 100px; top: 100px;}
+```
+
+上述代码中，绝对定位的.div是根据html的父级也就是document来定位的。原本滚动条是在document上的。但是html设置了overflow: hidden;，因此就把document上的滚动条hidden掉了；然后在body上加了overflow: auto; 滚动条跑到了body身上。因此滚动滚动条的时候，滚动的是body，document的位置不变，因此依据document进行绝对定位的.div看起来就好像是固定定位的效果。
+
+以上方法也是存在问题的。
+
+模拟固定定位的第二种方法：   
+
+``` html
+<div class="box">
+    <div class="div"></div>
+</div>
+```
+
+``` css
+.box {height: 2000px;}
+.div {width: 100px; height: 100px; background: red; position: fixed; left: 100px; top: 100px; _position: absolute; _top: expression(eval(document.documentElement.scrollTop+100));}
+```
+
+##未知宽高的img如何在容器里水平、垂直居中
+
+第一种方法：
+
+``` html
+<div class="box">
+    <img src="bigptr.jpg /><span></span>
+</div>
+```
+
+``` css
+.box {width: 800px; height: 600px; border: 2px solid #000; text-align: center;}
+span {display: inline-block; height: 100%; vertical-align: middle;}
+img {vertical-align: middle;}
+```
+
+第二种方法：
+
+``` html
+<div class="box">
+    <span><img src="bigptr.jpg /></span>
+</div>
+```
+
+不考虑兼容的话，可以使用：
+
+``` css
+.box {width: 800px; height: 600px; border: 2px solid #000; display: table;}
+span {display: table-cell; text-align: center; vertical-align: middle;}
+```
+
+考虑IE6、7兼容，则要写成：
+
+``` css
+.box {width: 800px; height: 600px; border: 2px solid #000; display: table; position: relative; overflow: hidden;}
+span {display: table-cell; text-align: center; vertical-align: middle; *position: absolute; left：50%; top: 50%;}
+img {*position: relative; vertical-align: top; left: -50%; top: -50%}
+```
+
+##列表的文字溢出
+
+li的里面分为左右两块元素，右边元素一直跟在左侧内容后边并距左侧元素10px间距。左侧元素宽度由左侧内容撑开。如果左右两侧内容总宽度超出了li宽度，就把左侧多出的文字隐藏掉。
+
+``` html
+<ul class="list">
+    <li>
+        <p>
+            <a href="#">文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字文字</a>
+            <span>文字</span>
+        </p>
+    </li>
+    <li>
+        <p>
+            <a href="#">文字文字文字文字文字文字</a>
+            <span>文字</span>
+        </p>
+    </li>
+    <li>
+        <p>
+            <a href="#">文字文文字</a>
+            <span>文字</span>
+        </p>
+    </li>
+</ul>
+```
+
+``` css
+.list {width: 300pxp; margin: 0; padding: 0; list-style: none;}
+li {height: 30px; font-size: 12px; line-height: 30px; border: 1px solid #000; overflow: hidden;vertical-align: top;}
+span {padding: 10px;width: 40px; position: absolute; right: 0; top: 0;}
+p {margin: 0; float: left; padding-right: 50px; position: relative;}
+```
+
+#整站规划
+
+- 网站内文件夹的路径要固定
+- 首页一般命名为index.html（当用户访问服务器，默认是把index.html发送到客户端）
+- 要用英文命名
+- 对于中小型网站，首页和二级目录通常是放在根目录；如果页面比较多的话，可能会将网页放到文件夹内
+- 一般情况下，三级页面放在文件夹中
+- css img js文件夹
+- 图片的划分有这样几种情况，一、统一放在img文件夹中；二、img里面只放img标签中的图片，背景图放在img下面的bg文件夹中
+- css的划分的考虑
+    - 网站的加载速度（一般一个优秀的网站打开要在5s之内，用户流失基本在1%以下。超过了5s之后，每秒1%-2%的用户流失量网上递增。超过30s，80%-90%的用户都会流失。）
+    - 请求次数和服务器压力
+    - 后期维护
+    - 样式的通用性
+    - reset（样式重置）、public.css（公用样式）、index（首页私有样式区域）…… 其他私有样式区域
+- css代码命名要带含义：根据每块元素的主题、功能、在页面上的位置进行命名。驼峰命名：从第二个单词开始每个单词的首字母大写。
+- css代码，写包含样式的时候，能找到这个元素并且不影响其他元素即可
+- 常用命名法：
+    - 页头：header 登陆条：loginBar 标志：logo 侧栏：sideBar 广告：banner 导航：nav 子导航：subNav 菜单：menu 子菜单：subMenu 搜索：search 滚动：scroll 页面主题：main 内容：content 标签页：tab 文章列表：list 提示信息：msg 小技巧：tips 栏目标题：title 加入：joinus 指南：guide 服务：service 热点：hot 新闻：news 下载：download 注册：register 状态：status 按钮：btn 投票：vote 合作伙伴：partner 友情链接：friendLink 页脚：footer 版权copyRight 外套：wrap 商标：label 顶导航：topnav 边导航：sidebar 左导航；leftsideBar 右导航：rightsideBar 注释：note 面包屑：breadCrumb（即页面所处位置导航提示） 容器：container 内容：content 当前：current
+- 避免命名冲突，在私有样式区域，给每个私有样式区域的样式都固定一个字母前缀
+
+**样式重置**
+
+- 方法一（代码简化、开发麻烦）：遇到一个标签，就重置一个标签的样式
+- 方法二：直接复制其他网站的样式重置（有些标签没用到，有些标签不符合自己的项目需求），这需要在其它网站的重置样式表上进行调整。
+
+``` css
+body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, form, input, textarea, th, td, select {margin: 0; padding: 0;}
+em {font-style: normal;}
+li {list-style: none;}
+a {text-decoration: none;}
+img {border: none; vertical-align: top;}
+table {border-collapse: collapse;}
+textarea {resize: none; overflow: auto;}
+```
+
+- 页面宽度指的是页面内容的宽度，而不是设计图的宽度
+- 最好不要把所有内容放在一个div里面，最好分开来写
+
+最好不要写成：
+
+``` html
+<div class="wrap">
+    <div class="header"></div>
+    <div class="nav"></div>
+    <div class="main"></div>
+    <div class="footer"></div>
+</div>
+```
+
+浏览器解析是从上往下解析，碰到一个标签就把里面的标签全部加载然后再显示在页面上。如果把body里面所有内容都包在一个div里面，那么如果页面很长的话，浏览器显示的页面会很长时间什么也显示不出来，然后突然所有内容冒出来了，效果不好。
+
+最好分开来写：
+
+``` html
+<div id="header">
+    <div class="header wrap"></div>
+</div>
+<ul id="nav" class="wrap"></ul>
+<div id="picTab" class="wrap">
+    <div class="picTab wrap"></div>
+</div>
+<div id="whyQQ" class="wrap"></div>
+<div id="main" class="wrap"></div>
+<div id="footer" class="wrap"></div>
+```
+
+然后给加了wrap类的内容加样式，宽960居中。
+
+**标签页上的小图标的制作**
+
+用ico在线制作工具
+
+&lt; link href="favicon.ico" rel="icon" /&gt;
+
+
+
+
+
 
 
 
