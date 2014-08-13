@@ -61,15 +61,15 @@ tags:
 
 ##background
 
-```css
+~~~ css
 bac kground: {
     url(bg.jpg) center top no-repeat gray fixed;
 }
-```
+~~~
 
 等价于：
 
-``` css
+~~~ css
 #bg {
 background-image: url(bg.jpg);
 background-position: center top;
@@ -77,7 +77,7 @@ background-repeat: no-repeat;
 background-color: gray;
 background-attachment: fixed;
 }
-```
+~~~
 
 ##border
 
@@ -470,10 +470,10 @@ position: relative | absolute | fixed | static | inherit;
 
 在IE6下，父级的overflow: hidden; 是包不住子集的相对定位的。例如：
 
-``` css
+~~~ css
 #box1 {width: 500px; height: 300px; background: blue; overflow: hidden;}
 #box2 {width: 300px; height: 500px; background: yellow; position: relative;}
-```
+~~~
 
 这两个盒子，子元素box2比父元素box1要长，虽然父级添加了overflow: hidden; 但是一旦子元素添加了position: relative; 在IE6下，子元素还是会撑破父元素。
 
@@ -483,10 +483,10 @@ position: relative | absolute | fixed | static | inherit;
 
 - IE6下，定位元素的父级的宽高是奇数的话，那么该定位元素的right和bottom都有1像素的偏差。例如：
 
-``` css
+~~~ css
 #box1 {width: 300px; height: 300px; border: 1px solid black; position: relative;}
 #box2 {width: 50px; height: 50px; backgruond: #7c1; position: absolute; right: -1px; bottom: -1px;} 
-```
+~~~
 
 其中box2是box1的子元素。请仔细观察。当box1的宽高为300px的时候，box2会遮掉box1右下角的边框，这是正常的。但是当box1的宽高是301、303等奇数时，在IE6下，box2没有遮掉box1右下角的边框，这正是因为出现了1px的偏差。这个问题，没有好办法规避。
 
@@ -515,11 +515,11 @@ position: fixed; 固定定位元素子级的浮动可以不用写清浮动方法
 
 **table的默认样式重置**
 
-``` css
+~~~ css
 th, td { padding: 0; }
 table {border-collapse: collapse; }
 /* table css reset */
-```
+~~~
 
 注意事项：
 
@@ -561,19 +561,19 @@ table {border-collapse: collapse; }
 
 label的用法（用for进行关联）：
 
-``` html
+~~~ html
 <input type="radio" name="gender" id="a" /><label for="a">男</label>
 <input type="radio" name="gender" id="b" /><label for="b">女</label>
-```
+~~~
 
 **默认样式重置**
 
-``` css
+~~~ css
 form {margin: 0;} //IE下form是有外边距的
 input {margin: 0; padding:0;}
 select {margin: 0;}
 textarea {margin: 0; padding: 0; resize: none; overflow: auto;}
-```
+~~~
 
 select元素支持宽度、高度支持并不完善。单选框、复选框对宽高的支持不完善
 
@@ -587,13 +587,13 @@ IE6下input背景滚动：
 
 文本框：当内容比框宽的时候，该文本框背景会被挤跑。解决方法：将该文本框用一个div包起来。在这个div上设置背景图片。然后把该文本框的宽高设置为与div相同；把文本框的边框去掉，文本框的背景设置为无。
 
-``` html
+~~~ html
 <div class="box">
     <input type="text name="" class="text" />
 </div>
-```
+~~~
 
-``` css
+~~~ css
 /* input {margin: 0; padding: 0;}
 .text {width: 300px; height: 40px; border: 1px solid blue; background: url(sun.jpg) 0 center no-repeat #ffc;}
 */
@@ -602,7 +602,7 @@ IE6下input背景滚动：
 .box {width: 300px; margin-top: 50px; height: 40px; border: 1px solid blue; background: url(sun.jpg) 0 center no-repeat #ffc;}
 .box input {width: 300px; height: 40px; border: none;}
 //以上这种设置方式，其实是把样式加到div上，然后让文本框变成透明，并且与外面的div同样大小，从而变成同样的视觉效果。
-```
+~~~
 
 **outline轮廓线：**
 
@@ -621,32 +621,32 @@ a标签轮廓线去除方法：
 
 左上和又上是圆角的按钮实现方式（按钮宽度可以随意变动）：
 
-``` html
+~~~ html
 <div class="btn">
     <div class="btnL">
         <div class="btnR">妙味课堂</div>
     </div>
 </div>
-```
+~~~
 
-``` css
+~~~ css
 .btn {width: 100px; background: url(img/btn.png) repeat-x;) //btn.png为中间的一像素平铺
 .btnL {background: url(img/btnL.png) no-repeat;} //btnL.png是带左角的那一部分
 .btnR {height: 31px; background: url(img/btnR.png) no-repeat right 0;} //btnR.png是带右角的那一部分
-```
+~~~
 
 以上方法比较麻烦；优化方法为（按钮宽度可以变动，但是不能宽于btn2.png的宽度）：
 
-``` html
+~~~ html
 <div class="btn">
     <div class="btnR"></div>
 </div>
-```
+~~~
 
-``` css
+~~~ css
 .btn {width: 100px; background: url(img/btn2.png) no-repeat;} //btn2.png是左角部分外加中间部分
 .btnR {height: 31px; background: url(img/btnR.png) no-repeat right 0;} //btnR.png是右角的那一部分
-```
+~~~
 
 但是第二种方法没有第一种方法的扩展性好。第二种方法受到btn2.png这张图片宽度的限制。因此，对于扩展要求高、图片比较大的，尽量使用三层嵌套的方法。对扩展要求不高、图片比较小的，用两层嵌套。
 
@@ -664,7 +664,7 @@ a标签轮廓线去除方法：
 
 利用滑动门的三层嵌套方法：
 
-``` html
+~~~ html
 <div class="box>
     <div class="boxHead">
         <div class="boxHeadL">
@@ -680,9 +680,9 @@ a标签轮廓线去除方法：
         </div>
     </div>
 </div>
-```
+~~~
 
-``` css
+~~~ css
 .box {width: 200px; margin: 30px auto;}
 .boxHead {background: url(boxH.png) repeat-x; height: 9px; overflow: hidden;}
 .boxHeadL {background: url(boxHL.png) no-repeat;}
@@ -691,43 +691,44 @@ a标签轮廓线去除方法：
 .boxFootL {background: url(boxFL.png) no-repeat;}
 .boxFootR {background: url(boxFR.png) no-repeat right 0; height: 9px;}
 .boxC {border-left: 1px solid #e5e5e5; border-right: 1px solid #e5e5e5;}
-```
+~~~
+
 **背景透明的圆角框实现**
 
 首先在切图的时候，圆角的部分，就要切背景透明
 
-``` html
+~~~ html
 <div class="btn">
     <div class="btnL">
         <div class="btnR"></div>
     </div>
 </div>
-```
+~~~
 
-``` css
+~~~ css
 .btn {width: 100px; margin: 0 auto; background: url(btn.gif) repeat-x;}
 .btnL {background: url(btnL.gif) no-repeat; position: relative; left: -9px;}
 .btnR {background: url(btnR.gif) no-repeat right 0; height: 25px; position: relative; right: -18px;} 
 //注意，因为btnL设置了left: -9px; 导致btnR也向左移了9px，要让btnR比btn还要向右移除9px，就要设置一个相对右移的9*2=18像素才行
-```
+~~~
 
 以上的写法有些麻烦，更为简便的方法是：
 
-``` html
+~~~ html
 <div class="btnL">
     <div class="btnR">
         <div class="btn"></div>
     </div>
 </div>
 <!-- 注意这种写法与上面的那种方法，标签嵌套的顺序变了 -->
-```
+~~~
 
-``` css
+~~~ css
 .btnL {width: 100px; margin: 0 auto; background: url(btnL.gif) no-repeat;}
 .btnR {background: url(btnR.gif) no-repeat right 0;}
 .btn {height: 25px; background: url(btn.gif) repeat-x; margin: 0 9px;}
 //这种方法是通过控制中间平铺的btn的宽度，使两边的圆角透出来的。
-```
+~~~
 
 ##CSS精灵
 
@@ -800,37 +801,37 @@ CSS sprites的优缺点：
 
 下面这一段条件注释代码，IE6-9都可以解析出其中的内容，IE10以及其他标准浏览器则作为注释处理，不会在页面上显示。
 
-``` html
+~~~ html
 <!--[if IE]>
 这是IE
 <![end if]-->
-```
+~~~
 
 条件注释语句还有以下几种写法：
 
-``` html
+~~~ html
 <!--[if IE 9]>
 这是IE9
 <![end if]-->
-```
+~~~
 
-``` html
+~~~ html
 <!--[if IE 8]>
 这是IE8
 <![end if]-->
-```
+~~~
 
-``` html
+~~~ html
 <!--[if IE 7]>
 这是IE7
 <![end if]-->
-```
+~~~
 
-``` html
+~~~ html
 <!--[if IE 6]>
 这是IE7
 <![end if]-->
-```
+~~~
 
 **css hack**
 
@@ -848,9 +849,9 @@ _ 下划线是IE6以及IE6之前的IE浏览器解析
 
 用css hack解决IE6的png问题（原生的CSS办法，没法设置背景图片大小，也没法平铺）：
 
-``` css
+~~~ css
 .box {width: 400px; height: 400px; background:url(img/png.png); _background: none; _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="img/png.png", sizingMethod="crop");
-```
+~~~
 
 **样式优先级、提升样式优先级**
 
@@ -865,34 +866,34 @@ _ 下划线是IE6以及IE6之前的IE浏览器解析
 
 左右宽度固定，中间宽度自适应伸缩，并且中间先加载
 
-``` html
+~~~ html
 <div class="center"></div>
 <div class="left"></div>
 <div class="right"></div>
-```
+~~~
 
-``` css
+~~~ css
 body {margin: 0}
 .center {height: 600px; background: #f60; margin: 0 200px;}
 .left {width: 200px; background: #fc0; height: 600px; position: absolute; left: 0; top: 0}
 .right {width: 200px; background: #fcc; height: 600px;position: absolute; left: 0; top: 0}
-```
+~~~
 
 **等高布局**
 
-``` html
+~~~ html
 <div class="wrap">
     <div class="left"></div>
     <div class="right"></div>
 </div>
-```
+~~~
 
-``` css
+~~~ css
 body {margin: 0}
 .wrap {width: 900px; margin: 0 auto; overflow: hidden;}
 .left {width: 200px; background: red; float: left; padding-bottom: 10000px; margin-bottom: -10000px;}
 .right {width: 700px; background: blue; float: right; padding-bottom: 10000px; margin-bottom: -10000px;}
-```
+~~~
 
 **IE6下使用margin负值的为题**
 
@@ -902,14 +903,14 @@ body {margin: 0}
 
 ##热区
 
-``` html
+~~~ html
 <img src="bigptr.jpg" usemap = "#Map" />
 <map name = "Map">
     <area shape = "circle" coords = "378, 132, 56" href = "http://www.baidu.com">
     <area shape = "rect" coords = 462, 157, 566, 217" href = "http://www.google.com">
     <area shape = "poly" coords = "227, 251, 186, 220, 168, 221 ..." href = "http://www.qq.com">
 </map>
-```
+~~~
 
 - map 热区
 - area 点击区域
@@ -934,36 +935,36 @@ body {margin: 0}
 
 iframe外联框架。现在已经不太用了。
 
-``` html
+~~~ html
 <iframe src="http://www.baidu.com" width="1200" height="600" frameborder = "0" scrolling="no"></iframe>
-```
+~~~
 
 ##flash引入
 
 - &lt;embed src="1.swf width="400" height="400"&gt;&lt;/embed&gt; embed标签就好用object标签包起来
 
-```html
+~~~ html
 <object>
     <embed src="1.swf" width="400" height="400"></embed>
 </object>
-```
+~~~
 
 - flash透明 &lt;param name="wmode" value="transparent"&gt; wmode="transparent":
 
-``` html
+~~~ html
 <object>
     <param name="wmode" value="transparent">
     <embed src="1.swf" width="400" height="400" wmode="transparent"></embed>
 </object>
-```
+~~~
 
 ##引入视频
 
 在HTML5中：
 
-``` html
+~~~ html
 <video></video>
-```
+~~~
 
 如果要兼容IE的话，要用flash来做。常用的两种方法：
 
@@ -1009,18 +1010,18 @@ iframe外联框架。现在已经不太用了。
 
 IE6不支持固定定位。那么在IE下用绝对定位模拟固定定位的第一种方法如下：
 
-``` html
+~~~ html
 <div class="box">
     <div class="div"></div>
 </div>
-```
+~~~
 
-``` css
+~~~ css
 html {height: 100%; overflow: hidden;}
 body {margin: 0; height: 100%; overflow: auto;}
 .box {height: 2000px;}
 .div {width: 100px; height: 100px; background: red; position: absolute; left: 100px; top: 100px;}
-```
+~~~
 
 上述代码中，绝对定位的.div是根据html的父级也就是document来定位的。原本滚动条是在document上的。但是html设置了overflow: hidden;，因此就把document上的滚动条hidden掉了；然后在body上加了overflow: auto; 滚动条跑到了body身上。因此滚动滚动条的时候，滚动的是body，document的位置不变，因此依据document进行绝对定位的.div看起来就好像是固定定位的效果。
 
@@ -1028,61 +1029,61 @@ body {margin: 0; height: 100%; overflow: auto;}
 
 模拟固定定位的第二种方法：   
 
-``` html
+~~~ html
 <div class="box">
     <div class="div"></div>
 </div>
-```
+~~~
 
-``` css
+~~~ css
 .box {height: 2000px;}
 .div {width: 100px; height: 100px; background: red; position: fixed; left: 100px; top: 100px; _position: absolute; _top: expression(eval(document.documentElement.scrollTop+100));}
-```
+~~~
 
 ##未知宽高的img如何在容器里水平、垂直居中
 
 第一种方法：
 
-``` html
+~~~ html
 <div class="box">
     <img src="bigptr.jpg /><span></span>
 </div>
-```
+~~~
 
-``` css
+~~~ css
 .box {width: 800px; height: 600px; border: 2px solid #000; text-align: center;}
 span {display: inline-block; height: 100%; vertical-align: middle;}
 img {vertical-align: middle;}
-```
+~~~
 
 第二种方法：
 
-``` html
+~~~ html
 <div class="box">
     <span><img src="bigptr.jpg /></span>
 </div>
-```
+~~~
 
 不考虑兼容的话，可以使用：
 
-``` css
+~~~ css
 .box {width: 800px; height: 600px; border: 2px solid #000; display: table;}
 span {display: table-cell; text-align: center; vertical-align: middle;}
-```
+~~~
 
 考虑IE6、7兼容，则要写成：
 
-``` css
+~~~ css
 .box {width: 800px; height: 600px; border: 2px solid #000; display: table; position: relative; overflow: hidden;}
 span {display: table-cell; text-align: center; vertical-align: middle; *position: absolute; left：50%; top: 50%;}
 img {*position: relative; vertical-align: top; left: -50%; top: -50%}
-```
+~~~
 
 ##列表的文字溢出
 
 li的里面分为左右两块元素，右边元素一直跟在左侧内容后边并距左侧元素10px间距。左侧元素宽度由左侧内容撑开。如果左右两侧内容总宽度超出了li宽度，就把左侧多出的文字隐藏掉。
 
-``` html
+~~~ html
 <ul class="list">
     <li>
         <p>
@@ -1103,14 +1104,14 @@ li的里面分为左右两块元素，右边元素一直跟在左侧内容后边
         </p>
     </li>
 </ul>
-```
+~~~
 
-``` css
+~~~ css
 .list {width: 300pxp; margin: 0; padding: 0; list-style: none;}
 li {height: 30px; font-size: 12px; line-height: 30px; border: 1px solid #000; overflow: hidden;vertical-align: top;}
 span {padding: 10px;width: 40px; position: absolute; right: 0; top: 0;}
 p {margin: 0; float: left; padding-right: 50px; position: relative;}
-```
+~~~
 
 #整站规划
 
@@ -1138,7 +1139,7 @@ p {margin: 0; float: left; padding-right: 50px; position: relative;}
 - 方法一（代码简化、开发麻烦）：遇到一个标签，就重置一个标签的样式
 - 方法二：直接复制其他网站的样式重置（有些标签没用到，有些标签不符合自己的项目需求），这需要在其它网站的重置样式表上进行调整。
 
-``` css
+~~~ css
 body, h1, h2, h3, h4, h5, h6, p, dl, dd, ul, ol, pre, form, input, textarea, th, td, select {margin: 0; padding: 0;}
 em {font-style: normal;}
 li {list-style: none;}
@@ -1146,27 +1147,27 @@ a {text-decoration: none;}
 img {border: none; vertical-align: top;}
 table {border-collapse: collapse;}
 textarea {resize: none; overflow: auto;}
-```
+~~~
 
 - 页面宽度指的是页面内容的宽度，而不是设计图的宽度
 - 最好不要把所有内容放在一个div里面，最好分开来写
 
 最好不要写成：
 
-``` html
+~~~ html
 <div class="wrap">
     <div class="header"></div>
     <div class="nav"></div>
     <div class="main"></div>
     <div class="footer"></div>
 </div>
-```
+~~~
 
 浏览器解析是从上往下解析，碰到一个标签就把里面的标签全部加载然后再显示在页面上。如果把body里面所有内容都包在一个div里面，那么如果页面很长的话，浏览器显示的页面会很长时间什么也显示不出来，然后突然所有内容冒出来了，效果不好。
 
 最好分开来写：
 
-``` html
+~~~ html
 <div id="header">
     <div class="header wrap"></div>
 </div>
@@ -1177,7 +1178,7 @@ textarea {resize: none; overflow: auto;}
 <div id="whyQQ" class="wrap"></div>
 <div id="main" class="wrap"></div>
 <div id="footer" class="wrap"></div>
-```
+~~~
 
 然后给加了wrap类的内容加样式，宽960居中。
 
