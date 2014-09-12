@@ -153,13 +153,13 @@ for循环的执行顺序：1→234→234……
 
 注意下面这样一个循环：
 
-```
+~~~
 for (var i=0; i<aLi.length; i++) {
   aLi[i].onclick = function(){
     alert(i);
   }
 }
-```
+~~~
 
 以上代码会弹出一个3，而不是一次0、1、2；这里注意，如果在for循环里面包了一个函数，函数里面用了i，那么由于作用域的关系，i不会像你想象的那样逐次增加。
 
@@ -179,64 +179,64 @@ for (var i=0; i<aLi.length; i++) {
 
 window是js中的”老大“
 
-```
+~~~
 function fn1(){
     alert(this);
 }
 fn1();
-```
+~~~
 
 上述代码中执行函数fn1()相当于window.fn1();因此，在函数体内弹出这个this仍然是window。
 
-```
+~~~
 function fn1(){
     alert(this);
 }
 oBtn.onclick = fn1;
-```
+~~~
 
 上述用按钮的点击事件调用的fn1函数，最终弹出来的是这个按钮，而不是window。
 
-```
+~~~
 function fn1(){
     alert(this);
 }
 oBtn.onclick = function(){
     alert(this)
 }
-```
+~~~
 
 上述代码，点击按钮弹出的this仍然是oBtn这个按钮。
 
-```
+~~~
 function fn1(){
     alert(this);
 }
 oBtn.onclick = function(){
     fn1();
 }
-```
+~~~
 
 上述代码，点击oBtn按钮，弹出的就不再是oBtn这个对象，而是window。
 
-```
+~~~
 <input id="btn2" type="button" value="按钮2" onclick="alert(this)" />
-```
+~~~
 
 上述代码是行间事件，弹出的this就是这个按钮btn2。
 
-```
+~~~
 function fn1(){
     alert(this);
 }
 <input id="btn2" type="button" onclick="fn1();" value="按钮2” />
-```
+~~~
 
 上述代码中，弹出的this就是window。
 
 - this: 调用当前方法（函数）的那个对象
 
-```
+~~~
 function fn1(){
     this
 }
@@ -256,9 +256,9 @@ oDiv.onclick = function(){
 <div onclick="  this  "></div> this => div
 
 <div onclick = "  fn1();  "></div>  fn1()里面的this => window
-```
+~~~
 
-```
+~~~
 <script>
 
 fn1(this);
@@ -273,9 +273,9 @@ oDiv.onclick = function(){
 function fn1(obj){ obj => oDiv }
 
 </script>
-```
+~~~
 
-```
+~~~
 <input type="button" value="按钮1" />
 <input type="button" value="按钮2" />
 <input type="button" value="按钮3" />
@@ -288,11 +288,11 @@ window.onload = function(){
     }
   }
 }
-```
+~~~
 
 上述代码的作用与下面这段代码的作用等价，注意that的使用方法。
 
-```
+~~~
 <input type="button" value="按钮1" />
 <input type="button" value="按钮2" />
 <input type="button" value="按钮3" />
@@ -312,11 +312,11 @@ window.onload = function(){
     that.style.background = 'yellow';
   }
 }
-```
+~~~
 
 上述代码还等价于下面这段代码：
 
-```
+~~~
 <input type="button" value="按钮1" />
 <input type="button" value="按钮2" />
 <input type="button" value="按钮3" />
@@ -332,13 +332,13 @@ window.onload = function(){
     this.style.background = 'yellow';
   }
 }
-```
+~~~
 
 #自定义属性、索引值
 
 ##自定义属性的读写操作
 
-``` js
+~~~ js
 winddow.onload = function(){
   var aBtn = document.getElementsByTagName('input');
   
@@ -347,7 +347,7 @@ winddow.onload = function(){
   // alert(aBtn[0].abc); 自定义属性的读
   // aBtn[0].abc = 456; 自定义属性的写
 }
-```
+~~~
 
 JS可以为任何HTML元素添加任意个自定义属性
 
@@ -355,7 +355,7 @@ JS可以为任何HTML元素添加任意个自定义属性
 
 用自定义属性可以元素添加开关属性，作为控制开关。如下面这个例子：
 
-``` js
+~~~ js
 window.onload = function(){
   var aLi = document.getElementsByTagName('li');
   // var onOff = true; 一个onOff只能控制一个开关。要为多个元素设置各自的开关，就要给每个元素加个onOff开关。
@@ -373,19 +373,19 @@ window.onload = function(){
     }
   }
 }
-```
+~~~
 
 ##获取自身递增数字及匹配数组内容
 
 在网页上设置三个按钮，默认值为0，每点击一次按钮，字母依次ABCD轮换。
 
-``` html
+~~~ html
 <input type="button" value="0" />
 <input type="button" value="0" />
 <input type="button" value="0" />
-```
+~~~
 
-``` js
+~~~ js
   var aBtn = document.getElementsByTagName('input');
   var arr = ['A', 'B', 'C', 'D'];
   
@@ -399,19 +399,19 @@ window.onload = function(){
       };
     };
   };
-```
+~~~
 
 ##添加索引值、匹配数组、HTML元素
 
 把三个按钮的value与数组里面的值依次进行匹配。
 
-``` html
+~~~ html
 <input type="button" value="btn1" />
 <input type="button" value="btn2" />
 <input type="button" value="btn3" />
-```
+~~~
 
-```js
+~~~js
 window.onload = function(){
   var aBtn = document.getElementsByTagName('input');
   var arr = ['莫涛','张森','杜鹏'];
@@ -424,7 +424,7 @@ window.onload = function(){
     };
   };
 }
-```
+~~~
 
 上面是通过索引值匹配数组值，匹配HTML中的元素也是同理。
 
@@ -466,7 +466,7 @@ typeof用来判断数据类型。
 
 ###JS方法：Number();
 
-``` js
+~~~ js
 var a = '100';
 alert(a + 100); //'100100'
 
@@ -521,11 +521,11 @@ alert(Number(p)); //undefined
 
 var q = '100px';
 alert(Number(q)); // NaN
-```
+~~~
 
 ###parseInt与parseFloat
 
-``` js
+~~~ js
 var a = '100px';
 alert(parseInt(a)); //100
 
@@ -549,27 +549,27 @@ alert(parseInt(c)); //NaN
 
 //parseInt也不能用于转函数等
 
-```
+~~~
 
 parseInt()方法还有一个参数，就是按照几进制来转，比如parseInt(a, 10);表示按照十进制来转；parseInt(b, 2);表示按照二进制来转。
 
-``` js
+~~~ js
 var a = '12.34元';
 alert(parseFloat(a)); //12.34
 
 var b = '12.3.4元';
 alert(parseFloat(b)); //12.3 parseFloat只认第一个小数点
-```
+~~~
 **parseInt和parseFloat的配合使用**，可以来判断某个值是整数还是小数，如下：
 
-``` js
+~~~ js
 var num = '200.345';
 if(parseInt(num) == parseFloat(num)) {
   alert(num + '是整数');
 } else {
   alert(num + '是小数');
 }
-```
+~~~
 
 ##JS中稀奇古怪的隐式类型转换
 
@@ -588,7 +588,7 @@ if(parseInt(num) == parseFloat(num)) {
 - ! 取反 把右边的数据类型转成布尔值
 - ==
 
-``` js
+~~~ js
 alert('200' - 3); //197
 alert(200 + '3'); //2003
 
@@ -605,7 +605,7 @@ alert(!100); //false
 
 alert('2' == 2); //true
 alert('2' === 2); //false 三个等号不仅判断值，还会先判断两者的类型
-```
+~~~
 
 隐式类型转换转不出来，也会返回一个NaN，例如：alert('......' - 9);就会弹出NaN。
 
@@ -618,7 +618,7 @@ NaN: (not a number)。Nan是个不是数字的数字类型。所有的数字都�
 - NaN是个false。
 - NaN与自己都不相等。
 
-``` js
+~~~ js
 var a = Number('abc');
 //alert(a); //NaN
 //alert(typeof(a)); //number
@@ -630,7 +630,7 @@ if(a) { //会弹出‘假’，说明NaN是false
 }
 
 //alert(a === a); //false NaN比较，比出false
-```
+~~~
 
 **isNaN：**is not a Number 是不是不是个数字（不是数字）。
 
@@ -641,7 +641,7 @@ isNaN();是个方法，用来干活的。
 
 isNaN的判断过程，将括号里面的东西扔给Number，Number转出来数字，就返回false；转不出来就返回true。
 
-``` js
+~~~ js
 alert(isNaN('250'));
 //Number() '250' => 250 => false
 
@@ -650,16 +650,16 @@ alert(isNaN(true));
 
 alert(isNaN([]));
 //Number() [] => 0 => false
-```
+~~~
 
 下面是一个isNaN的小应用：
 
-``` html
+~~~ html
 <input type="text" />
 <input type="button" value="判断输入值是不是数字" />
-```
+~~~
 
-``` js
+~~~ js
 window.onload = function(){
   var aInp = document.getElementsByTagName('input');
   var str = '';
@@ -675,7 +675,7 @@ window.onload = function(){
     }
   }
 }
-```
+~~~
 
 #函数传参
 
@@ -690,7 +690,7 @@ window.onload = function(){
 
 ###参数类型判断
 
-``` js 
+~~~ js 
 fn1(100);
 fn1('miaov');
 fn1(function(){alert(1);});
@@ -704,7 +704,7 @@ function fn1(a){
     a();
   }
 }
-```
+~~~
 
 ##重用代码步骤##
 
@@ -735,13 +735,13 @@ function fn1(a){
     每读一行，就会回到预解析的库里面去看一眼。
     碰上表达式（带有 = + - * / % ++ -- ! 参数……都是表达式）能够改变值的是表达式。碰上表达式，就到库里面去修改值。
 
-``` js
+~~~ js
 alert(a); //未定义
 var a=1; //在库里面a的值由未定义换成1
 function fn1(){alert(2);}
-```
+~~~
 
-``` js
+~~~ js
 alert(a); //弹出：function a(){alert(4);}
 var a=1; //预解析中的a改为了1
 alert(a);  //弹出1
@@ -752,7 +752,7 @@ alert(a); //弹出3
 function a(){alert(4);} //函数声明，什么也没有发生
 alert(a); //继续弹出3
 a(); //报错 a is not a function
-```
+~~~
 
 以上代码在预解析中的过程如下：
 
@@ -776,7 +776,7 @@ a(); //报错 a is not a function
 
 **作用域链**：从子级作用域跳到父级作用域的过程
 
-``` html
+~~~ html
 <script>
 alert(a); //报错：a is not defined。因为在预解析里面压根就没有a这个东西
 </script>
@@ -786,9 +786,9 @@ alert(a); //报错：a is not defined。因为在预解析里面压根就没有a
 <script>
 var a = 1;
 </script>
-```
+~~~
 
-``` html
+~~~ html
 <script>
 alert(a); //不报错，会弹出undefined。因为预解析里面有a这个东西，但是由于执行的时候，还没有改变a的值，因此a的值为undefined
 var a = 1;
@@ -798,9 +798,9 @@ var a = 1;
 
 <script>
 </script>
-```
+~~~
 
-``` html
+~~~ html
 <script>
 var a = 1; //预解析里面存了a，并且a的值存为1
 </script>
@@ -810,9 +810,9 @@ var a = 1; //预解析里面存了a，并且a的值存为1
 <script>
 alert(a); //弹出1
 </script>
-```
+~~~
 
-``` js
+~~~ js
 var a = 1; //预处理中的全局变量a的值改为1
 function fn1(){
     alert(a);
@@ -820,7 +820,7 @@ function fn1(){
 } //函数声明，什么也不做
 fn1(); //遇到函数调用，开始进行预解析和逐行解读代码。在函数内，先预解析出一个局部的 a 是未定义（局部的a与全局的a一点关系都没有）；然后读代码，alert(a)弹出的是undefined；然后继续执行，遇到表达式，将局部的变量a的值改为2。这时fn1的函数执行已经完成了。
 alert(a); //弹出全局变量a为1
-```
+~~~
 
 以上代码在js解析器中的模拟如下：
  
@@ -834,7 +834,7 @@ alert(a); //弹出全局变量a为1
 
 另外一段代码：
 
-``` js
+~~~ js
 var a = 1; //预处理中的全局变量a的值改为1
 function fn1(){
     alert(a);
@@ -842,9 +842,9 @@ function fn1(){
 } //函数声明，什么也不做
 fn1(); //遇到函数调用，开始进行预解析和逐行解读代码。在函数内，没有任何函数和变量声明，因此预解析里面没东西；然后读代码，alert(a)，在局部没有找到预解析的a，于是从子级作用域跳到父级作用域去找，找到了全局的a，所以弹出的是全局变量a的值1；然后继续执行，遇到表达式，将全局变量a的值改为2。这时fn1的函数执行已经完成了。
 alert(a); //弹出全局变量a为2
-```
+~~~
 
-``` js
+~~~ js
 var a = 1; //预处理中的全局变量a的值改为1
 function fn1(a){ //参数本质上就是一个局部变量
     alert(a);
@@ -852,9 +852,9 @@ function fn1(a){ //参数本质上就是一个局部变量
 } //函数声明，什么也不做
 fn1(); //遇到函数调用，开始进行预解析和逐行解读代码。在函数内，找到参数a，因此预处理里面有个局部的a是未定义。；然后读代码，alert(a)，弹出的是局部的a为undefined；然后继续执行，遇到表达式，将局部变量a的值改为2。这时fn1的函数执行已经完成了。
 alert(a); //弹出全局变量a为1
-```
+~~~
 
-``` js
+~~~ js
 var a = 1; //预处理中的全局变量a的值改为1
 function fn1(a){ //参数本质上就是一个局部变量
     alert(a);
@@ -862,24 +862,24 @@ function fn1(a){ //参数本质上就是一个局部变量
 } //函数声明，什么也不做
 fn1(a); //遇到函数调用，开始进行预解析和逐行解读代码。在函数内，找到局部参数a，因此预处理里面有个局部的a是未定义。；然后读代码，读到第一行function fn1(a)，这时有参数进来，把全局的a的值1赋给了局部变量a，这时局部变量a的值变为1，alert(a)，弹出的是局部的a为1；然后继续执行，遇到表达式，将局部变量a的值改为2。这时fn1的函数执行已经完成了。
 alert(a); //弹出全局变量a为1
-```
+~~~
 
 ##想要获取函数内的值
 
 - 方法一、把全局变量用到函数里面。因为函数可以读写全局变量。见下面的代码：
 
-``` js
+~~~ js
 var str = '';
 function fn1(){
     var a = '大鸡腿~';
     str = a;
 }
 fn1();
-```
+~~~
 
 - 方法二，在函数里面调用全局函数，通过传参实现，见下面代码：
 
-``` js
+~~~ js
 function fn2(){
     var a = '99999999克拉钻石';
     fn3(a);
@@ -888,22 +888,22 @@ fn2();
 function fn3(a){ //注意这个a是fn3里面的，与fn2里面的a毫无关系
     alert(a);
 }
-```
+~~~
 
 **注意事项**
 
 函数的大括号是作用域；if(){}不是作用域；for(){}也不是作用域。只有作用域是先预解析、再执行。if和for的大括号没有预解析过程。
 
-``` js
+~~~ js
 alert(a); //弹出undefined。这说明if大括号中的a已经在全局就被预解析了，因此if的大括号并不是作用域
 if(true){
     var a=1;
 }
-```
+~~~
 
 但是，需要注意：
 
-``` js
+~~~ js
 alert(fn1); //在火狐浏览器里面会报错说fn1 is not defined。但是在chrome浏览器里可以正常弹出fun1函数。
 
 if(true){
@@ -912,19 +912,19 @@ if(true){
         alert(123);
     }
 }
-```
+~~~
 
 只有火狐浏览器预解析时，不能对if或for的括号里括起来的函数进行预解析。因此存在兼容性问题。因此，如果想要定义全局函数或全局变量，尽量不要放到if和for的大括号里面，放到大括号外面。
 
-``` js
+~~~ js
 for(var i=0; i<aBtn.length; i++){
     aBtn[i].onclick = function(){
         alert(i); //弹出3。因为必须for循环全部执行完成之后，aBtn才能够点击。但是for循环执行完了，外面的i已经变成3；但是在function里面又没有i，自然找到了外面的i，也就是3.
     }
 }
-```
+~~~
 
-``` js
+~~~ js
 for(var i=0; i<aBtn.length; i++){
     aBtn[i].onclick = function(){
         alert(i); //这时候弹出的就不是3了，是undefined
@@ -934,9 +934,9 @@ for(var i=0; i<aBtn.length; i++){
         }
     }
 }
-```
+~~~
 
-``` js
+~~~ js
 for(var i=0; i<aBtn.length; i++){
     aBtn[i].onclick = function(){
         alert(i); //下面for循环的括号中的var删去了，function里面又找不到i了，所以到父级找到了i，又是个3。因此，此处会弹出3。
@@ -946,7 +946,7 @@ for(var i=0; i<aBtn.length; i++){
         }
     }
 }
-```
+~~~
 
 #运算符
 
@@ -1019,48 +1019,48 @@ for(var i=0; i<aBtn.length; i++){
 - return后面的任何代码都不执行了
 
 
-``` js
+~~~ js
 alert fn1();
 function fn1(){
     return function(){
         alert(1);
     }
 }
-``` 
+~~~ 
 
 此时弹出的是：function(){alert(1);}
 
-``` js
+~~~ js
 alert fn1()();
 function fn1(){
     return function(){
         alert(1);
     }
 }
-``` 
+~~~ 
 
 此时弹出的是1，也就是return的匿名函数执行的结果。
 
-``` js
+~~~ js
 alert fn1()(10);
 function fn1(){
     return function(a){
         alert(a);
     }
 }
-``` 
+~~~ 
 
 此时弹出的是10。
 
 
-``` js
+~~~ js
 alert fn1(20)(10);
 function fn1(a){
     return function(b){
         alert(a + b);
     }
 }
-``` 
+~~~ 
 
 此时弹出的是30。
 
@@ -1078,7 +1078,7 @@ function fn1(){
 
 当函数参数个数无法确定的时候，用arguments：
 
-``` js
+~~~ js
 alert(sum(1,2,3));
 function sum(){
     var n=0;
@@ -1087,9 +1087,9 @@ function sum(){
     }
     return n;
 }
-```
+~~~
 
-``` js
+~~~ js
 var a=1;
 function fn2(a){ //arguments的某个数值就相当于某个形参
     arguments[0]=3;
@@ -1099,7 +1099,7 @@ function fn2(a){ //arguments的某个数值就相当于某个形参
 }
 fn2(a);
 alert(a); //弹出1
-```
+~~~
 
 ##currentStyle与getComputedStyle应用
 
@@ -1107,11 +1107,11 @@ alert(a); //弹出1
 - currentStyle方法兼容IE6、7、8，但是不兼容标准浏览器
 
 属性判断法、版本检测法来解决浏览器间的兼容性问题
-``` js
+~~~ js
 function getStyle( obj, attr) {
     return obj.currentStyle ? obj.currentStyle[attr]:getComputedStyle( obj )[attr];
 }
-```
+~~~
 
 **注意事项：**
 
@@ -1126,14 +1126,14 @@ function getStyle( obj, attr) {
 
 setInterval(函数, 毫秒); 重复执行（发动机）
 
-``` js
+~~~ js
 var i=0;
 function fn1(){
     document.title = i;
     i++;
 }
 setInterval(fn1, 1000);
-```
+~~~
 
 **事件调用的方法**
 
@@ -1143,12 +1143,12 @@ setInterval(fn1, 1000);
 
 **clearInterval**
 
-``` js
+~~~ js
 var timer = setInterval(函数, 毫秒); //重复执行
 clearInterval(timer); //清除定时器
-```
+~~~
 
-``` js
+~~~ js
 var i=0,
     timer = null;
 function fn1(){
@@ -1160,7 +1160,7 @@ function fn1(){
     }
 }
 timer = setInterval(fn1, 1000);
-```
+~~~
 
 **注意**
 
@@ -1176,12 +1176,12 @@ clearTimeout(timer);
 
 ###doMove的函数封装
 
-``` html
+~~~ html
 <input id="btn1" type="button" value="走" />
 <div id="div1"></div>
-```
+~~~
 
-``` js
+~~~ js
 var oBtn1 = document.getElementById('btn1');
 var oDiv = document.getElementById('div1');
 
@@ -1228,16 +1228,16 @@ function doMove ( obj, attr, dir, target, endFn ) {
 function getStyle ( obj, attr ) { 
     return obj.currentStyle?obj.currentStyle[attr] : getComputedStyle( obj )[attr]; 
 }
-```
+~~~
 
 ###抖动的函数封装
 
-``` html
+~~~ html
 <img id="img1" src="img/4.jpg" />
 <img id="img2" src="img/5.jpg" />
-```
+~~~
 
-``` js
+~~~ js
 window.onload = function () {
 	var oImg1 = document.getElementById('img1');
 	var oImg2 = document.getElementById('img2');
@@ -1275,16 +1275,16 @@ function shake ( obj, attr, endFn ) {
 		}
 	}, 50);
 }
-```
+~~~
 
 # 系统时间对象
 
 new Date(); //当前 系统的时间 对象
 
-``` js
+~~~ js
 var myTime = new Date(); //myTime的类型是object
 var iYear = myTime.getFullYear(); //获得年份
-```
+~~~
 
 相关方法（以下得到的均为数字类型）：
 
@@ -1305,12 +1305,12 @@ var iYear = myTime.getFullYear(); //获得年份
 
 - 数字形式：new Date(2013, 4 , 1 , 9 , 48 , 12); //年月日时分秒，注意月是从0开始算的。
 
-``` js
+~~~ js
 var iNow = new Date();
 var iNew = new Date(2014, 10, 26, 21, 56, 0);
 var t = Math.floor((iNew - iNow)/1000); 
 var str = Math.floor(t/86400) + '天' +  Math.floor(t%86400/3600) + '时' + Math.floor(t%86400%3600/60) + '分' +  t%60 + '秒';
-```
+~~~
 
 - 天：Math.floor(t/86400)
 - 时：Math.floor(t%86400/3600)
@@ -1320,12 +1320,12 @@ var str = Math.floor(t/86400) + '天' +  Math.floor(t%86400/3600) + '时' + Math
 
 - 字符串形式：new Date('June 10, 2013 12:12:12');
 
-``` js
+~~~ js
 var iNow = new Date();
 var iNew = new Date('November 10, 2013 21:56:0');
 var t = Math.floor((iNew - iNow)/1000); 
 var str = Math.floor(t/86400) + '天' +  Math.floor(t%86400/3600) + '时' + Math.floor(t%86400%3600/60) + '分' +  t%60 + '秒';
-```
+~~~
 
 ##时间戳
 
@@ -1340,7 +1340,7 @@ getTime(); 返回从1970年1月1日0点0分0秒0毫秒到现在的毫秒数
 - **.charCodeAt()** 得到指定子字符的unicode编码。括号中什么也不写，默认找到第0个字符的unicode值，括号中最小为0，最大为字符串长度减1
 - **String.fromCharCode();** 根据字符编码，返回一个字符。例如String.fromCharCode(22937);返回的是“妙”字；要得到多个字符，可以用逗号将不同字符编码隔开，例如：String.fromCharCode(22937, 21916);返回的就是“妙味”两个字。0～9 => 48～57；a~z => 97~122；A~Z => 65~90
 
-``` js
+~~~ js
 alert(detectNum(' 1a23d456'));
 function detectNum(str){
     var n = 0;
@@ -1352,13 +1352,13 @@ function detectNum(str){
     }
     return true;
 }
-```
+~~~
 
 ## indexOf、lastIndexOf
 
 - **.indexOf()** 返回某个字符或字符串在整个字符串中的位置 str.indexOf('m', 5)代表在str字符串中的第5位开始往后找字符m的位置。如果用indexOf()来找，找不到，则返回-1。从左往右找。如果第二个参数为负数，则默认当成0来处理。
 
-``` js
+~~~ js
 var str = '妙味课堂是一支独具特色的IT培训团队，妙味反对传统IT教育枯燥乏味的教学模式，妙味提供一种全新的快乐学习方法！'；
 var s = '妙味';
 var i = 0;
@@ -1374,7 +1374,7 @@ while(str.indexOf(s, i) != -1) {
     alert(str.indexOf(s, i));
     i = str.indexOf(s, i) + s.length;
 }
-```
+~~~
 
 - **.lastIndexOf()** 从右往前找，也可以带数字参数，表示从哪里开始往前找。
 
@@ -1396,7 +1396,7 @@ while(str.indexOf(s, i) != -1) {
 
 ##字符串操作总结
 
-``` js
+~~~ js
 var str = '妙味课堂-WWW.miaov.com';
 
 str.charAt(1); //味
@@ -1419,13 +1419,13 @@ str.split('.', 2); //['秒微课堂-www', 'miaov']
 
 var arr = ['www', 'miaov', 'com'];
 arr.join('.'); //'www.miaov.com'
-```
+~~~
 
 # 数组的操作
 
 ## json数据格式及语法
 
-``` js
+~~~ js
 var json = { name: 'leo', age: 32};
 alert(json.name);
 
@@ -1443,11 +1443,11 @@ json2['name'] = '妙味'; //注意中括号里面要用引号
 
 var arr = [{'name': 'TM', 'age': 23}, {'name': 'leo', 'age': 32}];
 alert(arr[0].name);
-```
+~~~
 
 ## for-in循环，遍历json
 
-``` js
+~~~ js
 var json4 = { 'name': 'miaov', 'age': 3, 'fun': '前端开发'};
 for(var attr in json4){
     alert(attr);
@@ -1464,11 +1464,11 @@ for(var attr in json5) {
         alert(json5[attr][i]);
     }
 }
-```
+~~~
 
 for-in也可以遍历对象属性：
 
-``` js
+~~~ js
 var str = '';
 var num = 0;
 for(var attr in window){
@@ -1476,46 +1476,46 @@ for(var attr in window){
     num ++;
 }
 document.body.innerHTML = str;
-```
+~~~
 
 数组也可以用for-in来遍历：
 
-``` js
+~~~ js
 var arr = ['a', 'b', 'c'];
 for(var i in arr){
     alert(arr[i]);
 }
-```
+~~~
 
 ##清空数组和清空数组效率问题
 
-``` js
+~~~ js
 // var arr = [1, 2, 3];
 // var arr = new Array(1, 2, 3);
 
 var arr = new Array(4);
 alert(arr.length); // 4 在new Array()里面写了一个数字，就是定义了arr的长度
-```
+~~~
 
-``` js
+~~~ js
 var arr = [1, 2, 3];
 arr.length = 1; //数组的length属性是可写的
 alert(arr);
-```
+~~~
 
-``` js
+~~~ js
 var arr = [1, 2, 3];
 arr.length = 0; //快速清空数组arr
 或
 arr = []; //通过重新赋值来清空数组，效率更高
-```
+~~~
 
-``` js
+~~~ js
 var str = 'aaaaa';
 str.length = 1;
 alert(str); // 'aaaaa'
 //字符串的length属性不可写，但是数组的length属性可写
-```
+~~~
 
 ##数组的操作
 
@@ -1531,18 +1531,18 @@ alert(str); // 'aaaaa'
 
 **小技巧**
 
-``` js
+~~~ js
 var arr = ['TM', '钟毅', '张森', '杜鹏', 'Leo'];
 arr.unshift(arr.pop()); //数组变为：['Leo', '钟毅', '张森', '杜鹏', 'TM']
 或
 arr.push(arr.shift()); //数组变为：['钟毅', '张森', '杜鹏', 'Leo', 'TM']
-```
+~~~
 
 **splice方法**
 
 - splice方法有删除、替换、添加三种功能
 
-``` js
+~~~ js
 var arr = ['TM', '钟毅', '张森', '杜鹏', 'Leo'];
 //删除
 //arr.splice(0, 1); //删掉第0位，删1个。两个参数第一个是从第几位开始，第二个是删掉几个。splice删除的时候有返回值，返回的是被删除的内容
@@ -1550,11 +1550,11 @@ var arr = ['TM', '钟毅', '张森', '杜鹏', 'Leo'];
 //arr.splice(0, 1, '莫涛'); //替换第0位，替换1个，替换为'莫涛'。返回的还是删除的东西
 //添加
 arr.splice(1, 0, '李贤'); //在第1位那里，删除0个，添加了一个'李贤'到了第1位，'钟毅'就变成了arr[2]了。后面也可以添加多个。如果splice删除了0个，那么就没有返回值。
-```
+~~~
 
 ###数组去重
 
-``` js
+~~~ js
 var arr = [1, 2, 2, 4, 2];
 for ( var i=0; i<arr.length; i++ ) {
     for ( var j = i+1; j<arr.length; j++) {
@@ -1564,11 +1564,11 @@ for ( var i=0; i<arr.length; i++ ) {
         }
     }
 }
-```
+~~~
 
 **sort排序**
 
-``` js
+~~~ js
 var arr = ['c', 'd', 'a', 'e'];
 arr.sort(); // 'a', 'c', 'd', 'e' 按照unicode编码排序
 
@@ -1582,7 +1582,7 @@ var arr2 = [4, 3, 5, 76, 2, 0, 8];
 // arr2. sort(function( a, b ){
     return b - a;
 }) //返回数字从大到小 76,, 8, 5, 4, 3, 2, 0
-```
+~~~
 
 其他排序方法：
 
@@ -1593,21 +1593,21 @@ var arr2 = [4, 3, 5, 76, 2, 0, 8];
 - 选择排序法
 - 插入排序法
 
-``` js
+~~~ js
 var arrWidth = ['345px', '23px', '10px', '1000px'];
 arrWidth.sort(function(a, b){
     return parseInt(a) - parseInt(b);
 }); // ['10px', '23px', '345px', '1000px']
-```
+~~~
 
 **随机排序**
 
-``` js
+~~~ js
 var arr = [1, 2, 3, 4, 5, 6, 7, 8];
 arr.sort(function(a, b){
     return Math.random(); - 0.5;
 });
-```
+~~~
 
 ###随机数以及随机公式推理过程
 
@@ -1641,28 +1641,36 @@ Math.ceil( Math.random() * x ); //Math.ceil()是向上取整
 
 concat方法用于连接数组。
 
-``` js
+~~~ js
 var arr1 = [1, 2, 3];
 var arr2 = [4, 5, 6];
 var arr3 = [7, 8, 9];
 
 arr1.concat(arr2); //[1, 2, 3, 4, 5, 6] 新数组与原来数组没什么关系。
 arr1.concat(arr2, arr3); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
-```
+~~~
 
 **reverse方法**
 
 reverse方法是颠倒数组中的位置，会改变原数组
 
-``` js
+~~~ js
 var arr1 = [1, 2, 3];
 arr1.reverse();
 alert(arr1); // [3, 2, 1]
-```
+~~~
 
-``` js
+~~~ js
 var str = 'abcdef';
 alert(str.split('').reverse().join('')); //'fedcba'
-```
+~~~
+
+
+
+
+
+
+
+
 
 
