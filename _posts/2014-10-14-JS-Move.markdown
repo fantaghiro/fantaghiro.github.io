@@ -1524,6 +1524,7 @@ window.onload = function(){
 
 **原生JS写运动框架**
 
+
 ~~~ js
 function startMove(obj, json, time, fx, fn){
 	//time: 运动事件 fx: 运动形式
@@ -1714,7 +1715,9 @@ var Tween = {
 }
 ~~~
 
+
 **解决定时器缓慢的问题的方法**
+
 
 ~~~ js
 window.onfocus = function(){ //当页面切换回来之后再把定时器打开
@@ -1729,10 +1732,12 @@ window.onblur = function(){ //当切换页面的时候把定时器关上
 //timer = setInterval(toRun, 2000);
 ~~~
 
+
 ###扩展JQ的运动形式
 
 - 默认两种：swing、linear
 - 可以通过extend进行扩展
+
 
 ~~~ js
 $.extend(jQuery.easing, {
