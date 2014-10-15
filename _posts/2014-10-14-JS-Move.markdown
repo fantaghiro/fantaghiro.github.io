@@ -1523,6 +1523,7 @@ window.onload = function(){
         - 例子：循环轮播图
 
 **原生JS写运动框架**
+
 ~~~ js
 function startMove(obj, json, time, fx, fn){
 	//time: 运动事件 fx: 运动形式
