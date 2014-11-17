@@ -297,6 +297,7 @@ var 对象1 = new 构造函数();
             - 改this指向问题，要尽量让面向对象中的this指向对象
 
 **先写出普通方法**
+
 ~~~ html
 <!DOCTYPE html>
 <html lang="en">
@@ -2075,6 +2076,7 @@ function show(){
 ~~~
 
 **用JQ实现选项卡的组件开发
+
 ~~~ html
 <!DOCTYPE html>
 <html lang="en">
