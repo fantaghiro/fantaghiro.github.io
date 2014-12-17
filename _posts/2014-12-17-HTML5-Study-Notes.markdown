@@ -19,7 +19,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 
 ###新的页面结构以及宽松的语法规范
 
-``` html
+~~~ html
 <!doctype html>
 <html>
 	<head>
@@ -29,7 +29,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<body>
 	</body>
 </html>
-```
+~~~
 
 ###新的结构化元素
 
@@ -42,16 +42,16 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 - &lt;hgroup>&lt;/hgroup> 页面上的一个标题组合
 	- 一个标题和一个子标题，或者标语的组合
 
-``` html
+~~~ html
 <hgroup>
 	<h1>妙味课堂</h1>
 	<h2>待您进入富有人情味的IT培训</h2>
 </hgroup>
-```
+~~~
 
 - &lt;nav>&lt;/nav>导航（包含链接的一个列表）
 
-``` html
+~~~ html
 <nav><a href="#">链接</a><a href="#">链接</a></nav>
 ---
 <nav>
@@ -66,7 +66,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 		<li><a href="#">html+css</a></li>
 	</ul>
 </nav>
-```
+~~~
 
 - &lt;footer>&lt;/footer> 页脚 页面的底部 或者 版块底部
 - &lt;section>&lt;/section> 页面上的板块
@@ -79,50 +79,50 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 - &lt;figure>&lt;/figure>用于对元素进行组合。一般用于图片或视频
 - &lt;figcaption>&lt;/figcaption> figure的子元素 用于对figure的内容进行说明
 
-``` html
+~~~ html
 <figure>
 	<img src="miaov.png" /> //注意没有alt
 	<figcaption>妙味课堂 photo&copy 妙味趣学</figcaption>
 </figure>
-```
+~~~
 
 - &lt;time>&lt;/time> 用来表现时间或日期
 
-``` html
+~~~ html
 <p>
 	我们在每天早上<time>9:00</time>开始营业。
 </p>
 <p>
 	我在<time datetime="2008-02-14">情人节</time>有个约会。
 </p>
-```
+~~~
 
 - &lt;datalist>&lt;/datalist> 选项列表。与input元素配合使用，来定义input可能的值。
 
-``` html
+~~~ html
 <input type="text" list="valList" />
 <datalist id="valList">
 	<option value="javascript">javascript</option>
 	<option value="html">html</option>
 	<option value="css">css</option>
 </datalist>
-```
+~~~
 
 - &lt;details>&lt;/details> 用于描述文档或文档某个部分的细节
 	- 该元素用于摘录引用等 应该与页面的主要内容区分开的其他内容
 	- open属性默认展开
 - &lt;summary>&lt;/summary> details元素的标题
 
-``` html
+~~~ html
 <details>
 	<summary>妙味课堂</summary>
 	<p>国内将知名的IT培训机构</p>
 </details>
-```
+~~~
 
 - &lt;dialog>&lt;/dialog> 定义一段对话
 
-``` html
+~~~ html
 <dialog>
 	<dt>老师</dt>
 	<dd>2+2等于？</dd>
@@ -131,27 +131,27 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<dt>老师</dt>
 	<dd>答对了！</dd>
 </dialog>
-```
+~~~
 
 - &lt;address>&lt;/address> 定义文章或页面作者的详细联系信息
 - &lt;mark>&lt;/mark> 需要标记的词或句子
 - &lt;keygen>给表单添加一个公钥
 
-``` html
+~~~ html
 <form action="http://www.baidu.com" method="get">
 	用户：<input type="text" name="usr_name" />
 	公钥：<keygen name="security" />
 	<input type="submit">
 </form>
-```
+~~~
 
 - &lt;progress>&lt;/progress> 定义进度条
 
-``` html
+~~~ html
 <progress max="100" value="76">
 	<span>76</span>% //该行用于向下兼容
 </progress>
-```
+~~~
 
 ###IE下的兼容
 
@@ -159,14 +159,14 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 - 标签
 	- 针对IE6-8这些不支持HTML5语义化标签的浏览器，我们可以使用javascript来解决他们。方法：在页面的头部加上：
 
-``` html
+~~~ html
 <script>
 	document.createElement('header');
 	document.createElement('nav');
 	document.createElement('footer');
 	...
 </script>
-```
+~~~
 
 - 样式
 	- HTML5语义化标签在IE6-8下，我们用js创造出来之后，它是不会有任何默认样式的甚至是display，所以在样式表里，要对这些标签定义一下它们默认的display
@@ -222,7 +222,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 		- 阻止默认验证: ev.preventDefault()
 	- formnovalidate属性：关闭验证
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -254,9 +254,9 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	</script>
 </body>
 </html>
-```
+~~~
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -287,9 +287,9 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	</script>
 </body>
 </html>
-```
+~~~
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -304,7 +304,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	</form>
 </body>
 </html>
-```
+~~~
 
 ##HTML5新特性的浏览器支持情况
 
@@ -316,7 +316,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 - querySelectorAll
 - getElementsByClassName
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -352,7 +352,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<p class="box">p</p>
 </body>
 </html>
-```
+~~~
 
 ##获取class列表属性
 
@@ -362,7 +362,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	- remove(): 删除class方法
 	- toggle(): 切换class方法
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -384,7 +384,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1" class="box1 box2 box3">div</div>
 </body>
 </html>
-```
+~~~
 
 ##JSON的新方法
 
@@ -400,7 +400,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 
 **parse()方法**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -435,11 +435,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 <body>
 </body>
 </html>
-```
+~~~
 
 **stringify()方法**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -454,11 +454,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 <body>
 </body>
 </html>
-```
+~~~
 
 **对象拷贝**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -490,7 +490,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 <body>
 </body>
 </html>
-```
+~~~
 
 ##data自定义数据
 
@@ -499,7 +499,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	- data-name-first: dataset.nameFirst
 - data数据在jQuery Mobile中有着重要作用
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -519,7 +519,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1" data-miaov="妙味" data-miaov-all="妙味课堂"></div>
 </body>
 </html>
-```
+~~~
 
 ##延迟加载JS
 
@@ -530,7 +530,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	- async: 异步加载，加载完就触发，有顺序问题
 - Labjs库
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -549,7 +549,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<img src="1.jpg" alt="">
 </body>
 </html>
-```
+~~~
 
 ##历史管理
 
@@ -561,7 +561,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	- popstate事件: 读取数据 event.state
 	- 注意：网址是虚假的，需在服务器指定对应页面，不然刷新找不到页面
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -596,11 +596,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1"></div>
 </body>
 </html>
-```
+~~~
 
 **采用onhashchange的方法**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -647,11 +647,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1"></div>
 </body>
 </html>
-```
+~~~
 
 **用html5的history对象来实现**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -693,7 +693,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1"></div>
 </body>
 </html>
-```
+~~~
 
 ##拖放事件
 
@@ -714,7 +714,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	- dragstart -> drag -> dragenter -> dragover -> drop -> dragend
 - 不能释放的光标和能释放的光标不一样
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -774,7 +774,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1"></div>
 </body>
 </html>
-```
+~~~
 
 - 解决火狐下的问题
 	- 必须设置dataTransfer对象才可以拖拽除图片外的其他标签
@@ -801,7 +801,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 
 **实现火狐下的拖拽**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -865,11 +865,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1"></div>
 </body>
 </html>
-```
+~~~
 
 **拖拽删除列表**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -937,11 +937,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1"></div>
 </body>
 </html>
-```
+~~~
 
 **effectAllowed和setDragImage**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1005,11 +1005,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<img src="img/ppt.gif" style="display: none;">
 </body>
 </html>
-```
+~~~
 
 **拖放外部文件**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1057,11 +1057,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<div id="div1">将文件拖拽到此区域</div>
 </body>
 </html>
-```
+~~~
 
 **图片预览功能**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1131,11 +1131,11 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	<ul id="ul1"></ul>
 </body>
 </html>
-```
+~~~
 
 **拖拽购物车**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1259,7 +1259,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 	</div>
 </body>
 </html>
-```
+~~~
 
 ##跨文档消息通信
 
@@ -1281,7 +1281,7 @@ HTML5的内容虽然学得快但也学得糙，欠练。就此妙味课堂所有
 
 **通过iframe进行窗口间通信(同域)**
 
-``` html
+~~~ html
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -1313,11 +1313,11 @@ window.onload = function() {
 	<iframe id="myframe" src="2.iframe.html"></iframe>
 </body>
 </html>
-```
+~~~
 
 **通过window.open来进行窗口间通信（同域）**
 
-``` html
+~~~ html
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -1347,11 +1347,11 @@ window.onload = function() {
     <input type="button" value="点击我，改变4.window.open.html页面的背景色" id="btn2" />
 </body>
 </html>
-```
+~~~
 
 **通过postMessage进行跨域的窗口通信 发送消息**
 
-``` html
+~~~ html
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -1394,11 +1394,11 @@ window.onload = function() {
 	<iframe id="myframe" src="http://www.b.com/3.postMessage.html"></iframe>
 </body>
 </html>
-```
+~~~
 
 **通过message接收postMessage发来的信息**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1431,7 +1431,7 @@ window.onload = function() {
 	这是b.com的potMessage.html页面
 </body>
 </html>
-```
+~~~
 
 ###XMLHttpRequest Level 2
 
@@ -1451,7 +1451,7 @@ window.onload = function() {
 
 **Ajax获取同域下的内容**
 
-``` html
+~~~ html
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -1485,11 +1485,11 @@ window.onload = function() {
 	<input type="button" value="获取同域下内容" id="btn" />
 </body>
 </html>
-```
+~~~
 
 **IE下的跨域请求**
 
-``` html
+~~~ html
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -1536,11 +1536,11 @@ window.onload = function() {
 	<input type="button" value="获取同域下内容" id="btn" />
 </body>
 </html>
-```
+~~~
 
 **Ajax实现无刷新上传**
 
-``` html
+~~~ html
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -1619,11 +1619,11 @@ window.onload = function() {
 
 </body>
 </html>
-```
+~~~
 
 **form的上传方式**
 
-``` html
+~~~ html
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -1638,7 +1638,7 @@ window.onload = function() {
     </form>
 </body>
 </html>
-```
+~~~
 
 ###websocket
 
@@ -1676,7 +1676,7 @@ window.onload = function() {
 	- 安装websocket模块 npm install socket.io
 	- websocket服务的创建
 
-``` js
+~~~ js
 var http = require('http');
 
 var serv = http.createServer(function(req, res) {
@@ -1699,9 +1699,9 @@ var serv = http.createServer(function(req, res) {
 }).listen(8888);
 
 console.log('服务器开启成功');
-```
+~~~
 
-``` js
+~~~ js
 var http = require('http');
 var fs = require('fs');
 
@@ -1734,9 +1734,9 @@ var httpServer = http.createServer(function(req, res) {
 	});
 	
 }).listen(8888);
-```
+~~~
 
-``` js
+~~~ js
 var http = require('http');
 var fs = require('fs');
 var io = require('socket.io');
@@ -1797,7 +1797,7 @@ socket.sockets.on('connection', function(socket) {
 	});
 	
 });
-```
+~~~
 
 ##HTML5的离线存储（applicationCache）
 
@@ -1822,7 +1822,7 @@ socket.sockets.on('connection', function(socket) {
 
 **manifest文件**
 
-``` 
+~~~ 
 CACHE MANIFEST
 
 2.png
@@ -1835,7 +1835,7 @@ style1.css style2.css
 NETWORK
 
 a.jpg
-```
+~~~
 
 ##Web Workers
 
@@ -1858,7 +1858,7 @@ a.jpg
 
 **Web Worker简单应用**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1876,9 +1876,9 @@ a.jpg
 	
 </body>
 </html>
-```
+~~~
 
-``` js
+~~~ js
 //test.js
 
 self.onmessage = function(ev){ //这里的self就是指自己本身，也就是w1这个web worker
@@ -1886,11 +1886,11 @@ self.onmessage = function(ev){ //这里的self就是指自己本身，也就是w
 
 	self.postMessage(ev.data + '妙味课堂');
 }
-```
+~~~
 
 **使用Worker提高像素显字的代码性能**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1947,9 +1947,9 @@ self.onmessage = function(ev){ //这里的self就是指自己本身，也就是w
     </ul>
 </body>
 </html>
-```
+~~~
 
-``` js
+~~~ js
 //canvas.js
 
 function randomArr(iAll, iNow){ //从iAll个数里面随机取出iNow个数
@@ -1968,7 +1968,7 @@ self.onmessage = function(ev){
     var arr = randomArr(ev.data, ev.data/10);
     self.postMessage(arr);
 }
-```
+~~~
 
 ##HTML5其他功能
 
@@ -1976,7 +1976,7 @@ self.onmessage = function(ev){
 
 - contenteditable="true"
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1987,7 +1987,7 @@ self.onmessage = function(ev){
     <div contenteditable="true" style="height: 200px; width: 200px; background: red;">aaaaaaaaaaa</div>
 </body>
 </html>
-```
+~~~
 
 ###语言输入
 
@@ -2037,7 +2037,7 @@ self.onmessage = function(ev){
 
 **单次定位请求**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2085,11 +2085,11 @@ self.onmessage = function(ev){
 <textarea id="t1" style="width: 400px; height: 400px; border: 1px solid #000"></textarea>
 </body>
 </html>
-```
+~~~
 
 **多次定位请求**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2140,11 +2140,11 @@ self.onmessage = function(ev){
 <textarea id="t1" style="width: 400px; height: 400px; border: 1px solid #000"></textarea>
 </body>
 </html>
-```
+~~~
 
 **地图应用**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2194,7 +2194,7 @@ self.onmessage = function(ev){
 <div id="div1"></div>
 </body>
 </html>
-```
+~~~
 
 ##本地存储
 
@@ -2243,7 +2243,7 @@ self.onmessage = function(ev){
 
 **Storage API**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2280,11 +2280,11 @@ self.onmessage = function(ev){
 <input type="text">
 </body>
 </html>
-```
+~~~
 
 **保存注册信息**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2340,11 +2340,11 @@ self.onmessage = function(ev){
 内容：<textarea id="t1"></textarea>
 </body>
 </html>
-```
+~~~
 
 **storage事件**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2386,11 +2386,11 @@ self.onmessage = function(ev){
 <input type="text">
 </body>
 </html>
-```
+~~~
 
 **同步购物车**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2436,11 +2436,11 @@ self.onmessage = function(ev){
 <input type="checkbox" value="哈密瓜">哈密瓜<br>
 </body>
 </html>
-```
+~~~
 
 **行走日记**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html>
 <head>
@@ -2653,7 +2653,7 @@ window.onload = function(){
 </body>
 </html>
 
-```
+~~~
 
 ##音频和视频
 
@@ -2700,7 +2700,7 @@ window.onload = function(){
 
 **音视频的基本操作**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2771,11 +2771,11 @@ window.onload = function(){
 </video>
 </body>
 </html>
-```
+~~~
 
 **带声音的导航**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2814,11 +2814,11 @@ window.onload = function(){
 <audio id="a1"></audio>
 </body>
 </html>
-```
+~~~
 
 **视频与canvas结合**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -2848,11 +2848,11 @@ window.onload = function(){
 <canvas id="c1"></canvas>
 </body>
 </html>
-```
+~~~
 
 **自制播放器**
 
-``` html
+~~~ html
 <!DOCTYPE html>
 <head>
 <title>无标题文档</title>
@@ -3012,4 +3012,4 @@ window.onload = function(){
 </div>
 </body>
 </html>
-```
+~~~
