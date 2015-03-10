@@ -20,3 +20,5 @@ tags:
 | U1  | √  | | √ | √ |
 | U2  | | √ | √ | |
 | U3  | | √ | | √ |
+
+如果脚本是用Scrivener来编辑的话，想要对角色像上面那样有个统一的管理，可以活用Custom Meta-data的功能。在custom meta-data中，将所有的角色都设置在内。针对一个folder中的每个单元的文件，按照里面出现了哪些角色，来编辑对应的custom meta-data（例如，在对应角色的文本框中添加对号或其他标识符）。在folder的outliner里面，可以设置将custom metadata显示出来。然后通过export功能，将outliner里面的内容导出为CSV文件即可。
