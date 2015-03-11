@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 日记 - 越补越大的窟窿
+title: 越补越大的窟窿
 category: writeups
 tags:
 - 日记
