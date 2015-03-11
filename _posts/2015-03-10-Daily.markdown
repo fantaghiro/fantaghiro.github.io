@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 日记 - 人的性情真的可以改变吗？
+title: 人的性情真的可以改变吗？
 category: writeups
 tags:
 - 日记
