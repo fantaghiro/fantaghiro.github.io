@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 日记 - 同济小妹来蹭饭
+title: 同济小妹来蹭饭
 category: writeups
 tags:
 - 日记
