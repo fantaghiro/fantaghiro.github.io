@@ -1,72 +1,27 @@
-# Lagom
+##pizn.github.com
 
-> #### *Lagom* is a Swedish word with no direct English equivalent, meaning "just the right amount"
+这是 <a href="http://www.zhanxin.info" target="_blank" title="掌心">zhanxin.info</a> 在 GitHub 上使用 <a href="http://jekyllrb.com" target="_blank" >Jekyll</a> 搭建的个人博客的所有源代码。该博客的目的 用来<strong>快速</strong>记录工作，学习，生活的一点一滴。更多分享，更多交流，更多进步。
 
-Lagom, a [Jekyll][j] blog theme with just the right amount of style. 
+This is the source code for <a href="http://www.zhanxin.info" target="_blank" title="zhanxin.info">zhanxin.info</a> -- powered by <a href="http://jekyllrb.com" target="_blank" title="jekyll">Jekyll</a>. And this blog use for fast recording my work, learning and life.
 
-Extracted lovingly from [http://mdswanson.com][mds] for your enjoyment!
+##如何达到快速呢？
 
-* Responsive, based on [Skeleton][skeleton]
-* [Font Awesome][font-awesome] for icons
-* Open Sans from [Google web fonts][gfonts]
-* Built-in Atom RSS feed
+发表一篇文章，就像写代码一样，直接在编辑器上进行书写和总结。不需要进入网站的后台什么的，就可以完成文章的编辑了。
 
-## Action Shots
-![](http://i.imgur.com/Pmzk4j1.png)
-![](http://i.imgur.com/CT2Xvug.png)
-![](http://i.imgur.com/XisjqW1.jpg)
+编辑完之后，Git 提交就可以完成。随后的一些事情，Jekyll 就会帮你处理好。恩，我觉得这可以省了我好多时间。又可以像 CodeReview 一样来阅读自己的文章，学而时习之。
 
-## Installation
+##LICENSE
 
-- Install Jekyll: `gem install jekyll`
-- [Fork this repository][fork]
-- Clone it: `git clone https://github.com/YOUR-USER/lagom`
-- Run the jekyll server: `jekyll serve`
+pizn.github.com 上的文章采用<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">署名-非商业性使用-相同方式共享</a>协议进行授权，转载请注明转自：<a href="http://pizn.github.com" target="_blank">zhanxin.info</a>.
 
-You should have a server up and running locally at <http://localhost:4000>.
+设计界面由<a href="http://pizn.net" target="_blank">zhanxin.info</a>设计提供，图片视觉设计版权由 zhanxin.lin 所有。<del><a href="http://www.pizn.me" target="_blank">PIZn.me</a>的紫色主题是 PIZn 的私有主题，</del>如果你喜欢这个主题，请提前跟我说下，并注明是 <a href="http://www.zhanxin.info" target="_blank">zhanxin.lin</a>开发和设计的。谢谢。<del>PS: 我很鄙视别人用了我的劳动成果，还注明是他自己设计的。请尊重在下！</del>
 
-## Customization
+站点其他代码采用  <a href="http://zh.wikipedia.org/wiki/MIT_License" target="_blank">MIT License 许可。</a>
 
-Next you'll want to change a few things. Most of them can be changed directly in
-[_config.yml][config]. That's where you can add your social links, change the accent
-color, stuff like that.
+##联系我
 
-There's a few other places that you'll want to change, too:
+如果你也想像我这样来写博客，搭建 GitHub 博客，如果有啥不懂的，我们互相交流！
 
-- [CNAME][cname]: If you're using this on GitHub Pages with a custom domain name, 
-  you'll want to change this to be the domain you're going to use. All that should 
-  be in here is a domain name on the first line and nothing else (like: `example.com`).
-- [favicon.png][favicon]: This is the icon in your browser's address bar. You should 
-  change it to whatever you'd like.
-- [logo.png][logo]: A square-ish image that appears in the upper-left corner
+邮箱: zhanxin.info@gmail.com
 
-## Deployment
 
-You should deploy with [GitHub Pages][pages] - it's just easier.
-
-All you should have to do is rename your repository on GitHub to be
-`username.github.io`. Since everything is on the `gh-pages` branch, you
-should be able to see your new site at <http://username.github.io>.
-
-## Licensing
-
-[MIT](https://github.com/swanson/lagom/blob/master/LICENSE) with no
-added caveats, so feel free to use this on your site without linking back to
-me or using a disclaimer or anything silly like that.
-
-## Contact
-I'd love to hear from you at [@_swanson][twitter]. Feel free to open issues if you
-run into trouble or have suggestions. Pull Requests always welcome.
-
-[j]: http://jekyllrb.com/
-[mds]: http://mdswanson.com
-[skeleton]: http://www.getskeleton.com/
-[font-awesome]: http://fortawesome.github.io/Font-Awesome/
-[gfonts]: http://www.google.com/fonts/specimen/Open+Sans
-[fork]: https://github.com/swanson/lagom/fork
-[config]: https://github.com/swanson/lagom/blob/master/_config.yml
-[cname]: https://github.com/swanson/lagom/blob/master/CNAME
-[favicon]: https://github.com/swanson/lagom/blob/master/favicon.png
-[logo]: https://github.com/swanson/lagom/blob/master/logo.png
-[pages]: http://pages.github.com
-[twitter]: https://twitter.com/_swanson

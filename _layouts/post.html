@@ -1,36 +1,39 @@
 ---
 layout: default
+isPost: true
+comment: true
 ---
-
-<p class="meta">
-  {{ page.date | date: "%B %d, %Y" }} 
-  <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-  <span id="post-tags">
-    {% for tag in page.tags %}
-      <a href="/tags.html#{{ tag }}-ref">{{ tag }}</a>
-    {% endfor %}
-  </span>
-  <a href="/">
-    <i class="home fa fa-home"></i>
-  </a>
-</p>
-
-<h1 class="title">{{ page.title }}</h1>
-
-<div id="post">
-  {{ content }}
-</div>
-
-<div id="related">
-  <h3>Related Posts</h3>
-  <ul class="posts">
-    {% for post in site.related_posts limit:3 %}
-    <li>
-      <span>{{ post.date | date_to_string }} &raquo;</span> <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-  
-  {% include disqus.html %}
-  
+<article class="main-article main-article-page">
+    <div class="violet-title">
+        <h3 class="violet-title-item">{{ page.title }}</h3>
+    </div>
+    <div class="violet-post">
+        <p class="main-article-meta"><time pubdate="{{ rpost.date | date_to_utc | date: '%Y-%m-%d' }}">{{ page.date | date_to_utc | date: "%Y-%m-%d" }}</time></p>
+        <div class="main-article-contant">
+            {{ content }}
+        </div>
+    </div>
+</article>
+<nav class="pagination fn-clear" id="violet-paging">
+    <div class="pagination-list">
+        {% if page.previous %}
+        <a class="prev" href="{{ page.previous.url }}" rel="bookmark"><i class="fa fa-chevron-circle-left"></i>{{ page.previous.title | truncatewords:5 }}</a>
+        {% endif %}
+        {% if page.next %}
+        <a class="next" href="{{ page.next.url }}" rel="bookmark">{{ page.next.title | truncatewords:5 }}<i class="fa fa-chevron-circle-right"></i></a>
+        {% endif %}
+    </div>
+</nav>
+<div class="comment">
+    {% if site.disqus.config %}
+        <div class="comment-cnt">
+            <div id="disqus_thread"></div>
+        </div>
+    {% else %}
+        {% if site.duoshuo.config %}
+        <div class="comment-cnt">
+            <div class="ds-thread"></div>
+        </div>
+        {% endif %}
+    {% endif %}
 </div>
