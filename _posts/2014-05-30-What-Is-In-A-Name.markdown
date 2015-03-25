@@ -2,6 +2,7 @@
 layout: post
 title: What's in a name?
 category: writeups
+description: 这一篇解释了为什么很多学外语的，你问她这个怎么说，她说不知道。
 tags:
 - 随笔
 - 英语
