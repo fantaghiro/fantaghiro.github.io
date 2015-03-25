@@ -3,8 +3,8 @@ layout: post
 title: 妙味课堂——HTML5
 category: study
 tags:
-- javascript
 - js
+- HTML5
 - 妙味课堂
 - 前端基础
 - 学习笔记

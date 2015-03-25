@@ -3,7 +3,6 @@ layout: post
 title: 妙味课堂——jQuery集训营笔记
 category: study
 tags:
-- javascript
 - js
 - jQuery
 - 妙味课堂

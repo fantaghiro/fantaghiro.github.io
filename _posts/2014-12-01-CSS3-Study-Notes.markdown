@@ -3,7 +3,7 @@ layout: post
 title: 妙味课堂——CSS3
 category: study
 tags:
-- javascript
+- CSS3
 - js
 - 妙味课堂
 - 前端基础

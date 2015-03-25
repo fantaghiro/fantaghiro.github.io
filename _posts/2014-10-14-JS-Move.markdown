@@ -3,7 +3,6 @@ layout: post
 title: 妙味课堂——JavaScrip中的运动
 category: study
 tags:
-- javascript
 - js
 - 妙味课堂
 - 前端基础

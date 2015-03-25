@@ -3,7 +3,6 @@ layout: post
 title: 妙味课堂——JS面试题
 category: study
 tags:
-- javascript
 - js
 - 妙味课堂
 - 前端基础
