@@ -2,6 +2,7 @@
 layout: post
 title: 我为图灵作译者
 category: publishing
+description: 给图灵译书期间，仔细地看了一下它家网站中的写作功能模块。
 tags:
 - 图灵
 - 数字出版
