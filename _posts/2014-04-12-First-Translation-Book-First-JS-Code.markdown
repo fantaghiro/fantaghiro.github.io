@@ -2,6 +2,7 @@
 layout: post
 title: 值得纪念的第一稿
 category: writeups
+description: 最近，做成了两件小事，记录一下。
 tags:
 - 随笔
 - 纪念
