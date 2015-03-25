@@ -2,6 +2,7 @@
 layout: post
 title: 同济小妹来蹭饭
 category: writeups
+description: 总体来说，我挺喜欢现在的孩子们。
 tags:
 - 日记
 ---
