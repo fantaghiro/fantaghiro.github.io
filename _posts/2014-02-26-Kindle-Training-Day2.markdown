@@ -2,6 +2,7 @@
 layout: post
 title: 亚马逊Kindle电子书培训（二）
 category: publishing
+description: 亚马逊对于Vendor培训的第二期，主要侧重于电子书格式，质检和推荐转码公司。
 tags:
 - kindle
 - 亚马逊
