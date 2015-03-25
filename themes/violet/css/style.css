@@ -419,8 +419,24 @@ a:hover {
 }
 #violet-post-tags {
     width: 720px;
-    font-size: 18px;
+    font-size: 14px;
     margin: 0 auto;
+}
+#violet-post-tags a {
+    display: inline-block;
+    background: #0088cc;
+    color: #fff;
+    padding: 2px;
+    border-radius: 1px;
+    -webkit-transition: background .4s ease-in-out;
+    -moz-transition: background .4s ease-in-out;
+    -ms-transition: background .4s ease-in-out;
+    -o-transition: background .4s ease-in-out;
+    transition: background .4s ease-in-out;
+}
+#violet-post-tags a:hover {
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.8);
 }
 .main-article h2 { font-size: 28px; margin-bottom: 30px; margin-top: 36px; font-weight: bold; }
 .main-article h3 { font-size: 24px; margin-bottom: 24px; margin-top: 36px; }
