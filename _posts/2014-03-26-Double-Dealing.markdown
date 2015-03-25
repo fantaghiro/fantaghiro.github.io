@@ -2,6 +2,7 @@
 layout: post
 title: 《全景商务英语》教材概况
 category: textbook
+description: 对国外引进的这套比较新颖的教材，进行一个结构分析。
 tags: 
 - 教材研究
 - 情景英语
