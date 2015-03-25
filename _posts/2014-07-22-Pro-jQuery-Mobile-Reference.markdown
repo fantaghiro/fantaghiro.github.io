@@ -2,6 +2,7 @@
 layout: post
 title: jQuery Mobile原型代码汇总 - 来自Pro jQuery Mobile一书
 category: study
+description: 把jQuery Mobile的原型列在这里，方便以后做原型用。
 tags:
 - jquery mobile
 - 原型
