@@ -2,6 +2,7 @@
 layout: post
 title: 翻转课堂文献研究笔记压缩
 category: edu
+description: 我个人对国内的教育还是蛮失望的。但是我相信总有一天，好的教育形式会在这片土地上被广泛应用。
 tags:
 - 翻转课堂
 - 教育技术
