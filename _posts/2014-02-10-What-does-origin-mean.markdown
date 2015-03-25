@@ -2,6 +2,7 @@
 layout: post
 title: origin不是“原始的”意思吗？
 category: english
+description: Violet 英语单词学习的常见误区，从身边的坏例子所想到的。
 tags:
 - 词汇
 - 学习方法
