@@ -2,6 +2,7 @@
 layout: post
 title: 极客制作的技术“书”
 category: publishing
+description: 收集了一些出版社里不太用的做书的方法。
 tags:
 - 数字出版
 - 电子书
