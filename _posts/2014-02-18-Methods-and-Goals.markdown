@@ -2,6 +2,7 @@
 layout: post
 title: 剑客与铁匠
 category: writeups
+description: 现在这个年代，是不是想成为剑客，都要先成为出色的“铁匠”？
 tags:
 - 随笔
 ---
