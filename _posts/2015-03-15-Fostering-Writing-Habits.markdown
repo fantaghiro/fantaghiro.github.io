@@ -2,6 +2,7 @@
 layout: post
 title: 写作养成计划
 category: writeups
+description: 励志贴，以观后效。
 tags:
 - 日记 写作
 ---
