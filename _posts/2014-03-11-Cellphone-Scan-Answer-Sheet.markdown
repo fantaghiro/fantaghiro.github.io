@@ -2,6 +2,7 @@
 layout: post
 title: 手机智能扫描答题卡——世界上又一件事情变简单了
 category: edu
+description: 手机扫答题卡，正好最近接触的项目中涉及了。我感觉还是有一些前景的。
 tags:
 - 教育技术
 - 手机
