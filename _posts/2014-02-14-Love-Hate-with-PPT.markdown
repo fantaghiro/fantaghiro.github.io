@@ -2,6 +2,7 @@
 layout: post
 title: 我与PPT的爱恨情仇
 category: edu
+description: 当把爱好变成职业的时候，也就变了味道。
 tags:
 - 随笔
 - PPT
