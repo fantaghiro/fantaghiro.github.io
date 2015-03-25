@@ -422,12 +422,13 @@ a:hover {
     font-size: 14px;
     margin: 0 auto;
     margin-top: 5px;
+    margin-bottom: 3px;
 }
 #violet-post-tags a {
     display: inline-block;
     background: #0088cc;
     color: #fff;
-    padding: 2px;
+    padding: 2px 4px;
     border-radius: 2px;
     margin: 3px;
     -webkit-transition: background .4s ease-in-out;
