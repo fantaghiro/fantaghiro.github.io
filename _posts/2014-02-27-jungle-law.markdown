@@ -2,6 +2,7 @@
 layout: post
 title: 就是技术歧视，有本事你别用！
 category: writeups
+description: 拥抱技术，顺从它的丛林法则。
 tags:
 - 随笔
 - 社会观察
