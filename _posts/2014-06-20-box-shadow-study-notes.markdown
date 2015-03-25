@@ -2,6 +2,7 @@
 layout: post
 title: box-shadow学习笔记
 category: study
+description: 仔细学习了CSS中box-shadow的用法。
 tags:
 - CSS
 - 前端
