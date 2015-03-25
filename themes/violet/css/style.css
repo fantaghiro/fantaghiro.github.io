@@ -423,9 +423,9 @@ a:hover {
     margin: 0 auto;
     margin-top: 5px;
     margin-bottom: 3px;
+    text-align: right;
 }
 #violet-post-tags a {
-    text-align: right;
     display: inline-block;
     background: #0088cc;
     color: #fff;
