@@ -76,6 +76,7 @@
     <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/jquery-1.8.3.js"></script>
     <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/jquery-scrollTo.js"></script>
     <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/common.js"></script>
+    <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/jquery.tagcloud.js"></script>
     <script type="text/javascript">
         var headImgArr = [];
         {% for imgsrc in site.headimg %}
@@ -89,6 +90,15 @@
         }
         $("#violet-head").css({
             "background-image": "url(" + headImgArr[item] + ")"
+        });
+    </script>
+    <script type="text/javascript">
+        $.fn.tagcloud.defaults = {
+            size: {start: 13, end: 30, unit: 'px'},
+            color: {start: '#1982d1', end: '#f00'}
+        };
+        $(document).ready(function() {
+            $('#page-tagcloud a').tagcloud();
         });
     </script>
     {% if page.comment %}
