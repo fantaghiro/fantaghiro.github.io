@@ -2,6 +2,7 @@
 layout: post
 title: 《英语教学基础理论》读书笔记
 category: writeups
+description: 身在英语教育和出版行业，懂得一些唬人的词儿还是要紧的。
 tags:
 - 读书笔记
 - 教学法
