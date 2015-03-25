@@ -2,6 +2,7 @@
 layout: post
 title: 爱则爱之、恨则恨之
 category: writeups
+description: 关于黄海波招妓和老罗做手机的几点看法。
 tags:
 - 随笔
 ---
