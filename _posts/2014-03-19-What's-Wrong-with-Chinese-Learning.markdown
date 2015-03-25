@@ -2,6 +2,7 @@
 layout: post
 title: 我们的语文教育到底怎么啦？
 category: writeups
+description: 教研室的领导来社里座谈。感觉这些人还是有些水平的。
 tags:
 - 语文
 - 教育
