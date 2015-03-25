@@ -2,6 +2,7 @@
 layout: post
 title: CSS3 gradient 学习笔记
 category: study
+description: 仔细学习了CSS中gradient的用法。
 tags:
 - CSS
 - 前端
