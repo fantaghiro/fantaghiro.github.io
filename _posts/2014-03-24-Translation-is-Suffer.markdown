@@ -2,6 +2,7 @@
 layout: post
 title: 日渐焦躁的译书体验，折磨中不失希望
 category: writeups
+description: 开始译书了，写写万里长征前几步的感受。
 tags:
 - 翻译
 - 随笔
