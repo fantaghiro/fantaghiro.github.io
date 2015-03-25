@@ -2,6 +2,7 @@
 layout: post
 title: 在Jekyll搭建的Github博客当中使用kramdown解析器自动生成目录树
 category: writeups
+description: 博客正文中个层级的内容线性排列，很难看清层次。所以想用自动生成目录树来解决一下。
 tags:
 - Jekyll
 - kramdown
