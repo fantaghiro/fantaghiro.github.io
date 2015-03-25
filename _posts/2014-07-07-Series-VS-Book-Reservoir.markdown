@@ -2,6 +2,7 @@
 layout: post
 title: 系列 VS. 文库
 category: publishing
+description: 出版社别把书出乱了，还是需要一个宏观的产品架构。
 tags:
 - 出版
 - 图书出版
