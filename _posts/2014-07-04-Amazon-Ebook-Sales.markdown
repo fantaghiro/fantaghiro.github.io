@@ -2,6 +2,7 @@
 layout: post
 title: 亚马逊针对出版社的一些服务（数字内容营销方面）
 category: publishing
+description: 亚马逊公司的人来社里，讲了一些亚马逊营销方面的经验和数据。
 tag:
 - 亚马逊
 - 出版营销
