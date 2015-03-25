@@ -2,6 +2,7 @@
 layout: post
 title: 对MOOC进行的文献研究笔记压缩
 category: edu
+description: Mooc最近很热，我也断断续续地在网上学习过。现在对关于其的文献进行笔记的整理。
 tags:
 - MOOC
 - 慕课
