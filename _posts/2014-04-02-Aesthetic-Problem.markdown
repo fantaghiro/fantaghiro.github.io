@@ -2,6 +2,7 @@
 layout: post
 title: 我也来谈谈审美这件事
 category: writeups
+description: 对自己的审美水平产生焦虑。
 tags:
 - 审美
 - 随笔
