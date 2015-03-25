@@ -2,6 +2,7 @@
 layout: post
 title: 《如何高效学习》读书笔记
 category: writeups
+description: 如何学习这个话题目前已经成为十分热门的话题。
 tags:
 - 读书笔记
 - 学习方法
