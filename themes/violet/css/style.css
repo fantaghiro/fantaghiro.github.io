@@ -428,7 +428,7 @@ a:hover {
     display: inline-block;
     background: #0088cc;
     color: #fff;
-    padding: 2px 4px;
+    padding: 2px 5px;
     border-radius: 2px;
     margin: 3px;
     -webkit-transition: background .4s ease-in-out;
