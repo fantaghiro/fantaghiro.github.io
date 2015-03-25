@@ -2,6 +2,7 @@
 layout: post
 title: 亚马逊Kindle电子书培训（三）
 category: publishing
+description: 亚马逊对于Vendor培训的第三天，附上自己译的电子书转码“通用格式指南”的一部分。
 tags:
 - kindle
 - 电子书
