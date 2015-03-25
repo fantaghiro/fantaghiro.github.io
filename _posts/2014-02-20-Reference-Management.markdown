@@ -2,6 +2,7 @@
 layout: post
 title: 我的文献管理环境
 category: edu
+description: 文献管理对我来说已经是个老大难问题了。
 tags:
 - 文献管理
 - 科研
