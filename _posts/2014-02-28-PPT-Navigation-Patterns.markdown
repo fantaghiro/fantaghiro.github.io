@@ -2,6 +2,7 @@
 layout: post
 title: PPT电子教案导航设计思考
 category: edu
+description: 终于可以从PPT的魔爪中脱出。这么多年，在魔爪的折磨下，也涨了点姿势，记录下来。
 tags:
 - PPT
 ---
