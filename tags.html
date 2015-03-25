@@ -3,8 +3,7 @@ layout: default
 title: 文章标签
 ---
 
-<article class="main-article main-article-page">
-<div class="page-tags" id="page-tagcloud">
+<div class="page-tags violet-post" id="page-tagcloud">
     {% for tag in site.tags %}
     <a href="#{{ tag[0] }}-ref" rel={{ tag[1].size }} title="标签:{{ tag[0] }}">{{ tag[0] }}<span>{{ tag[1].size }}</span></a>
     {% endfor %}
