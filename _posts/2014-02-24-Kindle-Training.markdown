@@ -2,6 +2,7 @@
 layout: post
 title: 亚马逊Kindle电子书培训（一）
 category: publishing
+description: 亚马逊对于Vendor的培训第一期，主要侧重于营销和亚马逊转码的素材上传规范。
 tags:
 - kindle
 - 电子书
