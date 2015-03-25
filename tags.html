@@ -3,25 +3,27 @@ layout: default
 title: 文章标签
 ---
 
-<div class="page-tags violet-post" id="page-tagcloud">
+<div class="violet-post" id="page-tagcloud">
     {% for tag in site.tags %}
     <a href="#{{ tag[0] }}-ref" rel={{ tag[1].size }} title="标签:{{ tag[0] }}">{{ tag[0] }}<span>{{ tag[1].size }}</span></a>
     {% endfor %}
 </div>
-<div class="page-blank">
-{% for tag in site.tags %}
-    <div class="page-list">
-        <h3 id="{{ tag[0] }}-ref"> {{ tag[0] }}</h3>
-        <ul>
-        {% for post in tag[1] %}
-            <li>
-                <span>{{ post.date | date:"%Y年%m月%d日" }} </span>
-                <a href="{{ post.url }}">{{post.title}} </a>
-            </li>
-        {% endfor %}
-        </ul>
+
+<div class="violet-post">
+    <div class="main-article-contant">
+    {% for tag in site.tags %}       
+            <h3 id="{{ tag[0] }}-ref"> {{ tag[0] }}</h3>
+            <ul class="article-year fn-clear">
+            {% for post in tag[1] %}
+                <li>
+                    <span>{{ post.date | date_to_utc | date: '%Y-%m-%d' }}</span>
+                    <a href="{{site.url}}{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
     </div>
-{% endfor %}
 </div>
 
 <script src="/themes/violet/js/jquery-1.8.3.js" type="text/javascript"></script>
