@@ -2,6 +2,7 @@
 layout: post
 title: 当我谈论知乎时，我在谈论出版
 category: publishing
+description: 互联网公司开始往线下走了，线下的公司，拿出行动来吧！
 tags:
 - 知乎
 - 数字出版
