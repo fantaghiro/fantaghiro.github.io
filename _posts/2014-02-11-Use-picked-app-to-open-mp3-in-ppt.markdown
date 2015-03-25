@@ -2,6 +2,7 @@
 layout: post
 title: 在PPT中使用指定音频程序打开指定MP3文件的方法
 category: edu
+description: Violet 目前用PPT来展示多媒体内容，已经显得太呆板不便了。但是身边还是有类似的需求。
 tags:
 - PPT
 - 教育技术
