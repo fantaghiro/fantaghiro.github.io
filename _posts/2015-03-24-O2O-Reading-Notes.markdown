@@ -2,6 +2,7 @@
 layout: post
 title: O2O:移动互联网时代的商业革命
 category: writeups
+description: 十分受教的一本书。不仅讲了O2O，也讲了一些关于制度建设、营销管理方面的内容。
 tags:
 - 读书笔记
 - O2O
