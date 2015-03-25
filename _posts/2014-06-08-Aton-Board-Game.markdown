@@ -2,6 +2,7 @@
 layout: post
 title: 阿顿神VS阿蒙神，两大祭司的较量
 category: writeups
+description: 与MD君玩二人桌游
 tags:
 - 桌游
 - 生活
