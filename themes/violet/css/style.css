@@ -417,6 +417,12 @@ a:hover {
     font-size: 32px;
     margin: 0 auto;
 }
+#violet-post-tags {
+    display: block;
+    width: 720px;
+    font-size: 18px;
+    margin: 0 auto;
+}
 .main-article h2 { font-size: 28px; margin-bottom: 30px; margin-top: 36px; font-weight: bold; }
 .main-article h3 { font-size: 24px; margin-bottom: 24px; margin-top: 36px; }
 .main-article h4 { font-size: 20px; margin-bottom: 20px; margin-top: 36px;}
