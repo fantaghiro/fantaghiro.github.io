@@ -2,6 +2,7 @@
 layout: post
 title: 出版社转型文献研究笔记压缩
 category: publishing
+description: 传统出版社想转型，其实就相当于革自己的大半条命。最近看了些关于这个主题的文献，记录下来。
 tags:
 - 出版社转型
 - 笔记压缩
