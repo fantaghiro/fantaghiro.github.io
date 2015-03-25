@@ -6,11 +6,11 @@ comment: true
 <article class="main-article main-article-page">
     <div class="violet-title">
         <h3 class="violet-title-item">{{ page.title }}</h3>
-        <span id="post-tags">
+        <div id="violet-post-tags">
             {% for tag in page.tags %}
               <a href="/tags.html#{{ tag }}-ref">{{ tag }}</a>
             {% endfor %}
-        </span>
+        </div>
     </div>
     <div class="violet-post">
         <p class="main-article-meta"><time pubdate="{{ rpost.date | date_to_utc | date: '%Y-%m-%d' }}">{{ page.date | date_to_utc | date: "%Y-%m-%d" }}</time></p>
