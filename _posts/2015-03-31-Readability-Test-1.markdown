@@ -51,7 +51,23 @@ Flesch－Kincaid 年级水平是按美国中小学年级水平来测量文本的
 
 其中的 character 标识字母、数字和标点符号数；word 是按空格数计算的。如果 word 是由几个简单的词连在一起的，那么统计时就可能被作为一个长词。英语单词的平均字母数为5恶，长词往往会被当成难词。
 
-另外还有一些指标，包括：Gunning Fog、SMOG、Coleman-Liau Formula 等。
+**Gunning Fog**
+
+计算公式：0.4[(words/sentences) + 100(complex words/words)]
+
+其中：complex words指的是包含三个或以上音节数的单词数量
+
+**SMOG**
+
+计算公式：grade = 1.0430 * Math.sqrt(number of polysyllables * 30 / number of sentences) + 3.1291
+
+**Coleman-Liau Readability Score**
+
+计算公式：CLI = 0.0588L - 0.296S - 15.8
+
+其中：L 代表的是平均每100个单词所包含的字母数。S代表的是平均每100个单词所包含的句子数
+
+以上六个指标，除了第一个Flesch Reading Ease意外，其余的得出的数值基本上对应着美国中小学生的年级水平，所以都是grade评测，衡量需要多少年的正规教育，才可以理解该文本。
 
 要正确理解易读性的评测公式，需要对一些概念有一些理解。今天时间已晚，待明后天有时间再继续。
 
