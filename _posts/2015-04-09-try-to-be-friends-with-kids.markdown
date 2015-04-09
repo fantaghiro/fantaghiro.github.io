@@ -2,7 +2,7 @@
 layout: post
 title: 必须非常努力才能跟未来的孩子成为朋友
 category: writeups
-description: 上外附中的小朋友们来录音，引发了我些许感慨
+description: 上外附中的小朋友们来录音，引发了我些许感慨。
 tags:
 - 日记
 ---
