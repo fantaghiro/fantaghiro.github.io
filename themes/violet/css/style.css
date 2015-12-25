@@ -483,11 +483,11 @@ a:hover {
 .main-article blockquote {
     padding: 20px 20px 0 20px;
     margin: 20px 0 24px;
-    border-left: 3px solid #0088cc;
+    border-left: 10px solid #0088cc;
     border-radius: 0 3px 3px 0;
     text-align: left;
     color: #22272A;
-    font-style: italic;
+    background-color: #F8E2AE;
 }
 .main-article blockquote p {
     color: #22272A;
