@@ -4,7 +4,7 @@ title: 使用ffmpeg进行视频剪辑处理（初级）
 category: study
 description: 使用ffmpeg批量减掉片头或片尾指定长度的视频
 tags:
-- 学习
+- 学习笔记
 - ffmpeg
 - 视频处理
 - 批处理
