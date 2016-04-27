@@ -12,7 +12,7 @@ tags:
 
 前几日，看*Eloquent Javascript*一书，其中第二单元最后又这么一道题：用代码创建一串字符串，形成8×8的网格。其中，使用 newline character 也就是 \\n 来分行。网格的每个位置要么是一个空格，要么是一个#号。这些字符要形成黑白棋盘一样的布局。将这一串数组传给console.log之后，应当打出下面这样的形式：
 
-```
+```js
  # # # #
 # # # # 
  # # # #
@@ -25,7 +25,7 @@ tags:
 
 题目要求，要在程序中定义一个 size = 8 的变量，当传入不同的数值时，这个黑白棋盘的大小可以随意改变。一开始我自己写得很麻烦，进行了多重的判断和循环才得以实现。看了书上的参考代码之后，顿觉十分优雅：
 
-```
+```js
 var size = 8;
 var str = "";
 for(var x = 0; x < size; x++){
@@ -50,7 +50,7 @@ console.log(str);
 
 对于一维数组，可以字形设置宽高，将其视为二维的来使用，例如：
 
-```
+```js
 var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 var width = 4, height = 3;
 /*
@@ -77,7 +77,7 @@ console.log("row: ", row, "; col: ", col);
 
 可能引用*Eloquent Javascript*第7章中的一个例子，可以看得更明白。当我们面对的是二位数组时，可能使用行列的概念更加的直观，如：
 
-```
+```js
 var grid = [["top left",    "top middle",    "top right"],
             ["bottom left", "bottom middle", "bottom right"]];
 console.log(grid[1][2]);
@@ -87,7 +87,7 @@ console.log(grid[1][2]);
 
 如果面对的是一维数组，那么用坐标的概念就更为直观，如：
 
-```
+```js
 var grid = ["top left",    "top middle",    "top right",
             "bottom left", "bottom middle", "bottom right"];
 console.log(grid[2 + (1 * 3)]);
