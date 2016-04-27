@@ -16,7 +16,7 @@ tags:
 
 网络上提供的版本无一不是先用ffprobe返回视频的长度，然后将该长度减去固定时长，作为参数再返回给ffmpeg调用。第一种实现方式如下：
 
-~~~bat
+```bat
 @echo off && setlocal enabledelayedexpansion
 set _sof=5
 ::_sof代表StartOfFile 默认为5秒
@@ -34,7 +34,7 @@ echo !_dur!
 ffmpeg -i "%%i" -ss %_sof% -t !_dur! -c copy "%targetFolder%\%%~nxi"
 )
 pause
-~~~
+```
 
 上述代码在两台机器上测试均未发生问题，但在需用的同事那台机器上却报错了。至今原因未明。
 
@@ -42,7 +42,7 @@ pause
 
 例如，将处理单个视频的批处理文件保存为cut.bat文件，代码如下：
 
-~~~bat
+```bat
 @echo off
 for /f "tokens=*" %%a in ('ffprobe -show_format -i %1 ^| find "duration"') do set _duration=%%a
 set _duration=%_duration:~9%
@@ -53,24 +53,24 @@ set /a "_durS-=%3"
 set "_newduration=%_durS%.%_durMS%"
 set "_output=%~n1"
 ffmpeg -y -i %1 -ss %3 -t %_newduration% -c copy %2
-~~~
+```
 
 将该文件与ffmpeg和ffprobe都放到含有视频的文件夹中，然后再在这个文件夹中生成如下循环各个文件的批处理：
 
-~~~bat
+```bat
 @echo off
 ::要实现创建输出目录，例如 E:\work\croppedmovies\
 ::下一行最后两个参数5、10分别代表片头或片尾要裁掉的长度，可以自行修改
 for /f "delims=" %%i in ('dir /b /a-d /s "*.wmv"') do cut "%%i" "E:\work\croppedmovies\%%~ni.wmv" 5 10
 pause
-~~~
+```
 
 然后运行上面这个文件即可。
 
 另外，该技术达人提供了批量为视频添加片头的批处理代码，也记录在这里：
 
-~~~bat
+```bat
 @echo off
 for /f "delims=" %%i in ('dir /b /a-d /s "*.mp4"') do ffmpeg -y -i 片头.mp4 -i "%%i" -filter_complex "[0:v:0] [0:a:0] [1:v:0] [1:a:0] concat=n=2:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" -c:v libx264 -preset fast -b:v 800k -maxrate 5000k -c:a aac -b:a 96k  "E:\work\croppedmovies\%%~ni.mp4"
 pause
-~~~
+```
