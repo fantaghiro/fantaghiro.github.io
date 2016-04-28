@@ -41,7 +41,10 @@ for (语句1; 语句2; 语句3)
 //语句3：在循环（代码块）已被执行之后执行
 ```
 
-针对for循环，[这里](https://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/) 有一篇非常好的文章。在此记录下其中的几个例子：
+针对for循环，[这里](https://javascriptweblog.wordpress.com/2010/10/11/rethinking-javascript-for-loops/) 有一篇非常好的文章。在此记录下其中的几个例子。
+
+- 这里是一个目录。
+{:toc}
 
 通常情况下，for循环是这样用的：
 
