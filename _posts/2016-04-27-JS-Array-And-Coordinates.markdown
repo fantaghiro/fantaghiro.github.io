@@ -95,6 +95,79 @@ console.log(grid[2 + (1 * 3)]);
 //这里的grid[2 + (1 * 3)] 中的2为x值，1为y值，3为width。
 ```
 
+关于网格与坐标的使用，*Eloquent Javascript*中用到过很多次。很有意思的就是在第7章 Electronic Life 里面，用到的几个对象：
+
+首先与坐标相关的就是坐标点了。作者定义了一个名为Vector的对象，可以简单理解为坐标的操作：
+
+```js
+function Vector(x, y){
+	this.x = x; this.y = y;
+}
+Vector.prototype.plus = function(other){
+	return new Vector(this.x + other.x, this.y + other.y);
+	//此处定义了两个向量相加的运算
+}
+Vector.prototype.times = function(factor){
+	return new Vector(this.x * factor, this.y * factor);
+	//此处定义了向量乘法的运算
+}
+```
+
+现在坐标点有了，接下来就是坐标系或者网格了。作者定义了Grid这样一个对象，如下：
+
+```js
+function Grid(width, height){
+	this.space = new Array(width * height);
+	//该Grid中的space属性其实就是一个width*height这么长的一维数组
+	this.width = width;
+	this.height = height;
+}
+Grid.prototype.isInside = function(vector){
+	return vector.x >= 0 && vector.x < this.width && vector.y >= 0 && vector.y < this.height;
+	//该方法判断一个坐标是否在网格中
+}
+Grid.prototype.get = function(vector){
+	return this.space[vector.x + this.width * vector.y];
+	//此处定义了返回space这个数组中指定坐标位置的值的方法。这里就用到了 x + y * width 来寻找的
+}
+Grid.ptototype.set = function(vector, value){
+	this.space[vector.x + this.width * vector.y] = value;
+	//此处定义了设置space这个数组中指定坐标位置的值的方法。
+}
+//注意：space其实一直是一个一维数组，但是却可以将其视为二维分布的，根据坐标来进行设置和取值。
+```
+
+要看行列与坐标x、y的对应关系，下面这个例子可能更清楚一些
+
+```js
+var objectMap = [];
+var plan = ["############",
+   			"#     #    #",
+   			"#   ~    ~ #",
+   			"#  ##      #",
+   			"#  ##  o####",
+   			"#          #",
+   			"############"];
+var width = plan[0].length;
+var height = plan.length;
+var chr = {
+	"#": "wall",
+	" ": "null",
+	"~": "water",
+	"o": "human"
+}
+plan.forEach(function(line, y){ //注意这里的第二个参数是y，也就是行数
+	for(var x = 0; x < line.length; x++){ //这里遍历的是x，也就是列数
+		objectMap[x + y * line.length] = chr[line[x]];
+	}
+});
+console.log(objectMap);
+
+/*
+["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "null", "null", "null", "null", "null", "wall", "null", "null", "null", "null", "wall", "wall", "null", "null", "null", "water", "null", "null", "null", "null", "water", "null", "wall", "wall", "null", "null", "wall", "wall", "null", "null", "null", "null", "null", "null", "wall", "wall", "null", "null", "wall", "wall", "null", "null", "human", "wall", "wall", "wall", "wall", "wall", "null", "null", "null", "null", "null", "null", "null", "null", "null", "null", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+ */
+```
+
 
 
 
