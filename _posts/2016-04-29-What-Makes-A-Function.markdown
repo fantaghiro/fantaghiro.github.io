@@ -42,7 +42,7 @@ function printFarmInventory(cows, chickens) {
 printFarmInventory(7, 11);
 ```
 
-你发现钥匙别人也让你打印出pigs的数量呢？你就得剪切粘贴四行代码，然后修改。这时候，我们就停下来再思考一下。还有其他更好的办法，于是我们首先尝试：
+你发现要是别人也让你打印出pigs的数量呢？你就得剪切粘贴四行代码，然后修改。这时候，我们就停下来再思考一下。还有其他更好的办法，于是我们首先尝试：
 
 ```
 function printZeroPaddedWithLabel(number, label) {
