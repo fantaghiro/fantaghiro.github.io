@@ -12,7 +12,7 @@ tags:
 
 在阅读*Eloquent Javascript*一书时，在第四章中碰到了phi coefficient的计算问题，决定仔细记录一下。
 
-内容与[该页][https://zh.wikipedia.org/wiki/Phi%E7%9B%B8%E9%97%9C%E4%BF%82%E6%95%B8]相同。
+内容与[该页](https://zh.wikipedia.org/wiki/Phi%E7%9B%B8%E9%97%9C%E4%BF%82%E6%95%B8)相同。
 
 在*维基百科*中，phi相关系数是这样定义的：
 
