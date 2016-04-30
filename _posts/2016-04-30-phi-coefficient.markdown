@@ -31,3 +31,14 @@ tags:
 
 \phi = (n<sub>11</sub>n<sub>00</sub> - n<sub>10</sub>n<sub>01</sub>) / Math.sqrt(n<sub>1·</sub>n<sub>0·</sub>n<sub>·0</sub>n<sub>·1</sub>)
 
+对应js的函数如下：
+
+```js
+function phi(table) {
+  return (table[3] * table[0] - table[2] * table[1]) /
+    Math.sqrt((table[2] + table[3]) *
+              (table[0] + table[1]) *
+              (table[1] + table[3]) *
+              (table[0] + table[2]));
+}
+```
