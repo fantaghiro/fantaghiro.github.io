@@ -164,7 +164,13 @@ plan.forEach(function(line, y){ //注意这里的第二个参数是y，也就是
 console.log(objectMap);
 
 /*
-["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "null", "null", "null", "null", "null", "wall", "null", "null", "null", "null", "wall", "wall", "null", "null", "null", "water", "null", "null", "null", "null", "water", "null", "wall", "wall", "null", "null", "wall", "wall", "null", "null", "null", "null", "null", "null", "wall", "wall", "null", "null", "wall", "wall", "null", "null", "human", "wall", "wall", "wall", "wall", "wall", "null", "null", "null", "null", "null", "null", "null", "null", "null", "null", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
+["wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", 
+"wall", "null", "null", "null", "null", "null", "wall", "null", "null", "null", "null", "wall", 
+"wall", "null", "null", "null", "water", "null", "null", "null", "null", "water", "null", "wall", 
+"wall", "null", "null", "wall", "wall", "null", "null", "null", "null", "null", "null", "wall", 
+"wall", "null", "null", "wall", "wall", "null", "null", "human", "wall", "wall", "wall", "wall", 
+"wall", "null", "null", "null", "null", "null", "null", "null", "null", "null", "null", "wall", 
+"wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall", "wall"]
  */
 ```
 
