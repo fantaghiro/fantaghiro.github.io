@@ -257,7 +257,7 @@ function getModule(name){
 
 define函数本身用getModule函数为当前模块的依赖获取或创建模块对象。define函数的任务是当那些依赖都已经加载好时，安排`moduleFunction`（即包含这个模块真正代码的函数）去执行。
 
-为了达到这个目的，define函数中定义了一个whenDepsLoaded函数，并且把这个函数加到所有还没有加载完成的module的onLoad数组里面，。如果还有没加载的依赖，那么这个函数就立即返回，因此只有当最后一个依赖也加载完成，这个函数才会真正做一次工作。假如没有再需要加载的依赖了，它也是被define立即调用的。
+为了达到这个目的，define函数中定义了一个whenDepsLoaded函数，并且把这个函数加到所有还没有加载完成的module的onLoad数组里面，这个数组里面放的应该是当module完成加载之后，要执行的一些函数。如果还有没加载的依赖，那么这个函数就立即返回，因此只有当最后一个依赖也加载完成，这个函数才会真正做一次工作。假如没有再需要加载的依赖了，它也是被define立即调用的。
 
 ```js
 function define(depNames, moduleFunction){
