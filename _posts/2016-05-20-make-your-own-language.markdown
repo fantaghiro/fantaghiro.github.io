@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 写一个你自己的变成语言
+title: 写一个你自己的编程语言
 category: study
 description: 主要内容来自于《Eloquent Javascript》一书的第11章
 tags:
