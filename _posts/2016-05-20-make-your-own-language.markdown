@@ -341,4 +341,56 @@ run("do(define(total, 0),",
 // → 55
 ```
 
-上面这个函数就是用Egg写成的1加到10的函数。
+上面的运行结果就是1加到10的和。
+
+##函数
+
+没有程序的编程语言是很破的语言。
+
+幸运的是，不太困难就能加上一个名为fun的构造，这个fun将它的最后一个参数视为函数体，然后将所有前面的参数视为函数的参数：
+
+```js
+specialForms["fun"] = function(args, env){
+    if(!args.length){
+        throw new SyntaxError("Functions need a body");
+    }
+    function name(expr){
+        if(expr.type != "word"){
+            throw new SyntaxError("Arg names must be words");
+        }
+        return expr.name;
+    }
+    var argNames = args.slice(0, args.length - 1).map(name);
+    var body = args[args.length - 1];
+
+    return function(){
+        if(arguments.length != argNames.length){
+            throw new TypeError("Wrong number of arguments");
+        }
+        var localEnv = Object.create(env);
+        for(var i = 0; i < arguments.length; i++){
+            localEnv[argNames[i] = arguments[i]];
+        }
+        return evaluate(body, localEnv);
+    };
+};
+```
+
+Egg中的函数有自己的局部环境，就像在JavaScript中一样。我们使用Object.create来创建一个新对象，这个新对象可以访问到外面环境（它的原型）上的变量，但同时也可以在不修改外部环境的情况下包含新的变量。
+
+通过fun创建的函数创建了这个局部环境，并且将参数变量加到这个局部环境中。然后，在这个局部环境下对这个函数体进行求值操作并返回结果。
+
+```js
+run("do(define(plusOne, fun(a, +(a, 1))),",
+    "    print(plusOne(10)))");
+//11
+```
+
+```js
+run("do(define(pow, fun(base, exp,",
+    "     if(==(exp, 0),",
+    "        1,",
+    "        *(base, pow(base, -(exp, 1)))))),",
+    "   print(pow(2, 10)))");
+//1024
+```
