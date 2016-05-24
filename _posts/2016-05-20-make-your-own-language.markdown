@@ -179,7 +179,7 @@ console.log(parse("+(a, 10)"));
 
 现在，我们能对一个程序的语法树进行怎样的处理呢？当然是要运行它！这就是求值程序做的事情。你给这个求值程序传入一个语法树以及一个环境对象（这个环境对象将name与值关联起来），这个求值程序就会为这个语法树所代表的表达式求值，然后返回所得的值。
 
-```
+```js
 function evaluate(expr, env){
 	switch(expr.type){
 		case "value":
@@ -192,12 +192,17 @@ function evaluate(expr, env){
 			}
 		case "apply":
 			if(expr.operator.type == "word" && expr.operator.name in specialForms){
+				//如果在specialForms中定义过了，那么就直接以expr.operator.name为函数名，将参数和环境变量传入执行，返回数值。
 				return specialForms[expr.operator.name](expr.args, env);
 			}
+			
+			//如果没有在specialForms中定义，那么就将expr.operator作为第一个参数，环境变量作为第二个参数传入evaluate，由于expr.operator的type应该是word，所以又走到了evaluate的case "word“这里，返回env[expr.name]给op。如果expr.name不在env中，就报Undefined variable的错。
 			var op = evaluate(expr.operator, env);
+			//如果在env中找到了expr.name，那么看这个expr.name是否定义为了函数。如果不是函数的话，就根本apply不了，执行不下去了，所以要报Applying a non-function的错。
 			if(typeof op != "function"){
 				throw new TypeError("Applying a non-function.");
 			}
+			//如果在env中找到了expr.name，并且expr.name在env中确实被定义为了函数，那么就利用apply，将expr.args转化为实际的参数值，传入这个函数。
 			return op.apply(null, expr.args.map(function(arg){
 				return evaluate(arg, env);
 			}))
@@ -367,7 +372,8 @@ specialForms["fun"] = function(args, env){
         if(arguments.length != argNames.length){
             throw new TypeError("Wrong number of arguments");
         }
-        var localEnv = Object.create(env);
+        var localEnv = Object.create(env); 
+        //注意：上面这一句是利用传入的env为原型，构建了当前的localEnv，因此出现闭包的情况时，内部的局部环境变量localEnv仍然是可以访问到外部的环境变量env的。
         for(var i = 0; i < arguments.length; i++){
             localEnv[argNames[i] = arguments[i]];
         }
