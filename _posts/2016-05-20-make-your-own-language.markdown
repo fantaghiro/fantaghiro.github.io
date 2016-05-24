@@ -359,6 +359,7 @@ specialForms["fun"] = function(args, env){
     if(!args.length){
         throw new SyntaxError("Functions need a body");
     }
+    //name函数是用来得到一个expr的name。由于参数都应当是word形式，所以不是word类型就应当报错。
     function name(expr){
         if(expr.type != "word"){
             throw new SyntaxError("Arg names must be words");
@@ -366,9 +367,11 @@ specialForms["fun"] = function(args, env){
         return expr.name;
     }
     var argNames = args.slice(0, args.length - 1).map(name);
+    //用name这个函数对除最后一个args以外的所有args进行map，也就得到了一个除最后一个args以外的各个arg的name所组成的数组。这个数组中所放的，就是函数的所有参数。
     var body = args[args.length - 1];
+    //args的最后一个就是函数体。
 
-    return function(){
+    return function(){ //很明显：fun这个函数返回的是一个函数
         if(arguments.length != argNames.length){
             throw new TypeError("Wrong number of arguments");
         }
