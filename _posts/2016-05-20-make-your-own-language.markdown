@@ -373,11 +373,14 @@ specialForms["fun"] = function(args, env){
 
     return function(){ //很明显：fun这个函数返回的是一个函数
         if(arguments.length != argNames.length){
+            //如果运行这个函数的时候，传入的实参与参数名的个数不匹配，那么就包括
             throw new TypeError("Wrong number of arguments");
         }
         var localEnv = Object.create(env); 
         //注意：上面这一句是利用传入的env为原型，构建了当前的localEnv，因此出现闭包的情况时，内部的局部环境变量localEnv仍然是可以访问到外部的环境变量env的。
+        
         for(var i = 0; i < arguments.length; i++){
+            //将一个个参数作为环境变量保存在局部环境对象里面。
             localEnv[argNames[i] = arguments[i]];
         }
         return evaluate(body, localEnv);
